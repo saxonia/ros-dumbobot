@@ -1,0 +1,8 @@
+prefix=/home/c3mx/robot/devel
+
+Name: ros_dumbobot
+Description: Description of ros_dumbobot
+Version: 0.1.0
+Cflags: -I/home/c3mx/robot/src/ros_dumbobot/include
+Libs: -L/home/c3mx/robot/devel/lib -ldumbo
+Requires: roscpp serial std_msgs joy

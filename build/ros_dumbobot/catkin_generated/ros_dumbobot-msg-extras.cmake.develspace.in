@@ -1,0 +1,2 @@
+set(ros_dumbobot_MESSAGE_FILES "")
+set(ros_dumbobot_SERVICE_FILES "")

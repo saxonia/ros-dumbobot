@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "ros_dumbobot")
+set(ros_dumbobot_MAINTAINER "Theppasith Nisitsukcharoen <tutorgaming@gmail.com>")
+set(ros_dumbobot_DEPRECATED "")
+set(ros_dumbobot_VERSION "0.1.0")
+set(ros_dumbobot_BUILD_DEPENDS "geometry_msgs" "nav_msgs" "std_msgs" "roscpp" "serial" "serial_utils" "tf" "joy" "message_generation")
+set(ros_dumbobot_RUN_DEPENDS "geometry_msgs" "nav_msgs" "std_msgs" "roscpp" "serial" "serial_utils" "tf" "joy" "message_runtime")
+set(ros_dumbobot_BUILDTOOL_DEPENDS "catkin")

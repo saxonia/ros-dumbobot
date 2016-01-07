@@ -1,0 +1,8 @@
+prefix=/home/c3mx/robot/install
+
+Name: learning_joy
+Description: Description of learning_joy
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/c3mx/robot/install/lib 
+Requires: joy roscpp turtlesim

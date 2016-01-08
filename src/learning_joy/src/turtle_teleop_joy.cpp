@@ -42,6 +42,11 @@ TeleopTurtle::TeleopTurtle():
 
 void TeleopTurtle::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
+  //Encoder Reading Joystick Button
+  int encoder_request_button;
+    
+
+  //Geometry Joystick Control
   geometry_msgs::Twist twist;
   int deadman_triggered;
   //Read Value From Right Joystick (HORIZONTAL ACCESS ONLY)
@@ -50,6 +55,8 @@ void TeleopTurtle::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
   twist.linear.x = l_scale_*joy->axes[linear_];
   deadman_triggered = joy->axes[2];
 
+  //Piggybackked msg with linear.y
+    twist.linear.y = joy->buttons[0];
   //ONLY ONE VALUE CAN BE PASSED
   if(twist.angular.z !=0  && twist.linear.x != 0){
     stop_state = true;

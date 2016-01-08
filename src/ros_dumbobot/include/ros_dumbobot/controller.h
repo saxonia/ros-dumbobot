@@ -48,11 +48,13 @@ public:
   void openSerialPort(std::string port);
   void send_forward(int speed);
   void send_stop();
+  void send_read_encoder();
   // Send commands to motor driver.
   void driveDirect(double linear , double angular);
   void driveTutor(int left_speed , int left_dir , int right_speed , int right_dir);
   int read_drive_command();
   int ser_send_avail();
+  int read_encoder();
 };
 
 }

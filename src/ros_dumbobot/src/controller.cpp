@@ -83,14 +83,67 @@ void Controller::connect() {
   ROS_INFO("Dumbo controller not responding.");
 }
 
+void Controller::send_read_encoder(){
+     /*
+        //255 255 001 004 002 024 010 214
+    */
+  // Compose Command
+    unsigned char cmd_buffer[8];
+    // Headers
+    cmd_buffer[0] = (unsigned char)0xFF; //255
+    cmd_buffer[1] = (unsigned char)0xFF; //255
+    cmd_buffer[2] = (unsigned char)0x01; //001
+  // counter
+    cmd_buffer[3] = (unsigned char)0x04; //007
+  // Error Bit
+    cmd_buffer[4] = (unsigned char)0x02; //003
+  // Starting Address
+    cmd_buffer[5] = (unsigned char)0x18; // ('1' x 16 ) + ('4') = 020
+  // Direction        V - Right Motor
+    cmd_buffer[6] = (unsigned char)0x0A;
+  // Velocity Amount    V - Right Motor
+    cmd_buffer[7] = (unsigned char)0xD6;
+    //cmd_buffer[7] = calculateChecksum(cmd_buffer,7);
 
+    // Send Command
+    serial_->write(cmd_buffer,8);
+
+
+
+}
+
+int Controller::read_encoder(){
+  //std::cout << "Serial Available = " << serial_->available() <<std::endl;
+  int readed = serial_->read(buff,28);
+  std::cout << "ENCODER BYTE READED (16) =  " << readed <<std::endl;
+  //if(readed == 18){
+     //std::cout << "Read Encoder Data Sync" <<std::endl;
+     size_t ptr = 0;
+     while(  !( (int)buff[ptr+0] == 255 && (int)buff[ptr+1] == 255 &&
+             (int)buff[ptr+2] == 1 &&
+             (int)buff[ptr+3] == 12) && ptr < 28){
+                 ptr++;
+         }
+     //std::cout << ptr <<std::endl;
+    
+    for(int i = 0 ; i < 28 ; i++){
+      std::cout << "["<<  i<< "] " << (int)buff[i] <<std::endl;
+    }
+    //int16_t checkSum = calculateChecksum(buff,15);
+     //   std::cout << "checksum = " << (int) ((char)(checkSum & 0xFF)^0xFF)  <<std::endl;
+     std::cout << "L = "  <<256*(int)buff[ptr+8] + (int)buff[ptr+9] << "    " << "R = " <<  256*(int)buff[ptr+13] + (int)buff[ptr+14] <<std::endl;
+     
+  //}else{
+  //   std::cout << "FAILED" <<std::endl;
+  //}
+}
 
 void Controller::read(){
   serial_->read(buff,BUFFERSIZE);
 }
 int Controller::read_drive_command(){
   int readed = serial_->read(buff,12);
-  std::cout << "readed = " << readed << "bytes" <<std::endl;
+  //std::cout << "readed = " << readed << "bytes" <<std::endl;
   return readed;
 }
 

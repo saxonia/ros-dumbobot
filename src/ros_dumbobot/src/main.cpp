@@ -34,7 +34,7 @@ void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg) {
   //std::cout << msg->linear.x << " @ " << msg->angular.z << std::endl;
   linear_x = msg->linear.x;
   angular_z = msg->angular.z;
-  std::cout << linear_x << " @ " << angular_z << std::endl;
+  //std::cout << linear_x << " @ " << angular_z << std::endl;
 }
  
 
@@ -42,10 +42,10 @@ void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg) {
 void control_loop(){
   
   if(linear_x == 0 && angular_z == 0) {
+  std::cout << "STOP SENDING" << std::endl;
    controller->send_stop();
-   stop_published = true;
-  }
 
+  }
 
   if(linear_x != 0 && angular_z == 0){
     std::cout << "UP_DOWN" << std::endl;
@@ -58,7 +58,7 @@ void control_loop(){
          velocity = -linear_x;
     }
     controller->driveTutor(velocity,linearDirection,velocity,linearDirection); 
-    stop_published = false;
+
   }else if(angular_z != 0 && linear_x == 0 ){
     std::cout << "LEFTRIGHT" << std::endl;
     int dir_left,dir_right,velocity;
@@ -72,8 +72,16 @@ void control_loop(){
       velocity = -angular_z;
     }
     controller->driveTutor(velocity,dir_left,velocity,dir_right);
-    stop_published = false;
+
   }
+
+  //READ FROM read_buffer
+  int readed = controller->read_drive_command();
+    if(readed != 12){
+      ROS_ERROR_STREAM_ONCE("READ IS = " << readed);
+    }
+
+
 }
 
 
@@ -86,7 +94,7 @@ void control_loop(){
     ros::init(argc, argv, "ros_dumbobot");
     ros::NodeHandle nh("~");
   // Serial Setting
-    std::string port = "/dev/ttyACM0";
+    std::string port = "/dev/ttyACM1";
     int32_t baud = 9600;
     nh.param<std::string>("port", port, port);
     nh.param<int32_t>("baud", baud, baud);
@@ -101,7 +109,7 @@ void control_loop(){
   // Spinner
   ros::AsyncSpinner spinner(50);
   spinner.start(); 
-  int count =0;
+
   // Start the Main Loop
     while (ros::ok()) {
       ROS_DEBUG("Attempting connection to %s at %i baud.", port.c_str(), baud);
@@ -113,22 +121,19 @@ void control_loop(){
            if(!initialize){
               //One Second Booting
                 usleep(1000*1000);
+                //controller->spinOnce();
                ROS_INFO("DUMBOBOT Booting Finished");
                initialize = true;
            }  
-           if (count == 1) {
                 control_loop();
-                usleep(100*1000);
-                count = 0;
-            } else {
-                count += 1;
-            }
+                usleep(10*1000);
       } else {
         ROS_DEBUG("Problem connecting to serial device.");
         ROS_ERROR_STREAM_ONCE("Problem connecting to port " << port << ". Trying again every 1 second.");
         sleep(1);
       }
     }
+     //
      spinner.stop();
   // End Loop
     controller->send_stop();

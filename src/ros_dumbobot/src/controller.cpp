@@ -26,7 +26,7 @@ Department of Computer Engineering , Chulalongkorn University
 
 #define DUMBO_MAX_SPEED 150
 #define DUMBO_MIN_SPEED 50
-#define BUFFERSIZE 100
+
 
 namespace dumbo{
 
@@ -72,7 +72,7 @@ void Controller::connect() {
     }
 
     if (serial_->isOpen()) {
-      std::cout << "YEAH BITCH" <<std::endl;
+      std::cout << "Successfully Connected to DUMBOBOT" <<std::endl;
       connected_ = true;
       return;
     } else {
@@ -83,6 +83,21 @@ void Controller::connect() {
   ROS_INFO("Dumbo controller not responding.");
 }
 
+
+
+void Controller::read(){
+  serial_->read(buff,BUFFERSIZE);
+}
+int Controller::read_drive_command(){
+  int readed = serial_->read(buff,12);
+  std::cout << "readed = " << readed << "bytes" <<std::endl;
+  return readed;
+}
+
+int Controller::ser_send_avail(){
+  int read = serial_->available();
+  return read;
+} 
 
 void Controller::driveTutor(int left_speed , int left_dir , int right_speed , int right_dir)
 {

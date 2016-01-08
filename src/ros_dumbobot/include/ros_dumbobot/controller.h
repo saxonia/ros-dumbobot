@@ -11,7 +11,7 @@ Department of Computer Engineering , Chulalongkorn University
 #include <string>
 #include <serial/serial.h>
 #include <ros/ros.h>
-
+#define BUFFERSIZE 50
 
 
 namespace dumbo{
@@ -30,8 +30,8 @@ private:
   bool receiving_script_messages_;
   std::string version_;
   serial::Serial *serial_;
-  //std::stringstream tx_buffer_;
-  
+
+  uint8_t buff[BUFFERSIZE];
   ros::NodeHandle nh_;
   ros::Publisher pub_status_;
 
@@ -51,7 +51,8 @@ public:
   // Send commands to motor driver.
   void driveDirect(double linear , double angular);
   void driveTutor(int left_speed , int left_dir , int right_speed , int right_dir);
-
+  int read_drive_command();
+  int ser_send_avail();
 };
 
 }

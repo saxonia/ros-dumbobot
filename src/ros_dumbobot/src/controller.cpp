@@ -41,6 +41,9 @@ Controller::Controller(const char *port, int baud)
 
 {
   //pub_status_ = nh_.advertise<roboteq_msgs::Status>("status", 1);
+  for(int i = 0 ; i< BUFFERSIZE ; i++){
+    buff[i] = 0;
+  }
 }
 
 Controller::~Controller() {
@@ -116,26 +119,32 @@ int Controller::read_encoder(){
   //std::cout << "Serial Available = " << serial_->available() <<std::endl;
   int readed = serial_->read(buff,28);
   std::cout << "ENCODER BYTE READED (16) =  " << readed <<std::endl;
-  //if(readed == 18){
-     //std::cout << "Read Encoder Data Sync" <<std::endl;
+
      size_t ptr = 0;
      while(  !( (int)buff[ptr+0] == 255 && (int)buff[ptr+1] == 255 &&
              (int)buff[ptr+2] == 1 &&
              (int)buff[ptr+3] == 12) && ptr < 28){
                  ptr++;
          }
-     //std::cout << ptr <<std::endl;
-    
-    for(int i = 0 ; i < 28 ; i++){
-      std::cout << "["<<  i<< "] " << (int)buff[i] <<std::endl;
-    }
-    //int16_t checkSum = calculateChecksum(buff,15);
-     //   std::cout << "checksum = " << (int) ((char)(checkSum & 0xFF)^0xFF)  <<std::endl;
-     std::cout << "L = "  <<256*(int)buff[ptr+8] + (int)buff[ptr+9] << "    " << "R = " <<  256*(int)buff[ptr+13] + (int)buff[ptr+14] <<std::endl;
-     
-  //}else{
-  //   std::cout << "FAILED" <<std::endl;
-  //}
+
+    int signbit_r , signbit_l;
+    int round_count_r, round_count_l ;
+    int position_r , position_l;
+    signbit_r = (int) buff [ptr+5];
+    round_count_r = ( (int)buff[ptr+6] * 256 ) + (int)buff[ptr+7]; 
+    position_r = ( (int)buff[ptr+8] * 256 ) + (int)buff[ptr+9]; 
+
+    signbit_l = (int) buff [ptr+10];
+    round_count_l = ( (int)buff[ptr+11] * 256 ) + (int)buff[ptr+12]; 
+    position_l = ( (int)buff[ptr+13] * 256 ) + (int)buff[ptr+14]; 
+
+    std::cout << " Sign Bit (R) = " << ((signbit_r==1)? "+":"-" )<< std::endl;
+    std::cout << " Round Count (R) = " << round_count_r << std::endl;
+    std::cout << " Position (R) = " << position_r << std::endl;
+    std::cout << " Sign Bit (L) = " << ((signbit_l==1)? "+":"-") << std::endl;
+    std::cout << " Round Count (L) = " << round_count_l << std::endl;
+    std::cout << " Position (L) = " << position_l << std::endl;
+
 }
 
 void Controller::read(){

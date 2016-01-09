@@ -94,7 +94,7 @@ void control_loop(){
     ros::init(argc, argv, "ros_dumbobot");
     ros::NodeHandle nh("~");
   // Serial Setting
-    std::string port = "/dev/ttyACM1";
+    std::string port = "/dev/ttyACM0";
     int32_t baud = 9600;
     nh.param<std::string>("port", port, port);
     nh.param<int32_t>("baud", baud, baud);
@@ -121,7 +121,7 @@ void control_loop(){
            if(!initialize){
               //One Second Booting
                 sleep(1);
-                //controller->spinOnce();
+                controller->spinOnce(); //Clear Everything that is on the buffer( Clear size = 50)
                ROS_INFO("DUMBOBOT Booting Finished");
                initialize = true;
            }  

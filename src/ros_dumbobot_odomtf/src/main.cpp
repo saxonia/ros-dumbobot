@@ -8,9 +8,9 @@
 ros::Time current_time_encoder, last_time_encoder;
 
 double DistancePerCount = 0.0002; 
-double x;
-double y;
-double th;
+double x =0 ;
+double y =0 ;
+double th =0;
 double vx;
 double vy;
 double vth;
@@ -19,6 +19,13 @@ double deltaLeft;
 double deltaRight;
 double d = 0.4;
 long previous_left_ticks,previous_right_ticks;
+
+// Integrate Unit
+double x_new;
+double y_new;
+double heading;
+
+
 // void WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks)
 // {
 //   current_time_encoder = ros::Time::now();
@@ -34,8 +41,16 @@ long previous_left_ticks,previous_right_ticks;
 //   last_time_encoder = current_time_encoder;
 // }
 
-void WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks)
-{
+/*Integrate Function by Runge Kutta */
+void integral(double linear, double angular){
+    const double direction = th + angular * 0.5;
+    /// Runge-Kutta 2nd order integration:
+    x       += linear * cos(direction);
+    y       += linear * sin(direction);
+    th      += angular;
+}
+
+void WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks){
 
     current_time_encoder = ros::Time::now();
 
@@ -50,19 +65,29 @@ void WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks)
     if (vel_left == vel_right){
         V = vel_left;
         W = 0;
-    }else{ // Arc Movement And Spinning
+    }else if (vel_left != 0 && vel_right != 0){ // Arc Movement And Spinning
         // Assuming the robot is rotating about point A   
         // W = vel_left/r = vel_right/(r + d), see the image below for r and d
         double r = (vel_left * d) / (vel_right - vel_left); // Anti Clockwise is positive
         W = vel_left/r; // Rotational velocity of the robot
         V = W * (r + d/2); // Translation velocity of the robot
     }
-    std::cout << "V = " << V <<std::endl;
+/*    std::cout << "V = " << V <<std::endl;
     std::cout << "W = " << W <<std::endl;
     std::cout << "VEL _ L " << vel_left << std::endl;
     std::cout << "VEL _ R " << vel_right << std::endl;
+    std::cout << "pos _ x " << x << std::endl;
+    std::cout << "pos _ y " << y << std::endl;
+    std::cout << "pos _ th" << th <<std::endl;*/
     // Find out velocity in x,y direction (vx,vy)
-    /* Implements Here */ 
+    
+    /* Implements Here 
+
+       Integral Needed 
+       x(t) =    integral ( V(t) cos(ceta(t)) dt )
+       y(t) =    integral ( V(t) sin(ceta(t)) dt )
+       ceta(t) = integral ( omega(t) dt )    
+    */ 
 
 
     previous_left_ticks = ticks->x;
@@ -91,13 +116,17 @@ int main(int argc, char **argv)
 
     //compute odometry in a typical way given the velocities of the robot
     double dt = (current_time - last_time).toSec();
-    double delta_x = (vx * cos(th) - vy * sin(th)) * dt;
+    /*double delta_x = (vx * cos(th) - vy * sin(th)) * dt;
     double delta_y = (vx * sin(th) + vy * cos(th)) * dt;
     double delta_th = vth * dt;
 
     x += delta_x;
     y += delta_y;
-    th += delta_th;
+    th += delta_th;*/
+
+    //UPDATE x,y,th on map
+       integral(V*dt,W*dt);
+
 
     //since all odometry is 6DOF we'll need a quaternion created from yaw
     geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);
@@ -129,9 +158,9 @@ int main(int argc, char **argv)
 
     //set the velocity
     odom.child_frame_id = "base_link";
-    odom.twist.twist.linear.x = vx;
-    odom.twist.twist.linear.y = vy;
-    odom.twist.twist.angular.z = vth;
+    odom.twist.twist.linear.x = V;//vx;
+    odom.twist.twist.linear.y = 0;//vy;
+    odom.twist.twist.angular.z = W;//vth;
 
     //publish the message
     odom_pub.publish(odom);  

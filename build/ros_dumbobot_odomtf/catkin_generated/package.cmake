@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "ros_dumbobot_odomtf")
+set(ros_dumbobot_odomtf_MAINTAINER "c3mx <c3mx@todo.todo>")
+set(ros_dumbobot_odomtf_DEPRECATED "")
+set(ros_dumbobot_odomtf_VERSION "0.0.0")
+set(ros_dumbobot_odomtf_BUILD_DEPENDS "geometry_msgs" "nav_msgs" "std_msgs" "tf")
+set(ros_dumbobot_odomtf_RUN_DEPENDS "geometry_msgs" "nav_msgs" "std_msgs" "tf")
+set(ros_dumbobot_odomtf_BUILDTOOL_DEPENDS "catkin")

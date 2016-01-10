@@ -17,6 +17,8 @@ Department of Computer Engineering , Chulalongkorn University
 #include <iostream>
 #include <sstream>
 
+
+
 #ifndef MIN
 #define MIN(a,b) ((a < b) ? (a) : (b))
 #endif
@@ -110,15 +112,11 @@ void Controller::send_read_encoder(){
 
     // Send Command
     serial_->write(cmd_buffer,8);
-
-
-
 }
 
-int Controller::read_encoder(){
-  //std::cout << "Serial Available = " << serial_->available() <<std::endl;
-  int readed = serial_->read(buff,28);
-  std::cout << "ENCODER BYTE READED (16) =  " << readed <<std::endl;
+int Controller::readtick(){
+   int readed = serial_->read(buff,28);
+  // std::cout << "ENCODER BYTE READED (16) =  " << readed <<std::endl;
 
      size_t ptr = 0;
      while(  !( (int)buff[ptr+0] == 255 && (int)buff[ptr+1] == 255 &&
@@ -133,18 +131,46 @@ int Controller::read_encoder(){
     signbit_r = (int) buff [ptr+5];
     round_count_r = ( (int)buff[ptr+6] * 256 ) + (int)buff[ptr+7]; 
     position_r = ( (int)buff[ptr+8] * 256 ) + (int)buff[ptr+9]; 
-
     signbit_l = (int) buff [ptr+10];
     round_count_l = ( (int)buff[ptr+11] * 256 ) + (int)buff[ptr+12]; 
     position_l = ( (int)buff[ptr+13] * 256 ) + (int)buff[ptr+14]; 
 
-    std::cout << " Sign Bit (R) = " << ((signbit_r==1)? "+":"-" )<< std::endl;
-    std::cout << " Round Count (R) = " << round_count_r << std::endl;
-    std::cout << " Position (R) = " << position_r << std::endl;
-    std::cout << " Sign Bit (L) = " << ((signbit_l==1)? "+":"-") << std::endl;
-    std::cout << " Round Count (L) = " << round_count_l << std::endl;
-    std::cout << " Position (L) = " << position_l << std::endl;
+    return round_count_l*3126+position_l ;
+}
 
+geometry_msgs::Vector3 Controller::read_encoder(){
+  //std::cout << "Serial Available = " << serial_->available() <<std::endl;
+  int readed = serial_->read(buff,28);
+  // std::cout << "ENCODER BYTE READED (16) =  " << readed <<std::endl;
+
+     size_t ptr = 0;
+     while(  !( (int)buff[ptr+0] == 255 && (int)buff[ptr+1] == 255 &&
+             (int)buff[ptr+2] == 1 &&
+             (int)buff[ptr+3] == 12) && ptr < 28){
+                 ptr++;
+         }
+
+    int signbit_r , signbit_l;
+    int round_count_r, round_count_l ;
+    int position_r , position_l;
+    signbit_r = (int) buff [ptr+5];
+    round_count_r = ( (int)buff[ptr+6] * 256 ) + (int)buff[ptr+7]; 
+    position_r = ( (int)buff[ptr+8] * 256 ) + (int)buff[ptr+9]; 
+    signbit_l = (int) buff [ptr+10];
+    round_count_l = ( (int)buff[ptr+11] * 256 ) + (int)buff[ptr+12]; 
+    position_l = ( (int)buff[ptr+13] * 256 ) + (int)buff[ptr+14]; 
+
+    // std::cout << " Sign Bit (R) = " << ((signbit_r==1)? "+":"-" )<< std::endl;
+    // std::cout << " Round Count (R) = " << round_count_r << std::endl;
+    // std::cout << " Position (R) = " << position_r << std::endl;
+    // std::cout << " Sign Bit (L) = " << ((signbit_l==1)? "+":"-") << std::endl;
+    // std::cout << " Round Count (L) = " << round_count_l << std::endl;
+    // std::cout << " Position (L) = " << position_l << std::endl;
+
+    geometry_msgs::Vector3 ticks;
+    ticks.x = ((signbit_l==1)? 1:-1) * (round_count_l*3126+position_l);
+    ticks.y = ((signbit_r==1)? 1:-1) * (round_count_r*3126+position_r);
+    return ticks;
 }
 
 void Controller::read(){

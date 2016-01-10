@@ -267,6 +267,9 @@ _CATKIN_GTEST_SRC:FILEPATH=/usr/src/gtest/src/gtest.cc
 //Path to a file.
 _file_name:FILEPATH=/home/c3mx/robot/src/teleop_twist_joy/test/turbo_angular_enable_joy_with_rosparam_map.test
 
+//The directory containing a CMake configuration file for actionlib.
+actionlib_DIR:PATH=/opt/ros/jade/share/actionlib/cmake
+
 //The directory containing a CMake configuration file for actionlib_msgs.
 actionlib_msgs_DIR:PATH=/opt/ros/jade/share/actionlib_msgs/cmake
 
@@ -337,6 +340,12 @@ learning_joy_SOURCE_DIR:STATIC=/home/c3mx/robot/src/learning_joy
 //Path to a library.
 lib:FILEPATH=/opt/ros/jade/lib/libxmlrpcpp.so
 
+//The directory containing a CMake configuration file for message_filters.
+message_filters_DIR:PATH=/opt/ros/jade/share/message_filters/cmake
+
+//The directory containing a CMake configuration file for message_generation.
+message_generation_DIR:PATH=/opt/ros/jade/share/message_generation/cmake
+
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/jade/share/message_runtime/cmake
 
@@ -348,6 +357,12 @@ ros_dumbobot_BINARY_DIR:STATIC=/home/c3mx/robot/build/ros_dumbobot
 
 //Value Computed by CMake
 ros_dumbobot_SOURCE_DIR:STATIC=/home/c3mx/robot/src/ros_dumbobot
+
+//Value Computed by CMake
+ros_dumbobot_odomtf_BINARY_DIR:STATIC=/home/c3mx/robot/build/ros_dumbobot_odomtf
+
+//Value Computed by CMake
+ros_dumbobot_odomtf_SOURCE_DIR:STATIC=/home/c3mx/robot/src/ros_dumbobot_odomtf
 
 //The directory containing a CMake configuration file for rosconsole.
 rosconsole_DIR:PATH=/opt/ros/jade/share/rosconsole/cmake
@@ -361,6 +376,9 @@ roscpp_serialization_DIR:PATH=/opt/ros/jade/share/roscpp_serialization/cmake
 //The directory containing a CMake configuration file for roscpp_traits.
 roscpp_traits_DIR:PATH=/opt/ros/jade/share/roscpp_traits/cmake
 
+//The directory containing a CMake configuration file for rosgraph.
+rosgraph_DIR:PATH=/opt/ros/jade/share/rosgraph/cmake
+
 //The directory containing a CMake configuration file for rosgraph_msgs.
 rosgraph_msgs_DIR:PATH=/opt/ros/jade/share/rosgraph_msgs/cmake
 
@@ -369,6 +387,9 @@ roslaunch_DIR:PATH=/opt/ros/jade/share/roslaunch/cmake
 
 //The directory containing a CMake configuration file for roslint.
 roslint_DIR:PATH=/opt/ros/jade/share/roslint/cmake
+
+//The directory containing a CMake configuration file for rospy.
+rospy_DIR:PATH=/opt/ros/jade/share/rospy/cmake
 
 //The directory containing a CMake configuration file for rostest.
 rostest_DIR:PATH=/opt/ros/jade/share/rostest/cmake
@@ -399,6 +420,21 @@ teleop_twist_joy_LIB_DEPENDS:STATIC=general;/opt/ros/jade/lib/libroscpp.so;gener
 
 //Value Computed by CMake
 teleop_twist_joy_SOURCE_DIR:STATIC=/home/c3mx/robot/src/teleop_twist_joy
+
+//The directory containing a CMake configuration file for tf2.
+tf2_DIR:PATH=/opt/ros/jade/share/tf2/cmake
+
+//The directory containing a CMake configuration file for tf2_msgs.
+tf2_msgs_DIR:PATH=/opt/ros/jade/share/tf2_msgs/cmake
+
+//The directory containing a CMake configuration file for tf2_py.
+tf2_py_DIR:PATH=/opt/ros/jade/share/tf2_py/cmake
+
+//The directory containing a CMake configuration file for tf2_ros.
+tf2_ros_DIR:PATH=/opt/ros/jade/share/tf2_ros/cmake
+
+//The directory containing a CMake configuration file for tf.
+tf_DIR:PATH=/opt/ros/jade/share/tf/cmake
 
 //The directory containing a CMake configuration file for turtlesim.
 turtlesim_DIR:PATH=/opt/ros/jade/share/turtlesim/cmake
@@ -514,7 +550,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=4
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=5
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

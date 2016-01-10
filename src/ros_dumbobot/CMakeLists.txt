@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
   genmsg
   std_msgs
   joy
+  tf
 )
 
 ## System dependencies are found with CMake's conventions

@@ -15,7 +15,12 @@ Department of Computer Engineering , Chulalongkorn University
 #include <ros/ros.h>
 #include <termios.h>
 #include <geometry_msgs/Twist.h>
- #include <unistd.h>
+
+//Odom and tf
+#include <geometry_msgs/Vector3.h>
+#include <tf/transform_broadcaster.h>
+#include <nav_msgs/Odometry.h>
+
 
  #ifndef MIN
 #define MIN(a,b) ((a < b) ? (a) : (b))
@@ -24,12 +29,17 @@ Department of Computer Engineering , Chulalongkorn University
 #define MAX(a,b) ((a > b) ? (a) : (b))
 #endif
 
-double                 vl,vr;
+double              vl,vr;
 int                 left_dir , right_dir , encoder_request_button;
 double              linear_x,angular_z;
 bool                stop_published =false;
 dumbo::Controller   *controller;
 
+ros::Time current_time_encoder, last_time_encoder;
+double target_tick = 4975;
+//Odom and tf 
+geometry_msgs::Vector3 ticks;
+double tick,last_tick;
 void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg) {
  /*
     CHANGE SOME GLOBAL VAR WHICH IS USE IN CONTROLLOOP()
@@ -38,44 +48,66 @@ void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg) {
   angular_z = msg->angular.z;
   //encoder_request_button = msg->linear.y;
 }
- 
-void control_loop(){
-  
-  if(linear_x == 0 && angular_z == 0) {
-      std::cout << "[STOP] ";
-      controller->send_stop();
-  }
-  if(linear_x != 0 && angular_z == 0){
-        int linearDirection,velocity;
-        if(linear_x > 0){
-           std::cout<<"[FORWARD]";
-            linearDirection = 1;
-            velocity = linear_x;
-        }else{
-            std::cout<<"[BACKWARD]";
-            linearDirection = 2; 
-            velocity = -linear_x;
-        }
-  controller->driveTutor(velocity,linearDirection,velocity,linearDirection); 
-  }
-  else if(angular_z != 0 && linear_x == 0 ){
-        int dir_left,dir_right,velocity;
-        if(angular_z > 0){ // SpinLeft
-            std::cout<<"[LEFT]";
-            dir_left = 2;
-            dir_right = 1;
-            velocity = angular_z;
-        }else{
-            std::cout<<"[RIGHT]";
-            dir_left = 1;
-            dir_right = 2;
-            velocity = -angular_z;
-        }
-  controller->driveTutor(velocity,dir_left,velocity,dir_right);
-  }
+
+void test(){
+
+    while(true){
+      controller->driveTutor(255,1,255,1);
+      controller->send_read_encoder();
+      //ticks = controller->read_encoder();
+      tick = controller->readtick();
+      std::cout << "tick = " << tick <<std::endl;
+      std::cout << "tickmod = " << (int)tick % 4975 <<std::endl;
+      if((int)tick % 4975 < 100 && (int)tick >500){
+        break;
+      }
+    }
+
+  controller->send_stop();
   controller->send_read_encoder();
   controller->read_encoder();
-}
+
+  usleep(5000 * 1000);
+
+  } 
+
+// void control_loop(){
+  
+//   if(linear_x == 0 && angular_z == 0) {
+//       std::cout << "[STOP] ";
+//       controller->send_stop();
+//   }
+//   if(linear_x != 0 && angular_z == 0){
+//         int linearDirection,velocity;
+//         if(linear_x > 0){
+//            std::cout<<"[FORWARD]";
+//             linearDirection = 1;
+//             velocity = linear_x;
+//         }else{
+//             std::cout<<"[BACKWARD]";
+//             linearDirection = 2; 
+//             velocity = -linear_x;
+//         }
+//   controller->driveTutor(velocity,linearDirection,velocity,linearDirection); 
+//   }
+//   else if(angular_z != 0 && linear_x == 0 ){
+//         int dir_left,dir_right,velocity;
+//         if(angular_z > 0){ // SpinLeft
+//             std::cout<<"[LEFT]";
+//             dir_left = 2;
+//             dir_right = 1;
+//             velocity = angular_z;
+//         }else{
+//             std::cout<<"[RIGHT]";
+//             dir_left = 1;
+//             dir_right = 2;
+//             velocity = -angular_z;
+//         }
+//   controller->driveTutor(velocity,dir_left,velocity,dir_right);
+//   }
+//   controller->send_read_encoder();
+//   controller->read_encoder();
+// }
 
 void control_loop_cmd_vel(){
   // Scaling =>> X [0-2.5] m/s
@@ -100,6 +132,7 @@ void control_loop_cmd_vel(){
   left_dir = (vl < 0)? 2:1;
   right_dir = (vr < 0)? 2:1;
 
+  // Scaler to meet Byte
   int command_vl = (vl/0.25)*255;
   int command_vr = (vr/0.25)*255;
 
@@ -111,11 +144,9 @@ void control_loop_cmd_vel(){
 
   // Request to Read Encoder Everytime That Driving Command Sends
   controller->send_read_encoder();
-  controller->read_encoder();
-  std::cout << "D_L = " << left_dir << "  SEND V-L = " << command_vl << std::endl;
-  std::cout << "D_R = " << right_dir << " SEND V-R = " << command_vr << std::endl;
-
+  ticks = controller->read_encoder();
 }
+
 
 /*
  *   Main Loop of This Node
@@ -137,7 +168,7 @@ void control_loop_cmd_vel(){
     ros::Subscriber sub = nh.subscribe("/turtle1/cmd_vel", 1, cmd_velCallback);
 
   // Publish the Encoder Data
-    //ros::
+    ros::Publisher wheel_encoder_pub = nh.advertise<geometry_msgs::Vector3>("wheel_encoder", 100);
 
   // Interface to ATMEGA128 and Motor Controller
     controller = new dumbo::Controller(port.c_str(),baud);
@@ -161,10 +192,12 @@ void control_loop_cmd_vel(){
               controller->spinOnce(); //Clear Everything that is on the buffer( Clear size = 50)
               ROS_INFO("DUMBOBOT Booting Finished");
               initialize = true;
+              //test();
            }
               //Main Control Loop
               //control_loop();
               control_loop_cmd_vel();
+              wheel_encoder_pub.publish(ticks);
               usleep(10*1000);
       } else {
         ROS_DEBUG("Problem connecting to serial device.");

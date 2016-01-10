@@ -13,6 +13,8 @@ Department of Computer Engineering , Chulalongkorn University
 #include <ros/ros.h>
 #define BUFFERSIZE 50
 
+//Odom and tf
+#include <geometry_msgs/Vector3.h>
 
 namespace dumbo{
 
@@ -54,7 +56,8 @@ public:
   void driveTutor(int left_speed , int left_dir , int right_speed , int right_dir);
   int read_drive_command();
   int ser_send_avail();
-  int read_encoder();
+  geometry_msgs::Vector3 read_encoder();
+  int readtick();
 };
 
 }

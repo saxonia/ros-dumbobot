@@ -1,2 +1,2 @@
-learning_joy:ros_dumbobot
+learning_joy:ros_dumbobot:ros_dumbobot_odomtf
 -DCATKIN_DEVEL_PREFIX=/home/c3mx/robot/devel -DCMAKE_INSTALL_PREFIX=/home/c3mx/robot/install -G Unix Makefiles

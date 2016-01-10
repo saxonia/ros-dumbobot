@@ -1,0 +1,8 @@
+prefix=/home/c3mx/robot/install
+
+Name: ros_dumbobot_odomtf
+Description: Description of ros_dumbobot_odomtf
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/c3mx/robot/install/lib 
+Requires: geometry_msgs nav_msgs std_msgs tf

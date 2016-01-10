@@ -207,14 +207,50 @@ void Controller::driveTutor(int left_speed , int left_dir , int right_speed , in
 
 
 
-void Controller::driveDirect(double linear , double angular)
+void Controller::driveDirect(int left_speed , int left_dir , int right_speed , int right_dir)
 {
 
   /*
  * USE LINEAR AND ANGULAR SPEED TO DRIVE 
  * FOR GMAPPING NAV BY RVIZ
  */
+ // Limit velocity
+  int16_t leftSpeed  = MAX(left_speed, 0); 
+          leftSpeed  = MIN(leftSpeed, 255); 
+  
+  int16_t rightSpeed  = MAX(right_speed, 0); 
+          rightSpeed  = MIN(rightSpeed, 255); 
 
+  //Cast int to int16_t for Serial Buffer
+  int16_t leftDirection,rightDirection; //1 FORWARD  2 BACKWARD
+  leftDirection = left_dir;
+  rightDirection = right_dir;
+  //Driving Command Protocol to Arduino Mega
+  // Compose Driving Command
+    unsigned char cmd_buffer[11];
+  // Headers
+    cmd_buffer[0] = (char)0xFF; //255
+    cmd_buffer[1] = (char)0xFF; //255
+    cmd_buffer[2] = (char)0x01; //001
+  // counter
+    cmd_buffer[3] = (char)0x07; //007
+  // Error Bit
+    cmd_buffer[4] = (char)0x03; //003
+  // Starting Address
+    cmd_buffer[5] = (char)0x14; // ('1' x 16 ) + ('4') = 020
+  // Direction        V - Right Motor
+    cmd_buffer[6] = (char)(rightDirection & 0xFF);
+  // Velocity Amount    V - Right Motor
+    cmd_buffer[7] = (char)(rightSpeed & 0xFF);
+  // Direction        V - Left Motor
+    cmd_buffer[8] = (char)(leftDirection & 0xFF);
+  // Velocity Amount    V - Left Motor
+    cmd_buffer[9] = (char)(leftSpeed & 0xFF);
+  // CHECKSUM
+    cmd_buffer[10] = calculateChecksum(cmd_buffer,10);
+
+    // Send Packages
+    serial_->write(cmd_buffer,11);
 
 }
 

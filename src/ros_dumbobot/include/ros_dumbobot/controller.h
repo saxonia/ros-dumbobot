@@ -50,7 +50,7 @@ public:
   void send_stop();
   void send_read_encoder();
   // Send commands to motor driver.
-  void driveDirect(double linear , double angular);
+  void driveDirect(int left_speed , int left_dir , int right_speed , int right_dir);
   void driveTutor(int left_speed , int left_dir , int right_speed , int right_dir);
   int read_drive_command();
   int ser_send_avail();

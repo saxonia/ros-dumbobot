@@ -55,21 +55,23 @@ void TeleopTurtle::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
   twist.linear.x = l_scale_*joy->axes[linear_];
   deadman_triggered = joy->axes[2];
 
-  //Piggybackked msg with linear.y
-    twist.linear.y = joy->buttons[0];
-  //ONLY ONE VALUE CAN BE PASSED
-  if(twist.angular.z !=0  && twist.linear.x != 0){
-    stop_state = true;
-  }else{
-    stop_state = false;
-  }
+  // //Piggybackked msg with linear.y
+  //   twist.linear.y = joy->buttons[0];
+  // //ONLY ONE VALUE CAN BE PASSED
+  // if(twist.angular.z !=0  && twist.linear.x != 0){
+  //   stop_state = true;
+  // }else{
+  //   stop_state = false;
+  // }
 
-  //Publish Velocity
-  if(stop_state){ //STOP STATE == PRODUCE STOP
-    twist_pub_.publish(*new geometry_msgs::Twist());
-  }else if (!stop_state && deadman_triggered == -1){
-    twist_pub_.publish(twist);
-  }
+  // //Publish Velocity
+  // if(stop_state){ //STOP STATE == PRODUCE STOP
+  //   twist_pub_.publish(*new geometry_msgs::Twist());
+  // }else if (!stop_state && deadman_triggered == -1){
+  //   twist_pub_.publish(twist);
+  // }
+  if(deadman_triggered == -1)twist_pub_.publish(twist);
+  else twist_pub_.publish(*new geometry_msgs::Twist());
 
 /*//PROCESS VALUE FOR DRIVING ( LINEAR , ANGULAR ) HERE !!! 
   geometry_msgs::Twist twist;

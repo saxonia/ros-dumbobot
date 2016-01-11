@@ -135,6 +135,13 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 # add_executable(ros_dumbobot_node src/ros_dumbobot_node.cpp)
 add_executable(ros_dumbobot src/main.cpp src/controller.cpp)
 target_link_libraries(ros_dumbobot ${catkin_LIBRARIES})
+
+
+add_executable(tf_broadcaster src/tf_broadcaster.cpp)
+
+target_link_libraries(tf_broadcaster ${catkin_LIBRARIES})
+
+
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(ros_dumbobot_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

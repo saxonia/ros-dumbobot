@@ -106,12 +106,11 @@ int main(int argc, char **argv)
             th += theta;
         }
 
-        
-
-
     // Publish Odometry
-
-    // TF
+        /*
+            Implement Here
+        */
+    // Publish TF
     //since all odometry is 6DOF we'll need a quaternion created from yaw
     geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);
 

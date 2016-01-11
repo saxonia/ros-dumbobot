@@ -5,6 +5,8 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs(gtest)
+subdirs(slam_gmapping)
+subdirs(gmapping)
 subdirs(ros_dumbobot)
 subdirs(ros_dumbobot_odomtf)
 subdirs(learning_joy)

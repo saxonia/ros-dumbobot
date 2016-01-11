@@ -36,7 +36,8 @@ bool                stop_published =false;
 dumbo::Controller   *controller;
 
 ros::Time current_time_encoder, last_time_encoder;
-double target_tick = 4975;
+double oneMetre = 4975;
+double oneRound = 3125;
 //Odom and tf 
 geometry_msgs::Vector3 ticks;
 double tick,last_tick;
@@ -46,7 +47,6 @@ void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg) {
  */
   linear_x = msg->linear.x;
   angular_z = msg->angular.z;
-  //encoder_request_button = msg->linear.y;
 }
 
 void test(){
@@ -58,7 +58,7 @@ void test(){
       tick = controller->readtick();
       std::cout << "tick = " << tick <<std::endl;
       std::cout << "tickmod = " << (int)tick % 4975 <<std::endl;
-      if((int)tick % 4975 < 100 && (int)tick >500){
+      if((int)tick % (int)oneRound < 100 && (int)tick >500){
         break;
       }
     }
@@ -70,44 +70,6 @@ void test(){
   usleep(5000 * 1000);
 
   } 
-
-// void control_loop(){
-  
-//   if(linear_x == 0 && angular_z == 0) {
-//       std::cout << "[STOP] ";
-//       controller->send_stop();
-//   }
-//   if(linear_x != 0 && angular_z == 0){
-//         int linearDirection,velocity;
-//         if(linear_x > 0){
-//            std::cout<<"[FORWARD]";
-//             linearDirection = 1;
-//             velocity = linear_x;
-//         }else{
-//             std::cout<<"[BACKWARD]";
-//             linearDirection = 2; 
-//             velocity = -linear_x;
-//         }
-//   controller->driveTutor(velocity,linearDirection,velocity,linearDirection); 
-//   }
-//   else if(angular_z != 0 && linear_x == 0 ){
-//         int dir_left,dir_right,velocity;
-//         if(angular_z > 0){ // SpinLeft
-//             std::cout<<"[LEFT]";
-//             dir_left = 2;
-//             dir_right = 1;
-//             velocity = angular_z;
-//         }else{
-//             std::cout<<"[RIGHT]";
-//             dir_left = 1;
-//             dir_right = 2;
-//             velocity = -angular_z;
-//         }
-//   controller->driveTutor(velocity,dir_left,velocity,dir_right);
-//   }
-//   controller->send_read_encoder();
-//   controller->read_encoder();
-// }
 
 void control_loop_cmd_vel(){
   // Scaling =>> X [0-2.5] m/s

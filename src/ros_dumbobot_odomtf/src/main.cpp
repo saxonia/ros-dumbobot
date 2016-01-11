@@ -25,109 +25,93 @@ double x_new;
 double y_new;
 double heading;
 
+// New Encoder Var
+double left_encoder,right_encoder;
+double prev_left_encoder , prev_right_encoder; 
 
-// void WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks)
-// {
-//   current_time_encoder = ros::Time::now();
-
-//   deltaLeft = ticks->x - _PreviousLeftEncoderCounts;
-//   deltaRight = ticks->y - _PreviousRightEncoderCounts;
-
-//   vx = deltaLeft * DistancePerCount; // (current_time_encoder - last_time_encoder).toSec();
-//   vy = deltaRight * DistancePerCount; // (current_time_encoder - last_time_encoder).toSec();
-
-//   _PreviousLeftEncoderCounts = ticks->x;
-//   _PreviousRightEncoderCounts = ticks->y;
-//   last_time_encoder = current_time_encoder;
-// }
-
-/*Integrate Function by Runge Kutta */
-void integral(double linear, double angular){
-    const double direction = th + angular * 0.5;
-    /// Runge-Kutta 2nd order integration:
-    x       += linear * cos(direction);
-    y       += linear * sin(direction);
-    th      += angular;
-}
+double linear;  //linear velocity
+double angular; //angular velocity 
+ros::Time current_time, last_time;
 
 void WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks){
+    // Update Current Encoder Position 
+    left_encoder = ticks->x;
+    right_encoder = ticks->y;
 
-    current_time_encoder = ros::Time::now();
-
-    double delta_left = ticks->x - previous_left_ticks;
-    double delta_right = ticks->y - previous_right_ticks;
-    // DistancePerCount = distance traveled per count, delta_left = ticks moved
-    double vel_left = (delta_left * DistancePerCount) / (current_time_encoder - last_time_encoder).toSec(); // Left velocity
-    double vel_right = (delta_right * DistancePerCount) / (current_time_encoder - last_time_encoder).toSec(); // Right velocity
-
-    // Getting Translational and Rotational velocities from Left and Right wheel velocities
-    // V = Translation vel. W = Rotational vel.
-    if (vel_left == vel_right){
-        V = vel_left;
-        W = 0;
-    }else if (vel_left != 0 && vel_right != 0){ // Arc Movement And Spinning
-        // Assuming the robot is rotating about point A   
-        // W = vel_left/r = vel_right/(r + d), see the image below for r and d
-        double r = (vel_left * d) / (vel_right - vel_left); // Anti Clockwise is positive
-        W = vel_left/r; // Rotational velocity of the robot
-        V = W * (r + d/2); // Translation velocity of the robot
-    }
-/*    std::cout << "V = " << V <<std::endl;
-    std::cout << "W = " << W <<std::endl;
-    std::cout << "VEL _ L " << vel_left << std::endl;
-    std::cout << "VEL _ R " << vel_right << std::endl;
-    std::cout << "pos _ x " << x << std::endl;
-    std::cout << "pos _ y " << y << std::endl;
-    std::cout << "pos _ th" << th <<std::endl;*/
-    // Find out velocity in x,y direction (vx,vy)
-    
-    /* Implements Here 
-
-       Integral Needed 
-       x(t) =    integral ( V(t) cos(ceta(t)) dt )
-       y(t) =    integral ( V(t) sin(ceta(t)) dt )
-       ceta(t) = integral ( omega(t) dt )    
-    */ 
-
-
-    previous_left_ticks = ticks->x;
-    previous_right_ticks = ticks->y;
-
-    last_time_encoder = current_time_encoder;
+    std::cout << "Got Left Encoder  = " << left_encoder <<std::endl;
+    std::cout << "Got Right Encoder  = " << right_encoder <<std::endl;
 }
+
 
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "odometry_publisher");
   ros::NodeHandle n;
-  ros::Subscriber sub = n.subscribe("/ros_dumbobot/wheel_encoder", 100, WheelCallback);
+  ros::Subscriber sub = n.subscribe("/ros_dumbobot/wheel_encoder", 10, WheelCallback);
   ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);   
   tf::TransformBroadcaster odom_broadcaster;
 
+  //Initialize Timer 
+      current_time = ros::Time::now();
+      last_time = ros::Time::now();  //prevent null
 
-  ros::Time current_time, last_time;
-  current_time = ros::Time::now();
-  last_time = ros::Time::now();
-
-  ros::Rate r(100);
+  // Parameters Here
+    //tick Width = 4975 tick per meters
+      double ticks_meter = 5000;//4975;
+      double wheel_radius_ = 0.1;
+      double wheel_separation_multiplier = 1.8;
+      double wheel_separation_ = 0.4 * wheel_separation_multiplier;
+  // Update Loop (1Hz sec update)
+  ros::Rate r(1.0);
   while(n.ok()){
 
+    // "Now" timestamp
     current_time = ros::Time::now();
 
-    //compute odometry in a typical way given the velocities of the robot
-    double dt = (current_time - last_time).toSec();
-    /*double delta_x = (vx * cos(th) - vy * sin(th)) * dt;
-    double delta_y = (vx * sin(th) + vy * cos(th)) * dt;
-    double delta_th = vth * dt;
+    // Calculate Odometry
+        /// Time
+        double dt       = (current_time - last_time).toSec();
 
-    x += delta_x;
-    y += delta_y;
-    th += delta_th;*/
+        /// Delta of Encoders
+        deltaLeft       = left_encoder - prev_left_encoder;
+        deltaRight      = right_encoder - prev_right_encoder;
 
-    //UPDATE x,y,th on map
-       integral(V*dt,W*dt);
+        /// Convert Ticks To Meter
+        double deltaLeft_meter  = deltaLeft/ticks_meter;
+        double deltaRight_meter = deltaRight/ticks_meter;
+
+        /// Memories the Encoder Value in this State
+        prev_right_encoder  = right_encoder;
+        prev_left_encoder   = left_encoder;
 
 
+        /// Calculate actual distance traveled 
+        double actualDistance   = (deltaRight_meter + deltaLeft_meter)/2;
+        double theta            = (deltaRight_meter - deltaLeft_meter)/wheel_separation_;
+
+        /// [ODOM] Calculate Velocities
+        linear = actualDistance / dt;
+        angular = theta / dt;
+
+        if(actualDistance != 0){
+            /// [TF+ODOM] Calculate Distance Traveled in (x,y) Format 
+            double temp_x =  cos(theta) * actualDistance;
+            double temp_y = -sin(theta) * actualDistance;
+
+            /// Calculate Final position
+            x += ( cos(th) * temp_x - sin(th) * temp_y );
+            y += ( sin(th) * temp_x + cos(th) * temp_y );
+        }
+        if(theta !=0){
+            th += theta;
+        }
+
+        
+
+
+    // Publish Odometry
+
+    // TF
     //since all odometry is 6DOF we'll need a quaternion created from yaw
     geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);
 
@@ -145,6 +129,7 @@ int main(int argc, char **argv)
     //send the transform
     odom_broadcaster.sendTransform(odom_trans);
 
+    // ODOM
     //next, we'll publish the odometry message over ROS
     nav_msgs::Odometry odom;
     odom.header.stamp = current_time;
@@ -158,9 +143,9 @@ int main(int argc, char **argv)
 
     //set the velocity
     odom.child_frame_id = "base_link";
-    odom.twist.twist.linear.x = V;//vx;
+    odom.twist.twist.linear.x = linear;//V//vx;
     odom.twist.twist.linear.y = 0;//vy;
-    odom.twist.twist.angular.z = W;//vth;
+    odom.twist.twist.angular.z = angular;//W;//vth;
 
     //publish the message
     odom_pub.publish(odom);  

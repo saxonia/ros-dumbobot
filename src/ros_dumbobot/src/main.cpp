@@ -122,36 +122,6 @@ void control_loop_cmd_vel(){
   ticks = controller->read_encoder();
 }
 
-void publish_tf(){
-
-  tf::TransformBroadcaster broadcaster;
-
-  broadcaster.sendTransform(
-    tf::StampedTransform(
-    tf::Transform(tf::Quaternion(0, 0, 0, 1), 
-    tf::Vector3(0.1, 0.0, 0.2)),
-    ros::Time::now(),
-    "base_link", 
-    "base_laser"
-  ));
-  broadcaster.sendTransform( //TODO : USE LEFTTICK*METERperTICK
-    tf::StampedTransform(
-    tf::Transform(tf::Quaternion(0, 0, 0, 1), 
-    tf::Vector3(0.1, 0.0, 0.2)),
-    ros::Time::now(),
-    "base_link", 
-    "base_leftWheel"
-  ));
-  broadcaster.sendTransform( //TODO : USE RIGHTTICK*METERperTICK
-    tf::StampedTransform(
-    tf::Transform(tf::Quaternion(0, 0, 0, 1), 
-    tf::Vector3(0.1, 0.0, 0.2)),
-    ros::Time::now(),
-    "base_link", 
-    "base_rightWheel"
-  ));
-}
-
 /*
  *   Main Loop of This Node
  */
@@ -173,9 +143,6 @@ void publish_tf(){
 
   // Publish the Encoder Data
     ros::Publisher wheel_encoder_pub = nh.advertise<geometry_msgs::Vector3>("wheel_encoder", 100);
-
-  // Pubish Static TF Data of the robot  
-    publish_tf();
 
   // Interface to ATMEGA128 and Motor Controller
     controller = new dumbo::Controller(port.c_str(),baud);
@@ -205,8 +172,6 @@ void publish_tf(){
               control_loop_cmd_vel();
               // Publish Encoder to system
               wheel_encoder_pub.publish(ticks);
-              // Publish tf
-              publish_tf();
               // Sleep Between Loops
               usleep(10*1000);
       } else {

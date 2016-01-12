@@ -20,11 +20,6 @@ double deltaRight;
 double d = 0.4;
 long previous_left_ticks,previous_right_ticks;
 
-// Integrate Unit
-double x_new;
-double y_new;
-double heading;
-
 // New Encoder Var
 double left_encoder,right_encoder;
 double prev_left_encoder , prev_right_encoder; 
@@ -38,9 +33,72 @@ void WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks){
     left_encoder = ticks->x;
     right_encoder = ticks->y;
 
-    std::cout << "Got Left Encoder  = " << left_encoder <<std::endl;
-    std::cout << "Got Right Encoder  = " << right_encoder <<std::endl;
+    //std::cout << "Got Left Encoder  = " << left_encoder <<std::endl;
+    //std::cout << "Got Right Encoder  = " << right_encoder <<std::endl;
 }
+
+
+void publish_tf(){
+
+
+  // Publish The Static Transform of ROBOT Periodically  
+  tf::TransformBroadcaster broadcaster;
+
+  broadcaster.sendTransform(
+    tf::StampedTransform(
+    tf::Transform(tf::Quaternion(0, 0, 0, 1), 
+    tf::Vector3(0.165, 0.0, 0.2)),
+    ros::Time::now(),
+    "base_link", 
+    "laser"
+  ));
+  broadcaster.sendTransform( //TODO : USE LEFTTICK*METERperTICK
+    tf::StampedTransform(
+    tf::Transform(tf::Quaternion(0, 0, 0, 1), 
+    tf::Vector3(-0.1, -0.2, 0.0)),
+    ros::Time::now(),
+    "base_link", 
+    "leftWheel"
+  ));
+  broadcaster.sendTransform( //TODO : USE RIGHTTICK*METERperTICK
+    tf::StampedTransform(
+    tf::Transform(tf::Quaternion(0, 0, 0, 1), 
+    tf::Vector3(-0.1, 0.2, 0.0)),
+    ros::Time::now(),
+    "base_link", 
+    "rightWheel"
+  ));
+
+}
+
+// void publishTf(const double encL, const double encR, const geometry_msgs::PoseStamped base_pose)
+// {
+//         static tf::TransformBroadcaster br;
+//         tf::Transform transform;
+
+//         transform.setOrigin(tf::Vector3(base_pose.pose.position.x,base_pose.pose.position.y,base_pose.pose.position.z));
+//         transform.setRotation(tf::Quaternion(base_pose.pose.orientation.x ,base_pose.pose.orientation.y,base_pose.pose.orientation.z,base_pose.pose.orientation.w));
+//         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"odom", "base_link"));
+
+//         transform.setOrigin( tf::Vector3(DISTANCEBASETOSCANNER));
+//         transform.setRotation(tf::createQuaternionFromRPY(0,0,0));
+//         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"base_link", "openni_camera"));
+
+//         transform.setOrigin( tf::Vector3(DISTANCEBASETOLASER));
+//         transform.setRotation(tf::createQuaternionFromRPY(0,0,0));
+//         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"base_link", "laser"));
+
+//         transform.setOrigin( tf::Vector3(DISTANCEBASETOLWHEEL));
+//         transform.setRotation(tf::createQuaternionFromRPY(0,encL,0));
+//         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"base_link", "leftWheel"));
+
+//         transform.setOrigin( tf::Vector3(DISTANCEBASETORWHEEL));
+//         transform.setRotation(tf::createQuaternionFromRPY(0,encR,0));
+//         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"base_link", "rightWheel"));
+
+//         ROS_DEBUG_NAMED("TF","TF Sended");
+// }
+
 
 
 int main(int argc, char **argv)
@@ -62,7 +120,8 @@ int main(int argc, char **argv)
       double wheel_separation_multiplier = 1.8;
       double wheel_separation_ = 0.4 * wheel_separation_multiplier;
   // Update Loop (1Hz sec update)
-  ros::Rate r(1.0);
+  //ros::Rate r(1.0);
+    ros::Rate r(100);
   while(n.ok()){
 
     // "Now" timestamp
@@ -106,15 +165,14 @@ int main(int argc, char **argv)
             th += theta;
         }
 
-    // Publish Odometry
-        /*
-            Implement Here
-        */
-    // Publish TF
-    //since all odometry is 6DOF we'll need a quaternion created from yaw
+    // Publish TF of The Static Part
+    publish_tf();
+
+    // Publish TF for the moving Part
+    /// since all odometry is 6DOF we'll need a quaternion created from yaw
     geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(th);
 
-    //first, we'll publish the transform over tf
+    /// first, we'll publish the transform over tf
     geometry_msgs::TransformStamped odom_trans;
     odom_trans.header.stamp = current_time;
     odom_trans.header.frame_id = "odom";
@@ -129,24 +187,24 @@ int main(int argc, char **argv)
     odom_broadcaster.sendTransform(odom_trans);
 
     // ODOM
-    //next, we'll publish the odometry message over ROS
+    /// next, we'll publish the odometry message over ROS
     nav_msgs::Odometry odom;
     odom.header.stamp = current_time;
     odom.header.frame_id = "odom";
 
-    //set the position
+    /// set the position
     odom.pose.pose.position.x = x;
     odom.pose.pose.position.y = y;
     odom.pose.pose.position.z = 0.0;
     odom.pose.pose.orientation = odom_quat;
 
-    //set the velocity
+    /// set the velocity
     odom.child_frame_id = "base_link";
     odom.twist.twist.linear.x = linear;//V//vx;
     odom.twist.twist.linear.y = 0;//vy;
     odom.twist.twist.angular.z = angular;//W;//vth;
 
-    //publish the message
+    /// publish the message
     odom_pub.publish(odom);  
 
     last_time = current_time;

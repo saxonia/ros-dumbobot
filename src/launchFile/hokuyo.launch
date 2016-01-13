@@ -1,0 +1,16 @@
+<!-- 
+Example launch file: launches the scan matcher with pre-recorded data, 
+together with an alpha-beta filter.
+-->
+
+<launch>
+
+ <!-- gmapping -->
+  <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_laser_node">
+	<param name="frame_id" value = "laser"/>
+	<!-- <remap from="scan" to="base_scan" /> -->
+	<param name="port" value = "/dev/ttyACM1"/>
+  </node>
+
+
+</launch>

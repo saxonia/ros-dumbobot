@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "ros_dumbobot_nav")
+set(ros_dumbobot_nav_MAINTAINER "c3mx <c3mx@todo.todo>")
+set(ros_dumbobot_nav_DEPRECATED "")
+set(ros_dumbobot_nav_VERSION "0.0.0")
+set(ros_dumbobot_nav_BUILD_DEPENDS "move_base")
+set(ros_dumbobot_nav_RUN_DEPENDS "move_base")
+set(ros_dumbobot_nav_BUILDTOOL_DEPENDS "catkin")

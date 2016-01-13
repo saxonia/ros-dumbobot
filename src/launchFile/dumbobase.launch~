@@ -1,0 +1,14 @@
+<!-- 
+Example launch file: launches the scan matcher with pre-recorded data, 
+together with an alpha-beta filter.
+-->
+
+<launch>
+
+ <!-- Robot Controller Node --> 
+  <node pkg="ros_dumbobot" type="ros_dumbobot" name="ros_dumbobot_node" />
+
+ <!-- Odometry and TF Publishing Node  
+  <node pkg="ros_dumbobot_odomtf" type="ros_dumbobot_odomtf_node" name="ros_dumbobot_odomtf_node" /> -->
+
+</launch>

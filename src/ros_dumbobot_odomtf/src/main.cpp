@@ -71,35 +71,6 @@ void publish_tf(){
 
 }
 
-// void publishTf(const double encL, const double encR, const geometry_msgs::PoseStamped base_pose)
-// {
-//         static tf::TransformBroadcaster br;
-//         tf::Transform transform;
-
-//         transform.setOrigin(tf::Vector3(base_pose.pose.position.x,base_pose.pose.position.y,base_pose.pose.position.z));
-//         transform.setRotation(tf::Quaternion(base_pose.pose.orientation.x ,base_pose.pose.orientation.y,base_pose.pose.orientation.z,base_pose.pose.orientation.w));
-//         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"odom", "base_link"));
-
-//         transform.setOrigin( tf::Vector3(DISTANCEBASETOSCANNER));
-//         transform.setRotation(tf::createQuaternionFromRPY(0,0,0));
-//         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"base_link", "openni_camera"));
-
-//         transform.setOrigin( tf::Vector3(DISTANCEBASETOLASER));
-//         transform.setRotation(tf::createQuaternionFromRPY(0,0,0));
-//         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"base_link", "laser"));
-
-//         transform.setOrigin( tf::Vector3(DISTANCEBASETOLWHEEL));
-//         transform.setRotation(tf::createQuaternionFromRPY(0,encL,0));
-//         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"base_link", "leftWheel"));
-
-//         transform.setOrigin( tf::Vector3(DISTANCEBASETORWHEEL));
-//         transform.setRotation(tf::createQuaternionFromRPY(0,encR,0));
-//         br.sendTransform(tf::StampedTransform(transform, ros::Time::now(),"base_link", "rightWheel"));
-
-//         ROS_DEBUG_NAMED("TF","TF Sended");
-// }
-
-
 
 int main(int argc, char **argv)
 {
@@ -116,8 +87,9 @@ int main(int argc, char **argv)
   // Parameters Here
     //tick Width = 4975 tick per meters
       double ticks_meter = 5000;//4975;
-      double wheel_radius_ = 0.1;
-      double wheel_separation_multiplier = 1.8;
+      double wheel_radius_multiplier = 1.0;
+      double wheel_radius_ = 0.1 * wheel_radius_multiplier;
+      double wheel_separation_multiplier = 1.7;
       double wheel_separation_ = 0.4 * wheel_separation_multiplier;
   // Update Loop (1Hz sec update)
   //ros::Rate r(1.0);
@@ -142,7 +114,6 @@ int main(int argc, char **argv)
         /// Memories the Encoder Value in this State
         prev_right_encoder  = right_encoder;
         prev_left_encoder   = left_encoder;
-
 
         /// Calculate actual distance traveled 
         double actualDistance   = (deltaRight_meter + deltaLeft_meter)/2;
@@ -200,17 +171,15 @@ int main(int argc, char **argv)
 
     /// set the velocity
     odom.child_frame_id = "base_link";
-    odom.twist.twist.linear.x = linear;//V//vx;
-    odom.twist.twist.linear.y = 0;//vy;
-    odom.twist.twist.angular.z = angular;//W;//vth;
+    odom.twist.twist.linear.x = linear;
+    odom.twist.twist.linear.y = 0;
+    odom.twist.twist.angular.z = angular;
 
     /// publish the message
     odom_pub.publish(odom);  
 
     last_time = current_time;
     ros::spinOnce();
-    r.sleep();
-     
-    
+    r.sleep();   
   }
 }

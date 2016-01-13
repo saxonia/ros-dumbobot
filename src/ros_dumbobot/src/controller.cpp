@@ -42,7 +42,6 @@ Controller::Controller(const char *port, int baud)
   serial_(NULL)
 
 {
-  //pub_status_ = nh_.advertise<roboteq_msgs::Status>("status", 1);
   for(int i = 0 ; i< BUFFERSIZE ; i++){
     buff[i] = 0;
   }

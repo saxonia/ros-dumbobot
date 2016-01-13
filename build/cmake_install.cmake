@@ -122,6 +122,7 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/c3mx/robot/build/ros_dumbobot/cmake_install.cmake")
   include("/home/c3mx/robot/build/ros_dumbobot_odomtf/cmake_install.cmake")
   include("/home/c3mx/robot/build/learning_joy/cmake_install.cmake")
+  include("/home/c3mx/robot/build/ros_dumbobot_nav/cmake_install.cmake")
 
 endif()
 

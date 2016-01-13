@@ -23,6 +23,11 @@
 /home/c3mx/robot/build/ros_dumbobot/CMakeFiles/diagnostic_msgs_generate_messages_py.dir
 /home/c3mx/robot/build/CMakeFiles/download_extra_data.dir
 /home/c3mx/robot/build/CMakeFiles/doxygen.dir
+/home/c3mx/robot/build/ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_gencfg.dir
+/home/c3mx/robot/build/ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir
+/home/c3mx/robot/build/ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir
+/home/c3mx/robot/build/ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir
+/home/c3mx/robot/build/ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir
 /home/c3mx/robot/build/gmapping/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
 /home/c3mx/robot/build/gmapping/CMakeFiles/geometry_msgs_generate_messages_eus.dir
 /home/c3mx/robot/build/gmapping/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
@@ -36,6 +41,7 @@
 /home/c3mx/robot/build/gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir
 /home/c3mx/robot/build/gtest/CMakeFiles/gtest.dir
 /home/c3mx/robot/build/gtest/CMakeFiles/gtest_main.dir
+/home/c3mx/robot/build/ros_dumbobot_nav/CMakeFiles/move_base_gencfg.dir
 /home/c3mx/robot/build/gmapping/CMakeFiles/nav_msgs_generate_messages_cpp.dir
 /home/c3mx/robot/build/gmapping/CMakeFiles/nav_msgs_generate_messages_eus.dir
 /home/c3mx/robot/build/gmapping/CMakeFiles/nav_msgs_generate_messages_lisp.dir

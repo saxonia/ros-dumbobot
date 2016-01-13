@@ -1,0 +1,19 @@
+<!-- 
+Example launch file: launches the scan matcher with pre-recorded data, 
+together with an alpha-beta filter.
+-->
+
+<launch>
+
+ <!-- gmapping -->
+  <node pkg="gmapping" type="slam_gmapping" name="gmap_node" output = "screen">
+	<param name="delta" value = "0.1"/>
+	<param name="map_update_interval" value="2.0"/>
+        <param name="maxUrange" value="5.0"/>
+        <param name="maxRange" value="6.0"/>
+	<param name="frame_id" value="/laser"/>
+	<!-- <remap from="/scan" to="/base_scan"/> -->
+  </node>
+
+
+</launch>

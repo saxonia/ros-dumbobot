@@ -1,10 +1,18 @@
 <!-- Launch File For ros-Dumbobot Base -->
 <launch>
+
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_broadcaster" args="0.165 0.0 0.2 0 0 0 1 base_link laser 100" />
+
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_leftWheel" args="-0.1 -0.2 0.0 0 0 0 1 base_link leftWheel 100" />
+
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_rightWheel" args="-0.1, 0.2, 0.0 0 0 0 1 base_link rightWheel 100" />
+
+
   <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen">
     <param name="port" value="/dev/ttyACM1" />
   </node>
 
-  <node pkg="ros_dumbobot" type="ros_dumbobot" name="ros_dumbobot_node" output="screen">
+  <node pkg="ros_dumbobot" type="ros_dumbobot" name="ros_dumbobot" output="screen">
   </node>
 
    <node pkg="ros_dumbobot_odomtf" type="ros_dumbobot_odomtf_node" name="ros_dumbobot_odomtf_node" output="screen">

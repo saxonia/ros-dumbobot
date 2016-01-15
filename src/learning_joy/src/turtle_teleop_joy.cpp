@@ -1,6 +1,7 @@
 #include <ros/ros.h>
 #include <geometry_msgs/Twist.h>
 #include <sensor_msgs/Joy.h>
+#include <actionlib_msgs/GoalID.h>
 
 /*************************************************************************************/
 class TeleopTurtle
@@ -17,8 +18,9 @@ private:
 
   int linear_, angular_;
   double l_scale_, a_scale_;
-  ros::Publisher twist_pub_;
+  ros::Publisher twist_pub_,auto_stop_pub_;
   ros::Subscriber joy_sub_;
+  bool off_teleop;
   
 };
 
@@ -35,15 +37,19 @@ TeleopTurtle::TeleopTurtle():
   nh_.param("scale_angular", a_scale_, a_scale_);
   nh_.param("scale_linear", l_scale_, l_scale_);
 
+  off_teleop = false;
+  //Publisher and Subscriber
   twist_pub_ = nh_.advertise<geometry_msgs::Twist>("turtle1/cmd_vel", 1);
   joy_sub_ = nh_.subscribe<sensor_msgs::Joy>("joy", 10, &TeleopTurtle::joyCallback, this);
 
+  //Navigation Stopper
+  auto_stop_pub_ = nh_.advertise<actionlib_msgs::GoalID>("move_base/cancel", 1);
 }
 
 void TeleopTurtle::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
 {
-  //Encoder Reading Joystick Button
-  int encoder_request_button;
+  //Goal Nav Cancle Button
+  int goal_cancle_button;
     
 
   //Geometry Joystick Control
@@ -54,33 +60,25 @@ void TeleopTurtle::joyCallback(const sensor_msgs::Joy::ConstPtr& joy)
   //Read Value From Left Joystick (VERTICAL ACCESS ONLY)
   twist.linear.x = l_scale_*joy->axes[linear_];
   deadman_triggered = joy->axes[2];
+  goal_cancle_button = joy->buttons[4];
+  // if(deadman_triggered == -1)twist_pub_.publish(twist);
+  // //else twist_pub_.publish(*new geometry_msgs::Twist());
 
-  // //Piggybackked msg with linear.y
-  //   twist.linear.y = joy->buttons[0];
-  // //ONLY ONE VALUE CAN BE PASSED
-  // if(twist.angular.z !=0  && twist.linear.x != 0){
-  //   stop_state = true;
-  // }else{
-  //   stop_state = false;
-  // }
 
-  // //Publish Velocity
-  // if(stop_state){ //STOP STATE == PRODUCE STOP
-  //   twist_pub_.publish(*new geometry_msgs::Twist());
-  // }else if (!stop_state && deadman_triggered == -1){
-  //   twist_pub_.publish(twist);
-  // }
-  if(deadman_triggered == -1)twist_pub_.publish(twist);
-  else twist_pub_.publish(*new geometry_msgs::Twist());
 
-/*//PROCESS VALUE FOR DRIVING ( LINEAR , ANGULAR ) HERE !!! 
-  geometry_msgs::Twist twist;
-  twist.angular.z = a_scale_*joy->axes[angular_];
-  twist.linear.x = l_scale_*joy->axes[linear_];
+if(deadman_triggered == -1){ //Deadman Triggered Activated 
+    off_teleop = false;
+    twist_pub_.publish(twist); //
+  }
+  else if (deadman_triggered != -1 && !off_teleop) {
+    //Publish 0,0,0 (stop)
+    twist_pub_.publish(*new geometry_msgs::Twist());
+    //Publish Goal Cancel Message 
+    auto_stop_pub_.publish(*new actionlib_msgs::GoalID());
+    //Put the Teleop Off
+    off_teleop = true;
+  } 
 
-  //Publish Velocity
-  twist_pub_.publish(twist);
-*/
 
 }
 

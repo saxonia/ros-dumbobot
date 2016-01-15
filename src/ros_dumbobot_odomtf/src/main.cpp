@@ -38,7 +38,7 @@ void WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks){
 }
 
 
-void publish_tf(){
+/*void publish_tf(){
 
 
   // Publish The Static Transform of ROBOT Periodically  
@@ -70,7 +70,7 @@ void publish_tf(){
   ));
 
 }
-
+*/
 
 int main(int argc, char **argv)
 {
@@ -93,7 +93,7 @@ int main(int argc, char **argv)
       double wheel_separation_ = 0.4 * wheel_separation_multiplier;
   // Update Loop (1Hz sec update)
   //ros::Rate r(1.0);
-    ros::Rate r(100);
+    ros::Rate r(10);
   while(n.ok()){
 
     // "Now" timestamp
@@ -137,7 +137,7 @@ int main(int argc, char **argv)
         }
 
     // Publish TF of The Static Part
-    publish_tf();
+    //publish_tf();
 
     // Publish TF for the moving Part
     /// since all odometry is 6DOF we'll need a quaternion created from yaw

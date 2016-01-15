@@ -1,12 +1,13 @@
 <!-- Launch File For Move_base Automatic Navigation System -->
 
 <launch>
+  <master auto="start"/>
 
-  <!-- Run the map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/17-MarkCenter.yaml"/> 
+  <!-- Run the map server 
+  <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/mapmap/map1.yaml"/> -->
 
-  <!--- Run AMCL -->
-  <include file="$(find amcl)/examples/amcl_diff.launch" /> 
+  <!--- Run AMCL 
+  <include file="$(find amcl)/examples/amcl_diff.launch" /> -->
 
   <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">
 	<remap from="cmd_vel" to="/turtle1/cmd_vel" />

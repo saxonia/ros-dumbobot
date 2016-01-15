@@ -1,0 +1,10 @@
+digraph G {
+"odom" -> "base_link"[label="Broadcaster: /ros_dumbobot_odomtf_node\nAverage rate: 100.199 Hz\nMost recent transform: 1452714908.037 ( 0.009 sec old)\nBuffer length: 4.980 sec\n"];
+"base_link" -> "laser"[label="Broadcaster: /base_link_to_laser_broadcaster\nAverage rate: 10.192 Hz\nMost recent transform: 1452714908.072 ( -0.026 sec old)\nBuffer length: 4.906 sec\n"];
+"base_link" -> "leftWheel"[label="Broadcaster: /base_link_to_leftWheel\nAverage rate: 10.192 Hz\nMost recent transform: 1452714908.072 ( -0.026 sec old)\nBuffer length: 4.906 sec\n"];
+"base_link" -> "rightWheel"[label="Broadcaster: /base_link_to_rightWheel\nAverage rate: 10.193 Hz\nMost recent transform: 1452714908.082 ( -0.035 sec old)\nBuffer length: 4.905 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1452714908.046"[ shape=plaintext ] ;
+ }->"odom";
+}

@@ -91,21 +91,21 @@ void control_loop_cmd_vel(){
 
 
   // Limitors
-  vl = MAX(vl , -0.25);
-  vr = MAX(vr , -0.25);
-  vl = MIN(vl , 0.25);
-  vr = MIN(vr , 0.25);
+  vl = MAX(vl , -0.60);
+  vr = MAX(vr , -0.60);
+  vl = MIN(vl , 0.60);
+  vr = MIN(vr , 0.60);
 
-  std::cout << "LEFT POWER = " << vl <<std::endl;
-  std::cout << "RIGHT POWER = " << vr <<std::endl;
+  //std::cout << "LEFT POWER = " << vl <<std::endl;
+  //std::cout << "RIGHT POWER = " << vr <<std::endl;
 
   // Direction Bits
   left_dir = (vl < 0)? 2:1;
   right_dir = (vr < 0)? 2:1;
 
   // Scaler to meet Byte (0-255)
-  int command_vl = (vl/0.25)*255;
-  int command_vr = (vr/0.25)*255;
+  int command_vl = (vl/0.60)*255;
+  int command_vr = (vr/0.60)*255;
 
   // Absolute the Command message since the direction base on the direction bit
   // only the magnitude needed
@@ -137,7 +137,7 @@ void control_loop_cmd_vel(){
     ros::NodeHandle nh("~");
 
   // Serial Setting
-    std::string port = "/dev/ttyACM0";
+    std::string port = "/dev/ttyACM2";
     int32_t baud = 9600;
     nh.param<std::string>("port", port, port);
     nh.param<int32_t>("baud", baud, baud);

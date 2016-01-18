@@ -123,8 +123,8 @@ int main(int argc, char **argv)
         linear = actualDistance / dt;
         angular = theta / dt;
 
-        std::cout << "SPEED IS = " << linear << std::endl;
-        std::cout << "ANGULAR IS = " << angular << std::endl;
+        //std::cout << "SPEED IS = " << linear << std::endl;
+        //std::cout << "ANGULAR IS = " << angular << std::endl;
 
         if(actualDistance != 0){
             /// [TF+ODOM] Calculate Distance Traveled in (x,y) Format 

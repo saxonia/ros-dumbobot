@@ -88,11 +88,16 @@ void control_loop_cmd_vel(){
   vl = leftPower ; 
   vr = rightPower ;
 
+
+
   // Limitors
   vl = MAX(vl , -0.25);
   vr = MAX(vr , -0.25);
   vl = MIN(vl , 0.25);
   vr = MIN(vr , 0.25);
+
+  std::cout << "LEFT POWER = " << vl <<std::endl;
+  std::cout << "RIGHT POWER = " << vr <<std::endl;
 
   // Direction Bits
   left_dir = (vl < 0)? 2:1;
@@ -139,7 +144,7 @@ void control_loop_cmd_vel(){
     ROS_INFO("DUMBOBOT connecting to port %s", port.c_str());
 
   // Subscribe to Joystick Command
-    ros::Subscriber sub = nh.subscribe("/turtle1/cmd_vel", 1, cmd_velCallback);
+    ros::Subscriber sub = nh.subscribe("/ros_dumbobot/cmd_vel", 1, cmd_velCallback);
 
   // Publish the Encoder Data
     ros::Publisher wheel_encoder_pub = nh.advertise<geometry_msgs::Vector3>("wheel_encoder", 100);

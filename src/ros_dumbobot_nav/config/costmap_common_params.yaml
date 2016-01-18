@@ -5,7 +5,7 @@ footprint: [[0.3,0.3], [0.3,-0.3], [-0.3,-0.3], [-0.3,0.3]]
 
 inflation_radius: 0.55
 
-#observation_sources: scan
+observation_sources: scan
 
-#scan: {sensor_frame: laser, data_type: LaserScan, topic: scan, marking: true, clearing: true, expected_update_rate: 0.5}
+scan: {sensor_frame: laser, data_type: LaserScan, topic: scan, marking: true, clearing: true, expected_update_rate: 0.5}
 

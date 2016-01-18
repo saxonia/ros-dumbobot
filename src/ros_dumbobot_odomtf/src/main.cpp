@@ -86,7 +86,7 @@ int main(int argc, char **argv)
 
   // Parameters Here
     //tick Width = 4975 tick per meters
-      double ticks_meter = 5000;//4975;
+      double ticks_meter = 4975;//5000;//4975;
       double wheel_radius_multiplier = 1.0;
       double wheel_radius_ = 0.1 * wheel_radius_multiplier;
       double wheel_separation_multiplier = 1.7;
@@ -122,6 +122,9 @@ int main(int argc, char **argv)
         /// [ODOM] Calculate Velocities
         linear = actualDistance / dt;
         angular = theta / dt;
+
+        std::cout << "SPEED IS = " << linear << std::endl;
+        std::cout << "ANGULAR IS = " << angular << std::endl;
 
         if(actualDistance != 0){
             /// [TF+ODOM] Calculate Distance Traveled in (x,y) Format 

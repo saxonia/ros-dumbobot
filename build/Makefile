@@ -1207,58 +1207,6 @@ ros_dumbobot_odomtf_node/fast:
 .PHONY : ros_dumbobot_odomtf_node/fast
 
 #=============================================================================
-# Target rules for targets named std_srvs_generate_messages_cpp
-
-# Build rule for target.
-std_srvs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_cpp
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	$(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_eus
-
-# Build rule for target.
-std_srvs_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_eus
-.PHONY : std_srvs_generate_messages_eus
-
-# fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	$(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_lisp
-
-# Build rule for target.
-std_srvs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_lisp
-.PHONY : std_srvs_generate_messages_lisp
-
-# fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	$(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named std_srvs_generate_messages_py
-
-# Build rule for target.
-std_srvs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_srvs_generate_messages_py
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	$(MAKE) -f learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/build.make learning_joy/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named turtle_teleop_joy
 
 # Build rule for target.
@@ -1270,58 +1218,6 @@ turtle_teleop_joy: cmake_check_build_system
 turtle_teleop_joy/fast:
 	$(MAKE) -f learning_joy/CMakeFiles/turtle_teleop_joy.dir/build.make learning_joy/CMakeFiles/turtle_teleop_joy.dir/build
 .PHONY : turtle_teleop_joy/fast
-
-#=============================================================================
-# Target rules for targets named turtlesim_generate_messages_cpp
-
-# Build rule for target.
-turtlesim_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 turtlesim_generate_messages_cpp
-.PHONY : turtlesim_generate_messages_cpp
-
-# fast build rule for target.
-turtlesim_generate_messages_cpp/fast:
-	$(MAKE) -f learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/build.make learning_joy/CMakeFiles/turtlesim_generate_messages_cpp.dir/build
-.PHONY : turtlesim_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named turtlesim_generate_messages_eus
-
-# Build rule for target.
-turtlesim_generate_messages_eus: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 turtlesim_generate_messages_eus
-.PHONY : turtlesim_generate_messages_eus
-
-# fast build rule for target.
-turtlesim_generate_messages_eus/fast:
-	$(MAKE) -f learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/build.make learning_joy/CMakeFiles/turtlesim_generate_messages_eus.dir/build
-.PHONY : turtlesim_generate_messages_eus/fast
-
-#=============================================================================
-# Target rules for targets named turtlesim_generate_messages_lisp
-
-# Build rule for target.
-turtlesim_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 turtlesim_generate_messages_lisp
-.PHONY : turtlesim_generate_messages_lisp
-
-# fast build rule for target.
-turtlesim_generate_messages_lisp/fast:
-	$(MAKE) -f learning_joy/CMakeFiles/turtlesim_generate_messages_lisp.dir/build.make learning_joy/CMakeFiles/turtlesim_generate_messages_lisp.dir/build
-.PHONY : turtlesim_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named turtlesim_generate_messages_py
-
-# Build rule for target.
-turtlesim_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 turtlesim_generate_messages_py
-.PHONY : turtlesim_generate_messages_py
-
-# fast build rule for target.
-turtlesim_generate_messages_py/fast:
-	$(MAKE) -f learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/build.make learning_joy/CMakeFiles/turtlesim_generate_messages_py.dir/build
-.PHONY : turtlesim_generate_messages_py/fast
 
 #=============================================================================
 # Target rules for targets named dynamic_reconfigure_gencfg
@@ -1495,15 +1391,7 @@ help:
 	@echo "... ros_dumbobot"
 	@echo "... tf_broadcaster"
 	@echo "... ros_dumbobot_odomtf_node"
-	@echo "... std_srvs_generate_messages_cpp"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... std_srvs_generate_messages_lisp"
-	@echo "... std_srvs_generate_messages_py"
 	@echo "... turtle_teleop_joy"
-	@echo "... turtlesim_generate_messages_cpp"
-	@echo "... turtlesim_generate_messages_eus"
-	@echo "... turtlesim_generate_messages_lisp"
-	@echo "... turtlesim_generate_messages_py"
 	@echo "... dynamic_reconfigure_gencfg"
 	@echo "... dynamic_reconfigure_generate_messages_cpp"
 	@echo "... dynamic_reconfigure_generate_messages_eus"

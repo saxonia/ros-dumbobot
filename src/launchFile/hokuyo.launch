@@ -11,6 +11,4 @@ together with an alpha-beta filter.
 	<!-- <remap from="scan" to="base_scan" /> -->
 	<param name="port" value = "/dev/ttyACM1"/>
   </node>
-
-
 </launch>

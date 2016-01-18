@@ -59,7 +59,6 @@ char calculateChecksum(unsigned char *buffer , unsigned int buffer_size){
     return ((char)(sum & 0xFF)^0xFF);
 }
 
-
 // Create Connection to DUMBOBOT CONTROLLER
 void Controller::connect() {
   if (!serial_) serial_ = new serial::Serial();
@@ -224,7 +223,7 @@ void Controller::driveTutor(int left_speed , int left_dir , int right_speed , in
   // CHECKSUM
     cmd_buffer[10] = calculateChecksum(cmd_buffer,10);
 
-    // Send Packages
+  // Send Packages
     serial_->write(cmd_buffer,11);
 
 }
@@ -250,7 +249,7 @@ void Controller::driveDirect(int left_speed , int left_dir , int right_speed , i
   int16_t leftDirection,rightDirection; //1 FORWARD  2 BACKWARD
   leftDirection = left_dir;
   rightDirection = right_dir;
-  //Driving Command Protocol to Arduino Mega
+  // Driving Command Protocol to Arduino Mega
   // Compose Driving Command
     unsigned char cmd_buffer[11];
   // Headers
@@ -274,7 +273,7 @@ void Controller::driveDirect(int left_speed , int left_dir , int right_speed , i
   // CHECKSUM
     cmd_buffer[10] = calculateChecksum(cmd_buffer,10);
 
-    // Send Packages
+  // Send Packages
     serial_->write(cmd_buffer,11);
 
 }
@@ -286,7 +285,7 @@ void Controller::send_forward(int speed)
   int16_t sent_speed_int  = MAX(speed, DUMBO_MIN_SPEED);  //MINIMUM at 50
       sent_speed_int  = MIN(sent_speed_int, DUMBO_MAX_SPEED);  //MAXIMUM at 100
     std::cout << "FORWARD COMMAND WITH SPEED (BOUNDED) = " << sent_speed_int << std::endl;
-  //Driving Command Protocol to Arduino Mega
+  // Driving Command Protocol to Arduino Mega
   // Compose Driving Command
     unsigned char cmd_buffer[11];
   // Headers
@@ -310,7 +309,7 @@ void Controller::send_forward(int speed)
   // CHECKSUM
     cmd_buffer[10] = calculateChecksum(cmd_buffer,10);
 
-    // Send Packages
+  // Send Packages
     serial_->write(cmd_buffer,11);
 
 }
@@ -341,7 +340,7 @@ void Controller::send_stop(){
   // CHECKSUM
     cmd_buffer[10] = (char)0xE2;
 
-    // Send Packages
+  // Send Packages
     serial_->write(cmd_buffer,11);
 }
 

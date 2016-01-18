@@ -89,10 +89,10 @@ turtle_teleop_joy_EXTERNAL_OBJECTS =
 /home/c3mx/robot/devel/lib/learning_joy/turtle_teleop_joy: /opt/ros/jade/lib/librosconsole_backend_interface.so
 /home/c3mx/robot/devel/lib/learning_joy/turtle_teleop_joy: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
 /home/c3mx/robot/devel/lib/learning_joy/turtle_teleop_joy: /usr/lib/x86_64-linux-gnu/libboost_regex.so
-/home/c3mx/robot/devel/lib/learning_joy/turtle_teleop_joy: /opt/ros/jade/lib/libxmlrpcpp.so
 /home/c3mx/robot/devel/lib/learning_joy/turtle_teleop_joy: /opt/ros/jade/lib/libroscpp_serialization.so
 /home/c3mx/robot/devel/lib/learning_joy/turtle_teleop_joy: /opt/ros/jade/lib/librostime.so
 /home/c3mx/robot/devel/lib/learning_joy/turtle_teleop_joy: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+/home/c3mx/robot/devel/lib/learning_joy/turtle_teleop_joy: /opt/ros/jade/lib/libxmlrpcpp.so
 /home/c3mx/robot/devel/lib/learning_joy/turtle_teleop_joy: /opt/ros/jade/lib/libcpp_common.so
 /home/c3mx/robot/devel/lib/learning_joy/turtle_teleop_joy: /usr/lib/x86_64-linux-gnu/libboost_system.so
 /home/c3mx/robot/devel/lib/learning_joy/turtle_teleop_joy: /usr/lib/x86_64-linux-gnu/libboost_thread.so

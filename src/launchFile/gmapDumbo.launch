@@ -26,9 +26,8 @@ together with an alpha-beta filter.
  <node pkg="gmapping" type="slam_gmapping" name="gmap_node">
 	<param name="delta" value = "0.1"/>
 	<param name="map_update_interval" value="2.0"/>
-        <param name="maxUrange" value="5.0"/>
-        <param name="maxRange" value="6.0"/>
-	<param name="" value= "" />
+  <param name="maxUrange" value="5.0"/>
+  <param name="maxRange" value="6.0"/>
   </node>
 
 </launch>

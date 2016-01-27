@@ -137,7 +137,7 @@ void control_loop_cmd_vel(){
     ros::NodeHandle nh("~");
 
   // Serial Setting
-    std::string port = "/dev/ttyACM2";
+    std::string port = "/dev/ttyACM0";
     int32_t baud = 9600;
     nh.param<std::string>("port", port, port);
     nh.param<int32_t>("baud", baud, baud);

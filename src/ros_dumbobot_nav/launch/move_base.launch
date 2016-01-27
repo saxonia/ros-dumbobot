@@ -3,7 +3,7 @@
 <launch>
 
   <!-- Run the map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/17-MarkCenter.yaml"/> 
+  <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/a20.yaml"/> 
 
   <!--- Run AMCL -->
   <include file="$(find ros_dumbobot_nav)/launch/amcl_dumbo.launch" /> 

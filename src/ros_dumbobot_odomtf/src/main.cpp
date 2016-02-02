@@ -93,7 +93,7 @@ int main(int argc, char **argv)
       double wheel_separation_ = 0.4 * wheel_separation_multiplier;
   // Update Loop (1Hz sec update)
   //ros::Rate r(1.0);
-    ros::Rate r(10);
+   ros::Rate r(10);
   while(n.ok()){
 
     // "Now" timestamp

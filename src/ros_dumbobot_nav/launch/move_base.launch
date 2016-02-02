@@ -8,8 +8,9 @@
   <!--- Run AMCL -->
   <include file="$(find ros_dumbobot_nav)/launch/amcl_dumbo.launch" /> 
 
+  <!--- Run move_base to Automatically control our robot -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">
-	<remap from="cmd_vel" to="/ros_dumbobot/cmd_vel" />
+	  <remap from="cmd_vel" to="/ros_dumbobot/cmd_vel" />
     <rosparam file="$(find ros_dumbobot_nav)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find ros_dumbobot_nav)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find ros_dumbobot_nav)/config/local_costmap_params.yaml" command="load" />

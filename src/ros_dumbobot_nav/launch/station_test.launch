@@ -3,26 +3,18 @@
 	<node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_broadcaster" args="0.165 0.0 0.2 0 0 0 1 base_link laser 100" />
 	<node pkg="tf" type="static_transform_publisher" name="base_link_to_kinect" args="0.165 0.0 0.3 0 0 0 1 base_link camera_link 100" />
 
-	<!-- Run the map server 
- 	 <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/station.yaml"/> -->
-
-
-	<node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen">
+	<!-- <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen">
 	    <param name="port" value="/dev/ttyACM0" />
 	    <!-- <param name="min_arg" value="-2.08621382713" -->
 	    <!-- <param name="max_arg" value="" -->
-	</node>
+	</node> 
+
+
+	/camera/depth_registered/points
+
+	-->
 
 
 
-  <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">
-	  <remap from="cmd_vel" to="/ros_dumbobot/cmd_vel" />
-    <rosparam file="$(find ros_dumbobot_nav)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
-    <rosparam file="$(find ros_dumbobot_nav)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
-    <rosparam file="$(find ros_dumbobot_nav)/config/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find ros_dumbobot_nav)/config/global_costmap_params.yaml" command="load" />
-    <rosparam file="$(find ros_dumbobot_nav)/config/base_local_planner_params.yaml" command="load" />
-
-  </node>
 
 </launch>

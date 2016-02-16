@@ -1,4 +1,4 @@
-TrajectoryPlannerROS:
+TrajectoryPlannerROS: 
 
 ##Robot Type
   holonomic_robot: false
@@ -30,13 +30,11 @@ TrajectoryPlannerROS:
   controller_frequency: 10
   dwa: true
 
-
-
 ##Copy params
 #  heading_lookahead: 0.3
 #  heading_scoring: false
 #  heading_scoring_timestep: 0.1
-#  meter_scoring: false
+  meter_scoring: true
 #  oscillation_reset_dist: 0.05
 #  occdist_scale: 0.05
   publish_cost_grid_pc: true
@@ -44,8 +42,10 @@ TrajectoryPlannerROS:
 
 ##Trajectory Scoring Parameters
   #Goal Tolerance Parameters
-  yaw_goal_tolerance: 0.3
-  xy_goal_tolerance: 0.2
+  yaw_goal_tolerance: 0.8 
+  #0.3
+  xy_goal_tolerance:  0.5 
+  #0.2
 
   
  

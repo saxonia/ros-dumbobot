@@ -12,9 +12,15 @@
 
 
   <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen">
-    <param name="port" value="/dev/ttyACM1" />
-    <!-- <param name="min_arg" value="-2.08621382713" -->
-    <!-- <param name="max_arg" value="" -->
+     <param name="port" value="/dev/ttyACM1" />
+     
+     <param name="min_range" value="0.3" />
+     <param name="min_arg" value="-2.086"/>
+     <param name="max_arg" value=" 2.092"/>
+  </node>
+  
+  <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_filter">
+      <rosparam file="$(find ros_dumbobot_nav)/config/laser_threshold.yaml" />
   </node>
 
   <node pkg="ros_dumbobot" type="ros_dumbobot" name="ros_dumbobot" output="screen">

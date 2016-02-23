@@ -1,0 +1,8 @@
+prefix=/home/c3mx/robot/devel
+
+Name: yocs_velocity_smoother
+Description: Description of yocs_velocity_smoother
+Version: 0.7.0
+Cflags: -I/home/c3mx/robot/devel/include -I/home/c3mx/robot/src/yocs_velocity_smoother/include
+Libs: -L/home/c3mx/robot/devel/lib -lyocs_velocity_smoother_nodelet
+Requires: roscpp pluginlib nodelet ecl_threads dynamic_reconfigure geometry_msgs nav_msgs

@@ -5,36 +5,49 @@ TrajectoryPlannerROS:
 
 ##Acceleration (Meter/Sec^2)
   #Linear 
-  acc_lim_x: 0.05
+  acc_lim_x: 0.5
+  #0.05
   #Angular (0.1)
-  acc_lim_theta: 0.05
+  acc_lim_theta: 2.5 
+  #2.5
   
 ##Max Velocities Limit 
   #Linear (0.5)
   max_vel_x: 0.30 
   #Angular (1.4)
-  max_vel_theta: 0.7
+  max_vel_theta: 1.7
+  #0.7 ##0.5 
 
 ##Min Velocities To Overcome Friction
   min_vel_x: 0.10 
-  min_in_place_vel_theta: 1.2 
+  min_in_place_vel_theta : 1.6
+  min_in_place_rotational_vel: 1.5
+  #min_in_place_vel_theta: 1.6 
   
 ##Forward Simulation Parameters
   #Think Forward (sec) 2 ->3 ->5
   sim_time: 3
   #Think Forward by Distance 0.05 (metres)
   sim_granularity: 0.05
-  #angular_sim_granularity: 0.05
-  vx_samples: 3
+  angular_sim_granularity: 0.05
+  vx_samples: 15
+  #3
   
-  controller_frequency: 10
+  controller_frequency: 20
   dwa: true
 
 ##Copy params
-#  heading_lookahead: 0.3
-#  heading_scoring: false
-#  heading_scoring_timestep: 0.1
-  meter_scoring: true
+  heading_lookahead: 0.3
+  heading_scoring: true
+  heading_scoring_timestep : 0.3
+  #heading_scoring_timestep: 0.1
+  meter_scoring: false
+  pdist_scale: 0.6
+  #0.4
+  gdist_scale: 0.8
+  #0.8
+  occdist_scale: 0.05
+
 #  oscillation_reset_dist: 0.05
 #  occdist_scale: 0.05
   publish_cost_grid_pc: true
@@ -42,10 +55,10 @@ TrajectoryPlannerROS:
 
 ##Trajectory Scoring Parameters
   #Goal Tolerance Parameters
-  yaw_goal_tolerance: 0.8 
+  yaw_goal_tolerance: 1.5 
   #0.3
-  xy_goal_tolerance:  0.5 
-  #0.2
+  xy_goal_tolerance:  0.5
+  #0.5
 
   
  

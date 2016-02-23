@@ -3,7 +3,7 @@
 
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_broadcaster" args="0.165 0.0 0.355 0 0 0 1 base_link laser 100" />
 
-    <node pkg="tf" type="static_transform_publisher" name="base_link_to_kinect" args="0.245 0.0 0.810 0 0 0 1 base_link camera_link 100" />
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_kinect" args="0.245 0.0 0.810 0 0 0 1 base_link camera_link 100" />
 
 
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_leftWheel" args="-0.1 0.2 0.0 0 0 0 1 base_link leftWheel 100" />
@@ -18,6 +18,8 @@
      <param name="min_arg" value="-2.086"/>
      <param name="max_arg" value=" 2.092"/>
   </node>
+  
+  
   
   <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_filter">
       <rosparam file="$(find ros_dumbobot_nav)/config/laser_threshold.yaml" />

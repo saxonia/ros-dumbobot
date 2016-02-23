@@ -1,0 +1,8 @@
+prefix=/home/c3mx/robot/devel
+
+Name: rplidar_ros
+Description: Description of rplidar_ros
+Version: 1.0.1
+Cflags: 
+Libs: -L/home/c3mx/robot/devel/lib 
+Requires: 

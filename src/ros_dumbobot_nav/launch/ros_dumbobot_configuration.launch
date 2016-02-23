@@ -1,34 +1,42 @@
 <!-- Launch File For ros-Dumbobot Base -->
 <launch>
+  
+  <!---Joystick Controller Node-->
+  <include file="$(find learning_joy)/launch/ros_dumbobot_joy.launch" output="screen"/> 
 
+  <!--- Static Parts Transformation Broadcaster -->
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_broadcaster" args="0.165 0.0 0.355 0 0 0 1 base_link laser 100" />
 
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_kinect" args="0.245 0.0 0.810 0 0 0 1 base_link camera_link 100" />
-
 
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_leftWheel" args="-0.1 0.2 0.0 0 0 0 1 base_link leftWheel 100" />
 
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_rightWheel" args="-0.1, -0.2, 0.0 0 0 0 1 base_link rightWheel 100" />
 
-
+  <!--- Hokuyo Laser Node -->
   <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen">
      <param name="port" value="/dev/ttyACM1" />
-     
      <param name="min_range" value="0.3" />
      <param name="min_arg" value="-2.086"/>
      <param name="max_arg" value=" 2.092"/>
   </node>
   
   
-  
+  <!--- Laser Filter Node -->
   <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_filter">
       <rosparam file="$(find ros_dumbobot_nav)/config/laser_threshold.yaml" />
   </node>
 
+  <!--- Run Velocity Smoother -->
+  <include file="$(find yocs_velocity_smoother)/launch/standalone.launch" /> 
+
+  
+  <!--- Hardware Controller Node -->
   <node pkg="ros_dumbobot" type="ros_dumbobot" name="ros_dumbobot" output="screen">
   </node>
 
-   <node pkg="ros_dumbobot_odomtf" type="ros_dumbobot_odomtf_node" name="ros_dumbobot_odomtf_node" output="screen">
+  <!--- Encoder + transformation Node -->
+  <node pkg="ros_dumbobot_odomtf" type="ros_dumbobot_odomtf_node" name="ros_dumbobot_odomtf_node" output="screen">
   </node>
 
 </launch>

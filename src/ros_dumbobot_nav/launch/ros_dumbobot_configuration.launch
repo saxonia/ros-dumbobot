@@ -21,7 +21,14 @@
      <param name="max_arg" value=" 2.092"/>
   </node>
   
-  
+
+  <!--- fake laser -->
+  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depth2laser" output="screen">
+      <remap from="image" to="/camera/depth/image_raw"/>
+     <remap from="/scan" to="/camera/scan" />
+      <param name="scan_height" value="30" />
+  </node>
+
   <!--- Laser Filter Node -->
   <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_filter">
       <rosparam file="$(find ros_dumbobot_nav)/config/laser_threshold.yaml" />

@@ -21,7 +21,7 @@ TrajectoryPlannerROS:
 ##Min Velocities To Overcome Friction
   min_vel_x: 0.10 
   min_in_place_vel_theta : 1.6
-  min_in_place_rotational_vel: 1.5
+  min_in_place_rotational_vel: 1.7
   #min_in_place_vel_theta: 1.6 
   
 ##Forward Simulation Parameters
@@ -46,7 +46,7 @@ TrajectoryPlannerROS:
   #0.4
   gdist_scale: 0.8
   #0.8
-  occdist_scale: 0.1 
+  occdist_scale: 0.2 
   #0.05
 
 #  oscillation_reset_dist: 0.05

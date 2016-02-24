@@ -185,8 +185,7 @@ int Controller::ser_send_avail(){
   return read;
 } 
 
-void Controller::driveTutor(int left_speed , int left_dir , int right_speed , int right_dir)
-{
+void Controller::driveTutor(int left_speed , int left_dir , int right_speed , int right_dir){
 
   // Limit velocity
   int16_t leftSpeed  = MAX(left_speed, DUMBO_MIN_SPEED);  //MINIMUM at 50
@@ -264,11 +263,11 @@ void Controller::driveDirect(int left_speed , int left_dir , int right_speed , i
     cmd_buffer[5] = (char)0x14; // ('1' x 16 ) + ('4') = 020
   // Direction        V - Right Motor
     cmd_buffer[6] = (char)(rightDirection & 0xFF);
-  // Velocity Amount    V - Right Motor
+  // Velocity Amount  V - Right Motor
     cmd_buffer[7] = (char)(rightSpeed & 0xFF);
   // Direction        V - Left Motor
     cmd_buffer[8] = (char)(leftDirection & 0xFF);
-  // Velocity Amount    V - Left Motor
+  // Velocity Amount  V - Left Motor
     cmd_buffer[9] = (char)(leftSpeed & 0xFF);
   // CHECKSUM
     cmd_buffer[10] = calculateChecksum(cmd_buffer,10);

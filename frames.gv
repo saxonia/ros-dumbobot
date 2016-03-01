@@ -1,10 +1,13 @@
 digraph G {
-"odom" -> "base_link"[label="Broadcaster: /ros_dumbobot_odomtf_node\nAverage rate: 100.199 Hz\nMost recent transform: 1452714908.037 ( 0.009 sec old)\nBuffer length: 4.980 sec\n"];
-"base_link" -> "laser"[label="Broadcaster: /base_link_to_laser_broadcaster\nAverage rate: 10.192 Hz\nMost recent transform: 1452714908.072 ( -0.026 sec old)\nBuffer length: 4.906 sec\n"];
-"base_link" -> "leftWheel"[label="Broadcaster: /base_link_to_leftWheel\nAverage rate: 10.192 Hz\nMost recent transform: 1452714908.072 ( -0.026 sec old)\nBuffer length: 4.906 sec\n"];
-"base_link" -> "rightWheel"[label="Broadcaster: /base_link_to_rightWheel\nAverage rate: 10.193 Hz\nMost recent transform: 1452714908.082 ( -0.035 sec old)\nBuffer length: 4.905 sec\n"];
+"map" -> "map_costed"[label="Broadcaster: /static_tf1\nAverage rate: 10.195 Hz\nMost recent transform: 1456800641.133 ( -0.056 sec old)\nBuffer length: 4.904 sec\n"];
+"base_link" -> "camera_link"[label="Broadcaster: /base_link_to_kinect\nAverage rate: 10.199 Hz\nMost recent transform: 1456800641.083 ( -0.006 sec old)\nBuffer length: 4.804 sec\n"];
+"odom" -> "base_link"[label="Broadcaster: /ros_dumbobot_odomtf_node\nAverage rate: 10.208 Hz\nMost recent transform: 1456800640.989 ( 0.088 sec old)\nBuffer length: 4.800 sec\n"];
+"base_link" -> "laser"[label="Broadcaster: /base_link_to_laser_broadcaster\nAverage rate: 10.199 Hz\nMost recent transform: 1456800641.086 ( -0.009 sec old)\nBuffer length: 4.804 sec\n"];
+"base_link" -> "leftWheel"[label="Broadcaster: /base_link_to_leftWheel\nAverage rate: 10.199 Hz\nMost recent transform: 1456800641.090 ( -0.013 sec old)\nBuffer length: 4.804 sec\n"];
+"base_link" -> "rightWheel"[label="Broadcaster: /base_link_to_rightWheel\nAverage rate: 10.200 Hz\nMost recent transform: 1456800641.091 ( -0.014 sec old)\nBuffer length: 4.804 sec\n"];
+"map" -> "odom"[label="Broadcaster: /amcl\nAverage rate: 10.154 Hz\nMost recent transform: 1456800641.115 ( -0.038 sec old)\nBuffer length: 4.826 sec\n"];
 edge [style=invis];
  subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
-"Recorded at time: 1452714908.046"[ shape=plaintext ] ;
- }->"odom";
+"Recorded at time: 1456800641.077"[ shape=plaintext ] ;
+ }->"map";
 }

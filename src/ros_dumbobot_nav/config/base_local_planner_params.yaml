@@ -5,8 +5,8 @@ TrajectoryPlannerROS:
 
 ##Acceleration (Meter/Sec^2)
   #Linear 
-  acc_lim_x: 0.5
-  #0.05
+  acc_lim_x: 1.0
+  #0.5
   #Angular (0.1)
   acc_lim_theta: 2.5 
   #2.5
@@ -20,33 +20,36 @@ TrajectoryPlannerROS:
 
 ##Min Velocities To Overcome Friction
   min_vel_x: 0.10 
-  min_in_place_vel_theta : 1.6
+  min_in_place_vel_theta : 1.7
   min_in_place_rotational_vel: 1.7
   #min_in_place_vel_theta: 1.6 
   
 ##Forward Simulation Parameters
   #Think Forward (sec) 2 ->3
-  sim_time: 2
+  sim_time: 5
+  #2
   #Think Forward by Distance 0.05 (metres)
   sim_granularity: 0.05
-  angular_sim_granularity: 0.05
+  angular_sim_granularity: 0.15
+  #0.05
   vx_samples: 15
   #3
-  
+  vtheta_samples: 20
   controller_frequency: 20
   dwa: true
 
 ##Copy params
   heading_lookahead: 0.3
+  #0.3
   heading_scoring: true
   heading_scoring_timestep : 0.3
-  #heading_scoring_timestep: 0.1
+  #heading_scoring_timestep: 0.3
   meter_scoring: false
   pdist_scale: 0.6
   #0.4
   gdist_scale: 0.8
   #0.8
-  occdist_scale: 0.2 
+  occdist_scale: 0.2
   #0.05
 
 #  oscillation_reset_dist: 0.05
@@ -59,9 +62,4 @@ TrajectoryPlannerROS:
   yaw_goal_tolerance: 0.3
   #0.3
   xy_goal_tolerance:  0.5
-  #0.5
-
-  
- 
-  
- 
+  #0.5  

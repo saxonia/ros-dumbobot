@@ -1,17 +1,25 @@
 <!-- Launch File For Move_base Automatic Navigation System -->
 
 <launch>
+  <!-- Run the map server For GLOBAL COSTMAP 
+  <node name="static_tf0" pkg="tf" type="static_transform_publisher" args="2 0 0 0 0 0 /map_costed /base_link 100"/>-->
+  <node name="static_tf1" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /map /map_costed 100"/>
+  <node name="map_server2" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/17global.yaml">
+    <remap from="/map" to="/map_costed"/>
+    <param name="frame_id" value="/map_costed"/>
+  </node>
 
-  <!-- Run the map server -->
-  <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/a20.yaml"/> 
+  <!-- Run the map server For LOCALIZTION-->
+  <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/17.yaml"/> 
 
   <!--- Run AMCL -->
   <include file="$(find ros_dumbobot_nav)/launch/amcl_dumbo.launch" /> 
 
   <!--- Run move_base to Automatically control our robot -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">
-	   <!---<remap from="cmd_vel" to="/ros_dumbobot/cmd_vel" /> -->
-     <remap from="cmd_vel" to="/ros_dumbobot/raw_cmd_vel" />
+    <remap from="cmd_vel" to="/ros_dumbobot/raw_cmd_vel" />
+    <remap from="/map" to="/map_costed"/>
+    <param name="planner_frequency" value="10"/>
     <rosparam file="$(find ros_dumbobot_nav)/config/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find ros_dumbobot_nav)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find ros_dumbobot_nav)/config/local_costmap_params.yaml" command="load" />

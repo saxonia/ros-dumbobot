@@ -88,11 +88,11 @@ int main(int argc, char **argv)
     //tick Width = 4975 tick per meters
       double ticks_meter = 4975;//5000;//4975;
       double wheel_radius_multiplier = 1.0;
-      double wheel_radius_ = 0.1 * wheel_radius_multiplier;
+      double wheel_radius_ = 0.095 * wheel_radius_multiplier;
       double wheel_separation_multiplier = 1.7;
       double wheel_separation_ = 0.4 * wheel_separation_multiplier;
   // Update Loop (1Hz sec update)
-  //ros::Rate r(1.0);
+  //ros::Rate r(10);
    ros::Rate r(10);
   while(n.ok()){
 

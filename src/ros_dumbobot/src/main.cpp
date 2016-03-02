@@ -47,29 +47,88 @@ void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg) {
  */
   linear_x = msg->linear.x;
   angular_z = msg->angular.z;
+
+  if(linear_x == -0.00)linear_x = 0;
+  if(angular_z == -0.00)angular_z = 0;
+
 }
 
-void test(){
 
-  while(true){
-      controller->driveTutor(255,1,255,1);
-      controller->send_read_encoder();
-      //ticks = controller->read_encoder();
-      double tick = controller->readtick();
-      std::cout << "tick = " << tick <<std::endl;
-      std::cout << "tickmod = " << (int)tick % (int)oneRound <<std::endl;
-      if((int)tick % (int)oneRound < 100 && (int)tick >500){
-        break;
-      }
-    }
+void control_loop_cmd_vel_new(){
 
-  controller->send_stop();
+  // Params
+  double width_robot = 0.4; //40 CM from Wheel to Wheel
+  double wheelRadius = 0.095; //9.5 CM Wheel Center to Circumference
+  double wheel_separation_multiplier = 1.6;
+  double wheel_separation = width_robot * wheel_separation_multiplier; //Wheel Separation
+
+
+  // Compute wheels velocities:
+    const double vel_left  = (linear_x- angular_z * wheel_separation / 2.0);
+    const double vel_right = (linear_x+ angular_z * wheel_separation / 2.0);
+
+  // Assign Power to each wheels
+  vl = vel_left ; 
+  vr = vel_right ;
+
+  // // Limitors
+  // vl = MAX(vl , -0.60);
+  // vr = MAX(vr , -0.60);
+  // vl = MIN(vl , 0.60);
+  // vr = MIN(vr , 0.60);
+
+  if(vl > 0.6){
+    double over_vl = vl-0.6;
+    vl = vl - over_vl;
+  }else if (vl < -0.6){
+    double over_vl = vl +0.6;
+    vl = vl - over_vl;
+  }
+
+  if(vr > 0.6){
+    double over_vr = vr-0.6;
+    vr = vr - over_vr;
+  }else if (vr < -0.6){
+    double over_vr = vr +0.6;
+    vr = vr - over_vr;
+  }
+
+
+
+  //std::cout << "LEFT VELO = " << vl <<std::endl;
+  //std::cout << "RIGHT VELO = " << vr <<std::endl;
+
+  // Direction Bits
+  left_dir = (vl < 0)? 2:1;
+  right_dir = (vr < 0)? 2:1;
+
+  // Transmission Power
+  // Scaler to meet Byte (0-255)
+  int command_vl = (vl/0.60)*255;
+  int command_vr = (vr/0.60)*255;
+
+  //std::cout << "LEFT : " << command_vl << "   RIGHT :  " << command_vr <<std::endl;
+
+  // Absolute the Command message since the direction base on the direction bit
+  // only the magnitude needed
+  command_vl = (command_vl < 0 )? -command_vl:command_vl; 
+  command_vr = (command_vr < 0 )? -command_vr:command_vr;
+
+  // Send Drive Command
+  controller->driveDirect(command_vl,left_dir,command_vr,right_dir);
+
+  // Request to Read Encoder Everytime That Driving Command Sends
   controller->send_read_encoder();
-  controller->read_encoder();
 
-  usleep(5000 * 1000);
+  // Read the incoming Encoder in Vector3 Format (L , R , NULL)
+  /*
+      3126 ticks Per Revolute
+      Dumbobot use Absolute Encoder 
+      it counts since the robot turned on.
+  */
+  ticks = controller->read_encoder();
+}
 
-  } 
 
 void control_loop_cmd_vel(){
 
@@ -87,8 +146,6 @@ void control_loop_cmd_vel(){
   // Assign Power to each wheels
   vl = leftPower ; 
   vr = rightPower ;
-
-
 
   // Limitors
   vl = MAX(vl , -0.60);
@@ -174,7 +231,7 @@ void control_loop_cmd_vel(){
               //test();
            }
               // Main Control Loop
-              control_loop_cmd_vel();
+              control_loop_cmd_vel_new();
               // Publish Encoder to system
               wheel_encoder_pub.publish(ticks);
               // Sleep Between Loops

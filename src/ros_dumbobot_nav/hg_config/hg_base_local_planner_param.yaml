@@ -1,7 +1,7 @@
 TrajectoryPlannerROS:
   acc_lim_x: 0.5 
   # 1 m/s^2
-  acc_lim_theta: 1.2 # 3 rad/s^2
+  acc_lim_theta: 0.8 #1.2 # 3 rad/s^2
   
   max_vel_x: 0.2 
   # m/s
@@ -13,7 +13,7 @@ TrajectoryPlannerROS:
   min_in_place_vel_theta: 1.6 # rad/s
   min_in_place_rotational_vel: 1.6 #rad/s
   
-  backup_vel: -0.1 # m/s
+  
   escape_vel: -0.1 # m/s
   
   holonomic_robot: false
@@ -22,13 +22,13 @@ TrajectoryPlannerROS:
 ##Copy params
   heading_lookahead: 0.3
   #0.3
-  heading_scoring: true
+  heading_scoring: false
   heading_scoring_timestep : 0.3
   #heading_scoring_timestep: 0.3
   meter_scoring: false
-  pdist_scale: 0.8
+  pdist_scale: 0.4
   #0.4
-  gdist_scale: 0.6
+  gdist_scale: 0.8
   #0.8
   occdist_scale: 0.4
   #0.05
@@ -38,7 +38,7 @@ TrajectoryPlannerROS:
   ###
   # Goal Tolerance Parameters
   yaw_goal_tolerance: 0.3  # 0.15 rad
-  xy_goal_tolerance: 0.5  #0.1 m
+  xy_goal_tolerance: 0.6  #0.1 m
   # latch_xy_goal_tolerance: false
   
   #The amount of time to forward-simulate trajectories in seconds  
@@ -48,7 +48,7 @@ TrajectoryPlannerROS:
   sim_granularity: 0.025
   
   #The step size, in radians, to take between angular samples on a given trajectory
-  angular_sim_granularity: 0.05 
+  angular_sim_granularity: 0.025 
   #0.025
   
   #The number of samples to use when exploring the x velocity space

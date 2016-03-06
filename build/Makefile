@@ -1220,6 +1220,19 @@ tf_broadcaster/fast:
 .PHONY : tf_broadcaster/fast
 
 #=============================================================================
+# Target rules for targets named twist_to_motor
+
+# Build rule for target.
+twist_to_motor: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 twist_to_motor
+.PHONY : twist_to_motor
+
+# fast build rule for target.
+twist_to_motor/fast:
+	$(MAKE) -f ros_dumbobot/CMakeFiles/twist_to_motor.dir/build.make ros_dumbobot/CMakeFiles/twist_to_motor.dir/build
+.PHONY : twist_to_motor/fast
+
+#=============================================================================
 # Target rules for targets named ros_dumbobot_odomtf_node
 
 # Build rule for target.
@@ -1548,6 +1561,7 @@ help:
 	@echo "... diagnostic_msgs_generate_messages_py"
 	@echo "... ros_dumbobot"
 	@echo "... tf_broadcaster"
+	@echo "... twist_to_motor"
 	@echo "... ros_dumbobot_odomtf_node"
 	@echo "... turtle_teleop_joy"
 	@echo "... dynamic_reconfigure_gencfg"

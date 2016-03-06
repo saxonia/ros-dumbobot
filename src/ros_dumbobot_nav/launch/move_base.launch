@@ -2,12 +2,12 @@
 
 <launch>
   <!-- Run the map server For GLOBAL COSTMAP 
-  <node name="static_tf0" pkg="tf" type="static_transform_publisher" args="2 0 0 0 0 0 /map_costed /base_link 100"/>
-  <node name="static_tf1" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /map /map_costed 100"/>
+  <!-- <node name="static_tf0" pkg="tf" type="static_transform_publisher" args="2 0 0 0 0 0 /map_costed /base_link 100"/> -->
+  <!-- <node name="static_tf1" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 /map /map_costed 100"/> -->
   <node name="map_server2" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/17global.yaml">
     <remap from="/map" to="/map_costed"/>
     <param name="frame_id" value="/map_costed"/>
-  </node> -->
+  </node> 
 
   <!-- Run the map server For LOCALIZTION-->
   <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/a20.yaml"/> 

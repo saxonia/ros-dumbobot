@@ -37,47 +37,12 @@ void WheelCallback(const geometry_msgs::Vector3::ConstPtr& ticks){
     //std::cout << "Got Right Encoder  = " << right_encoder <<std::endl;
 }
 
-
-/*void publish_tf(){
-
-
-  // Publish The Static Transform of ROBOT Periodically  
-  tf::TransformBroadcaster broadcaster;
-
-  broadcaster.sendTransform(
-    tf::StampedTransform(
-    tf::Transform(tf::Quaternion(0, 0, 0, 1), 
-    tf::Vector3(0.165, 0.0, 0.2)),
-    ros::Time::now(),
-    "base_link", 
-    "laser"
-  ));
-  broadcaster.sendTransform( //TODO : USE LEFTTICK*METERperTICK
-    tf::StampedTransform(
-    tf::Transform(tf::Quaternion(0, 0, 0, 1), 
-    tf::Vector3(-0.1, -0.2, 0.0)),
-    ros::Time::now(),
-    "base_link", 
-    "leftWheel"
-  ));
-  broadcaster.sendTransform( //TODO : USE RIGHTTICK*METERperTICK
-    tf::StampedTransform(
-    tf::Transform(tf::Quaternion(0, 0, 0, 1), 
-    tf::Vector3(-0.1, 0.2, 0.0)),
-    ros::Time::now(),
-    "base_link", 
-    "rightWheel"
-  ));
-
-}
-*/
-
 int main(int argc, char **argv)
 {
   ros::init(argc, argv, "odometry_publisher");
   ros::NodeHandle n;
   ros::Subscriber sub = n.subscribe("/ros_dumbobot/wheel_encoder", 10, WheelCallback);
-  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);   
+  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);   //50
   tf::TransformBroadcaster odom_broadcaster;
 
   //Initialize Timer 
@@ -89,7 +54,7 @@ int main(int argc, char **argv)
       double ticks_meter = 4975;//5000;//4975;
       double wheel_radius_multiplier = 1.0;
       double wheel_radius_ = 0.095 * wheel_radius_multiplier;
-      double wheel_separation_multiplier = 1.7;
+      double wheel_separation_multiplier = 1.6; //1.7
       double wheel_separation_ = 0.4 * wheel_separation_multiplier;
   // Update Loop (1Hz sec update)
   //ros::Rate r(10);

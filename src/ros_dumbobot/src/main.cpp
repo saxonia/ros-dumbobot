@@ -41,6 +41,8 @@ double oneRound = 3125;
 //Odom and tf 
 geometry_msgs::Vector3 ticks;
 
+//
+
 void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg) {
  /*
     CHANGE SOME GLOBAL VAR WHICH IS USE IN CONTROLLOOP()
@@ -53,6 +55,25 @@ void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg) {
 
 }
 
+void control_loop_cmd_vel_pid(){
+  // Params
+    double width_robot = 0.4; //40 CM from Wheel to Wheel
+    double wheelRadius = 0.095; //9.5 CM Wheel Center to Circumference
+    double wheel_separation_multiplier = 1.6;
+    double wheel_separation = width_robot * wheel_separation_multiplier; //Wheel Separation
+
+  // Compute wheels velocities:
+    const double vel_left  = (linear_x- angular_z * wheel_separation / 2.0);
+    const double vel_right = (linear_x+ angular_z * wheel_separation / 2.0);
+
+  // Assign Power to each wheels
+  vl = vel_left ; 
+  vr = vel_right ;
+
+  // Publish To PID Controller 
+  
+
+}
 
 void control_loop_cmd_vel_new(){
 
@@ -71,12 +92,6 @@ void control_loop_cmd_vel_new(){
   vl = vel_left ; 
   vr = vel_right ;
 
-  // // Limitors
-  // vl = MAX(vl , -0.60);
-  // vr = MAX(vr , -0.60);
-  // vl = MIN(vl , 0.60);
-  // vr = MIN(vr , 0.60);
-
   if(vl > 0.6){
     double over_vl = vl-0.6;
     vl = vl - over_vl;
@@ -93,6 +108,11 @@ void control_loop_cmd_vel_new(){
     vr = vr - over_vr;
   }
 
+  // Limitors
+  vl = MAX(vl , -0.60);
+  vr = MAX(vr , -0.60);
+  vl = MIN(vl , 0.60);
+  vr = MIN(vr , 0.60);
 
 
   //std::cout << "LEFT VELO = " << vl <<std::endl;
@@ -121,11 +141,11 @@ void control_loop_cmd_vel_new(){
   controller->send_read_encoder();
 
   // Read the incoming Encoder in Vector3 Format (L , R , NULL)
-  /*
-      3126 ticks Per Revolute
-      Dumbobot use Absolute Encoder 
-      it counts since the robot turned on.
-  */
+    /*
+        3126 ticks Per Revolute
+        Dumbobot use Absolute Encoder 
+        it counts since the robot turned on.
+    */
   ticks = controller->read_encoder();
 }
 

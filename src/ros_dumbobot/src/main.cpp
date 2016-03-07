@@ -75,59 +75,70 @@ void control_loop_cmd_vel_pid(){
 
 }
 
+bool inRange (double val ,double min , double max){
+  return (val <= max)? (val>=min)? true:false :false;
+}
+
+double absolut(double val){
+  return (val < 0)? -val:val;
+}
+
+bool turning_check(){
+
+}
+
+// Receive Linear and Angular Velocity and Turn into Motor Effort [-255,255]
 void control_loop_cmd_vel_new(){
 
-  // Params
-  double width_robot = 0.4; //40 CM from Wheel to Wheel
-  double wheelRadius = 0.095; //9.5 CM Wheel Center to Circumference
-  double wheel_separation_multiplier = 1.6;
-  double wheel_separation = width_robot * wheel_separation_multiplier; //Wheel Separation
+  // Constant Params
+    const double maximum_linear = 0.60;
+    const double maximum_angular = 1.78;
+    double width_robot = 0.4; //40 CM from Wheel to Wheel
+    double wheelRadius = 0.095; //9.5 CM Wheel Center to Circumference
+    double wheel_separation_multiplier = 1.7;
+    double wheel_separation = width_robot * wheel_separation_multiplier; //Wheel Separation
 
+  // Scale Linear and Angular Velocity onto [-1,1]
+    double linear_x_scaled = linear_x / maximum_linear ;
+    double angular_z_scaled = angular_z / maximum_angular;
+    angular_z_scaled *= 2;
+    //std::cout << "Linear_x  = " <<linear_x_scaled <<std::endl;
+    //std::cout << "Angular_Z = " << angular_z_scaled <<std::endl;
 
-  // Compute wheels velocities:
-    const double vel_left  = (linear_x- angular_z * wheel_separation / 2.0);
-    const double vel_right = (linear_x+ angular_z * wheel_separation / 2.0);
+  // Compute wheels velocities: [DIFF DRIVE MODEL]
+    // const double vel_left  = (linear_x - angular_z * wheel_separation / 2.0);
+    // const double vel_right = (linear_x + angular_z * wheel_separation / 2.0);
+    double vel_left  = (linear_x_scaled - angular_z_scaled);
+    double vel_right = (linear_x_scaled + angular_z_scaled);
+    
+
+    if( fabs(vel_left) > 1.0 )
+    {
+      vel_right /= fabs(vel_left);
+      vel_left /= fabs(vel_left);
+    }
+
+    if( fabs(vel_right) > 1.0 )
+    {
+      vel_left /= fabs(vel_right);
+      vel_right /= fabs(vel_right);
+    }
+
+    std::cout << "Velocity[-1,1] : " << vel_left << " , " << vel_right << std::endl;
 
   // Assign Power to each wheels
-  vl = vel_left ; 
-  vr = vel_right ;
+    vl = vel_left ; 
+    vr = vel_right ;
 
-  if(vl > 0.6){
-    double over_vl = vl-0.6;
-    vl = vl - over_vl;
-  }else if (vl < -0.6){
-    double over_vl = vl +0.6;
-    vl = vl - over_vl;
-  }
-
-  if(vr > 0.6){
-    double over_vr = vr-0.6;
-    vr = vr - over_vr;
-  }else if (vr < -0.6){
-    double over_vr = vr +0.6;
-    vr = vr - over_vr;
-  }
-
-  // Limitors
-  vl = MAX(vl , -0.60);
-  vr = MAX(vr , -0.60);
-  vl = MIN(vl , 0.60);
-  vr = MIN(vr , 0.60);
-
-
-  //std::cout << "LEFT VELO = " << vl <<std::endl;
-  //std::cout << "RIGHT VELO = " << vr <<std::endl;
+  // Scaler 
+  int command_vl = (vl) * 255;
+  int command_vr = (vr) * 255;
 
   // Direction Bits
   left_dir = (vl < 0)? 2:1;
   right_dir = (vr < 0)? 2:1;
 
-  // Transmission Power
-  // Scaler to meet Byte (0-255)
-  int command_vl = (vl/0.60)*255;
-  int command_vr = (vr/0.60)*255;
-
-  //std::cout << "LEFT : " << command_vl << "   RIGHT :  " << command_vr <<std::endl;
+  std::cout << "Velocity  : " << command_vl << " , " << command_vr << std::endl;  
 
   // Absolute the Command message since the direction base on the direction bit
   // only the magnitude needed

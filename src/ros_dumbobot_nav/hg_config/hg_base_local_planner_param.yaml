@@ -1,7 +1,8 @@
 TrajectoryPlannerROS:
   acc_lim_x: 0.1 
   # 1 m/s^2
-  acc_lim_theta: 0.5 
+  acc_lim_theta: 2.0 
+  #1.2 
   #1.2 # 3 rad/s^2
   
   max_vel_x: 0.3 

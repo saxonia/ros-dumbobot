@@ -12,7 +12,7 @@
  <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/17.yaml"/> 
 
   <!--- Run AMCL -->
-  <include file="$(find ros_dumbobot_nav)/launch/amcl_dumbo.launch" /> 
+  <include file="$(find ros_dumbobot_nav)/launch/hg_amcl_dumbo.launch" /> 
 
   <!--- Run move_base to Automatically control our robot -->
   <node pkg="move_base" type="move_base" respawn="false" name="move_base_node" output="screen">

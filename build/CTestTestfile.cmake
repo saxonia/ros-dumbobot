@@ -7,6 +7,7 @@
 subdirs(gtest)
 subdirs(slam_gmapping)
 subdirs(rplidar_ros)
+subdirs(simple_navigation_goals)
 subdirs(gmapping)
 subdirs(ros_dumbobot)
 subdirs(ros_dumbobot_odomtf)

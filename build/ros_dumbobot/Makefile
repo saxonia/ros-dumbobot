@@ -237,20 +237,6 @@ tf_broadcaster/fast:
 	cd /home/c3mx/robot/build && $(MAKE) -f ros_dumbobot/CMakeFiles/tf_broadcaster.dir/build.make ros_dumbobot/CMakeFiles/tf_broadcaster.dir/build
 .PHONY : tf_broadcaster/fast
 
-# Convenience name for target.
-ros_dumbobot/CMakeFiles/twist_to_motor.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ros_dumbobot/CMakeFiles/twist_to_motor.dir/rule
-.PHONY : ros_dumbobot/CMakeFiles/twist_to_motor.dir/rule
-
-# Convenience name for target.
-twist_to_motor: ros_dumbobot/CMakeFiles/twist_to_motor.dir/rule
-.PHONY : twist_to_motor
-
-# fast build rule for target.
-twist_to_motor/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ros_dumbobot/CMakeFiles/twist_to_motor.dir/build.make ros_dumbobot/CMakeFiles/twist_to_motor.dir/build
-.PHONY : twist_to_motor/fast
-
 src/controller.o: src/controller.cpp.o
 .PHONY : src/controller.o
 
@@ -323,30 +309,6 @@ src/tf_broadcaster.cpp.s:
 	cd /home/c3mx/robot/build && $(MAKE) -f ros_dumbobot/CMakeFiles/tf_broadcaster.dir/build.make ros_dumbobot/CMakeFiles/tf_broadcaster.dir/src/tf_broadcaster.cpp.s
 .PHONY : src/tf_broadcaster.cpp.s
 
-src/twist_to_motor.o: src/twist_to_motor.cpp.o
-.PHONY : src/twist_to_motor.o
-
-# target to build an object file
-src/twist_to_motor.cpp.o:
-	cd /home/c3mx/robot/build && $(MAKE) -f ros_dumbobot/CMakeFiles/twist_to_motor.dir/build.make ros_dumbobot/CMakeFiles/twist_to_motor.dir/src/twist_to_motor.cpp.o
-.PHONY : src/twist_to_motor.cpp.o
-
-src/twist_to_motor.i: src/twist_to_motor.cpp.i
-.PHONY : src/twist_to_motor.i
-
-# target to preprocess a source file
-src/twist_to_motor.cpp.i:
-	cd /home/c3mx/robot/build && $(MAKE) -f ros_dumbobot/CMakeFiles/twist_to_motor.dir/build.make ros_dumbobot/CMakeFiles/twist_to_motor.dir/src/twist_to_motor.cpp.i
-.PHONY : src/twist_to_motor.cpp.i
-
-src/twist_to_motor.s: src/twist_to_motor.cpp.s
-.PHONY : src/twist_to_motor.s
-
-# target to generate assembly for a file
-src/twist_to_motor.cpp.s:
-	cd /home/c3mx/robot/build && $(MAKE) -f ros_dumbobot/CMakeFiles/twist_to_motor.dir/build.make ros_dumbobot/CMakeFiles/twist_to_motor.dir/src/twist_to_motor.cpp.s
-.PHONY : src/twist_to_motor.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -366,7 +328,6 @@ help:
 	@echo "... ros_dumbobot"
 	@echo "... test"
 	@echo "... tf_broadcaster"
-	@echo "... twist_to_motor"
 	@echo "... src/controller.o"
 	@echo "... src/controller.i"
 	@echo "... src/controller.s"
@@ -376,9 +337,6 @@ help:
 	@echo "... src/tf_broadcaster.o"
 	@echo "... src/tf_broadcaster.i"
 	@echo "... src/tf_broadcaster.s"
-	@echo "... src/twist_to_motor.o"
-	@echo "... src/twist_to_motor.i"
-	@echo "... src/twist_to_motor.s"
 .PHONY : help
 
 

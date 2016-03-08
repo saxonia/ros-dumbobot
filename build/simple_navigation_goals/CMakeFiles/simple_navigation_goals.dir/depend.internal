@@ -61,6 +61,7 @@ simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navi
  /opt/ros/jade/include/ros/message_traits.h
  /opt/ros/jade/include/ros/names.h
  /opt/ros/jade/include/ros/node_handle.h
+ /opt/ros/jade/include/ros/package.h
  /opt/ros/jade/include/ros/param.h
  /opt/ros/jade/include/ros/parameter_adapter.h
  /opt/ros/jade/include/ros/platform.h

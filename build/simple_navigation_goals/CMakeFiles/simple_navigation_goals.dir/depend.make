@@ -60,6 +60,7 @@ simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navi
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/ros/message_traits.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/ros/names.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/ros/node_handle.h
+simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/ros/package.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/ros/param.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/ros/parameter_adapter.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/ros/platform.h

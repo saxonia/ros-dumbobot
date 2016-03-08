@@ -17,6 +17,18 @@ vector
 -
 geometry_msgs/Pose2D.h
 -
+ros/package.h
+-
+sstream
+-
+fstream
+-
+iostream
+-
+string
+-
+cstdlib
+-
 
 /opt/ros/jade/include/XmlRpcDecl.h
 ros/macros.h
@@ -760,6 +772,14 @@ common.h
 boost/bind.hpp
 -
 XmlRpcValue.h
+-
+
+/opt/ros/jade/include/ros/package.h
+string
+-
+vector
+-
+map
 -
 
 /opt/ros/jade/include/ros/param.h

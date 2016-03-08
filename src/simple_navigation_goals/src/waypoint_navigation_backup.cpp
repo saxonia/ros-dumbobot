@@ -1,6 +1,5 @@
 /*********************************************************************
-ros-dumbobot-waypoint-navigation Node 
-17 Floor 
+ros-dumbobot-waypoint-navigation Node
 Author : Theppasith Nisitsukcharoen
 <theppasith@gmail.com , Theppasith.N@Student.chula.ac.th>
 Department of Computer Engineering , Chulalongkorn University
@@ -10,13 +9,7 @@ Department of Computer Engineering , Chulalongkorn University
 #include <actionlib/client/simple_action_client.h>
 #include <vector>
 #include <geometry_msgs/Pose2D.h>
-#include <ros/package.h>
-//File Reading Manipulator
-#include <sstream>
-#include <fstream>
-#include <iostream>
-#include <string>
-#include <cstdlib>
+
 
 //Client Service of move_base 
 typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
@@ -30,62 +23,54 @@ bool finish;
 //std::vector<geometry_msgs::Pose2D>::iterator  target;
 std::vector<move_base_msgs::MoveBaseGoal>           targets;
 std::vector<move_base_msgs::MoveBaseGoal>::iterator target;
-std::vector<std::string>   target_name;
-
-
-int toint(std::string s) //The conversion function
-{
-    return atoi(s.c_str());
-}
 
 void read_waypoint_from(std::string filename){
+  move_base_msgs::MoveBaseGoal point1;
+  point1.target_pose.pose.position.x    = -1;
+  point1.target_pose.pose.position.y    = 2;
+  point1.target_pose.pose.orientation.x = 0;
+  point1.target_pose.pose.orientation.y = 0;
+  point1.target_pose.pose.orientation.z = 0.016;
+  point1.target_pose.pose.orientation.w = 0.9;
+  targets.push_back(point1);
 
-   std::vector<std::string> tokenized;
-
-   std::string path = ros::package::getPath("simple_navigation_goals")+ "/waypoints/waypoint.csv";
-   std::ifstream inFile(path.c_str());
-   std::string line;
-
-   //First Value is Waypoint Counts 
-   getline(inFile,line);
-   int waypoint_count = toint(line);
-   std::cout << waypoint_count <<std::endl;
-   while(getline(inFile,line)){
-    // New Line
-      std::stringstream strstr(line);
-      std::string word = "";
-
-    // Ignore First Param (Place's Name)
-      getline(strstr,word,',');
-      target_name.push_back(word);
-    // Gather Params
-      while(getline(strstr,word,',')){
-          tokenized.push_back(word);
-      }
-   }
-
-   //Count All Parameters
-   size_t counter = tokenized.size();
-   std::cout << "Counter  : " << counter <<std::endl; 
-   size_t point_amount = (size_t)(counter / 6.0);
-   std::cout << "Div Count = " << point_amount << " ,  File Count = " << waypoint_count <<std::endl;
+  move_base_msgs::MoveBaseGoal point2;
+  point2.target_pose.pose.position.x    = 4;
+  point2.target_pose.pose.position.y    = 2;
+  point2.target_pose.pose.orientation.x = 0;
+  point2.target_pose.pose.orientation.y = 0;
+  point2.target_pose.pose.orientation.z = 0.7;
+  point2.target_pose.pose.orientation.w = 0.7;
+  targets.push_back(point2);
 
 
-   std::vector<std::string>::iterator word_it;
-   word_it = tokenized.begin();
+  move_base_msgs::MoveBaseGoal point3;
+  point3.target_pose.pose.position.x    = 3.9;
+  point3.target_pose.pose.position.y    = -1.9;
+  point3.target_pose.pose.orientation.x = 0;
+  point3.target_pose.pose.orientation.y = 0;
+  point3.target_pose.pose.orientation.z = -0.4;
+  point3.target_pose.pose.orientation.w = 0.91;
+  targets.push_back(point3);
 
-   // Create move_base GOAL ! 
-   for(int point_index = 0  ; point_index < counter ; point_index++){
-      move_base_msgs::MoveBaseGoal newPoint;
-      newPoint.target_pose.pose.position.x    = std::atof((word_it++)->c_str());
-      newPoint.target_pose.pose.position.y    = std::atof((word_it++)->c_str());
-      newPoint.target_pose.pose.orientation.x = std::atof((word_it++)->c_str());
-      newPoint.target_pose.pose.orientation.y = std::atof((word_it++)->c_str());
-      newPoint.target_pose.pose.orientation.z = std::atof((word_it++)->c_str());
-      newPoint.target_pose.pose.orientation.w = std::atof((word_it++)->c_str());
-      targets.push_back(newPoint);
-      if(word_it == tokenized.end())break;
-   }
+  move_base_msgs::MoveBaseGoal point4;
+  point4.target_pose.pose.position.x    = -1;
+  point4.target_pose.pose.position.y    = -2;
+  point4.target_pose.pose.orientation.x = 0;
+  point4.target_pose.pose.orientation.y = 0;
+  point4.target_pose.pose.orientation.z = 0.7;
+  point4.target_pose.pose.orientation.w = 0.7;
+  targets.push_back(point4);
+
+  move_base_msgs::MoveBaseGoal point5;
+  point5.target_pose.pose.position.x    = 1.695;
+  point5.target_pose.pose.position.y    = 0.066;
+  point5.target_pose.pose.orientation.x = 0;
+  point5.target_pose.pose.orientation.y = 0;
+  point5.target_pose.pose.orientation.z = 0.9;
+  point5.target_pose.pose.orientation.w = 0;
+  targets.push_back(point5);
+
 }
 
 
@@ -99,26 +84,13 @@ void goalDoneCallback(const actionlib::SimpleClientGoalState &state,
         ROS_WARN("Failed to reach the goal...");
 
     // Send next Target
-    /*target++;
+    target++;
     sendNewGoal = true;
     if(target==targets.end()){
       //Return to Beginning
         //target=targets.begin();
       finish = true;
-    } */
-    std::cout << "Goal Finished Or Cancelled by Joy ::=>>>Ask For New Goal" << std::endl;
-    int choice = -1;
-    while(true){
-      std::cout << "Input Target Waypoints ID : " ;
-      std::cin >>choice;
-
-      //If it is not violate the rules
-      if(choice != -1 && choice<targets.size() ){
-        *target = targets[choice];
-        sendNewGoal = true;
-        break;
-      }
-    }
+    } 
 }
 
 
@@ -131,11 +103,6 @@ void goalFeedbackCallback(const move_base_msgs::MoveBaseFeedbackConstPtr &feedba
   //ROS_INFO("Getting feedback! How cool is that?");
 }
 
-void displayWaypoints(){
-  for(int i = 0 ; i < target_name.size() ; i++){
-      std::cout <<"["<<i<<"] " << target_name[i] <<std::endl; 
-    }
-}
 
 int main(int argc, char** argv){
   ros::init(argc, argv, "simple_navigation_goals");
@@ -145,13 +112,8 @@ int main(int argc, char** argv){
 
   // Read waypoint from file to vector
   read_waypoint_from("waypoints.txt");
-
-  // Display Waypoint 
-  displayWaypoints();
-
   target = targets.begin();
-  ROS_INFO("Successfully Load waypoints from file!");
-
+  ROS_INFO("Load waypoints Successfully targets");
   //Callback polling Rate 
   ros::Rate r(10);
   bool online = true;
@@ -159,30 +121,14 @@ int main(int argc, char** argv){
   int tries = 0;
   // Wait for the action server to come up
   while(!ac.waitForServer(ros::Duration(5.0))){
-    ROS_INFO("Waiting for the move_base action server to come up %d",tries+1);
+    ROS_INFO("Waiting for the move_base action server to come up");
     tries++;
     if(tries == 3){
       online = false;
       break;
     }
   }
-  if(online)ROS_INFO("Navigation Waypoint Node Initialized !");
-  else ROS_INFO("Failed to Start Waypoint Node");
- 
-  //Waiting For User Input
-  int choice = -1;
-  while(true && online){
-    std::cout << "Input Target Waypoints ID : " ;
-    std::cin >>choice;
-
-    //If it is not violate the rules
-    if(choice != -1 && choice<targets.size() ){
-      *target = targets[choice];
-      break;
-    }
-  }
-
-
+  ROS_INFO("Navigation Waypoint Node Initialized !");
   sendNewGoal = true;
   // Start the Navigation Waypoint Loop
     while(ros::ok() && !finish && online ){

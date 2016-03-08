@@ -99,6 +99,7 @@ simple_navigation_goals_EXTERNAL_OBJECTS =
 /home/c3mx/robot/devel/lib/simple_navigation_goals/simple_navigation_goals: /usr/lib/x86_64-linux-gnu/libboost_thread.so
 /home/c3mx/robot/devel/lib/simple_navigation_goals/simple_navigation_goals: /usr/lib/x86_64-linux-gnu/libpthread.so
 /home/c3mx/robot/devel/lib/simple_navigation_goals/simple_navigation_goals: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
+/home/c3mx/robot/devel/lib/simple_navigation_goals/simple_navigation_goals: /opt/ros/jade/lib/libroslib.so
 /home/c3mx/robot/devel/lib/simple_navigation_goals/simple_navigation_goals: simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable /home/c3mx/robot/devel/lib/simple_navigation_goals/simple_navigation_goals"
 	cd /home/c3mx/robot/build/simple_navigation_goals && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simple_navigation_goals.dir/link.txt --verbose=$(VERBOSE)

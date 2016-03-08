@@ -118,12 +118,12 @@ clean: CMakeFiles/clean_test_results_Project.dir/clean
 # Target rules for target CMakeFiles/download_extra_data.dir
 
 # All Build rule for target.
-CMakeFiles/download_extra_data.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-CMakeFiles/download_extra_data.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-CMakeFiles/download_extra_data.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-CMakeFiles/download_extra_data.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 CMakeFiles/download_extra_data.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+CMakeFiles/download_extra_data.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+CMakeFiles/download_extra_data.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 CMakeFiles/download_extra_data.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+CMakeFiles/download_extra_data.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+CMakeFiles/download_extra_data.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f CMakeFiles/download_extra_data.dir/build.make CMakeFiles/download_extra_data.dir/depend
 	$(MAKE) -f CMakeFiles/download_extra_data.dir/build.make CMakeFiles/download_extra_data.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -216,13 +216,13 @@ clean: CMakeFiles/run_tests.dir/clean
 # Target rules for target CMakeFiles/tests.dir
 
 # All Build rule for target.
-CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+CMakeFiles/tests.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/depend
 	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -1621,11 +1621,11 @@ clean: gmapping/CMakeFiles/_run_tests_gmapping.dir/clean
 # Target rules for target gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir
 
 # All Build rule for target.
-gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/build
@@ -1660,13 +1660,13 @@ clean: gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/clean
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: CMakeFiles/tests.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -1700,13 +1700,13 @@ clean: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_l
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: CMakeFiles/tests.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -1740,13 +1740,13 @@ clean: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_s
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: CMakeFiles/tests.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -1780,13 +1780,13 @@ clean: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_s
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: CMakeFiles/tests.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -1820,13 +1820,13 @@ clean: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_s
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: CMakeFiles/tests.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -1860,13 +1860,13 @@ clean: gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_s
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: CMakeFiles/tests.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/build.make gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -2271,10 +2271,10 @@ clean: gmapping/CMakeFiles/run_tests_gmapping.dir/clean
 # All Build rule for target.
 gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/all: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -2307,13 +2307,13 @@ clean: gmapping/CMakeFiles/run_tests_gmapping_rostest.dir/clean
 # All Build rule for target.
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -2346,13 +2346,13 @@ clean: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_la
 # All Build rule for target.
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage.launch.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -2385,13 +2385,13 @@ clean: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_st
 # All Build rule for target.
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay.launch.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -2424,13 +2424,13 @@ clean: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_st
 # All Build rule for target.
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_stage_replay2.launch.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -2463,13 +2463,13 @@ clean: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_st
 # All Build rule for target.
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_symmetry.launch.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -2502,13 +2502,13 @@ clean: gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_sy
 # All Build rule for target.
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/slam_gmapping.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/slam_gmapping_replay.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
-gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_test_turtlebot.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_indexed.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping-rtest.dir/all
 gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_test_upside_down.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_hallway_slow_2011-03-04-21-41-33.bag.dir/all
+gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/all: gmapping/CMakeFiles/gmapping_test_replay_crash.bag.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/depend
 	$(MAKE) -f gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/build.make gmapping/CMakeFiles/run_tests_gmapping_rostest_test_basic_localization_upside_down.launch.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/c3mx/robot/build/CMakeFiles 
@@ -2550,8 +2550,7 @@ gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/roscpp_generat
 gmapping/CMakeFiles/slam_gmapping.dir/all: simple_navigation_goals/CMakeFiles/actionlib_generate_messages_cpp.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-gmapping/CMakeFiles/slam_gmapping.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
-gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf_generate_messages_py.dir/all
+gmapping/CMakeFiles/slam_gmapping.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
@@ -2559,24 +2558,25 @@ gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/std_msgs_gener
 gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+gmapping/CMakeFiles/slam_gmapping.dir/all: simple_navigation_goals/CMakeFiles/actionlib_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: simple_navigation_goals/CMakeFiles/actionlib_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: simple_navigation_goals/CMakeFiles/actionlib_generate_messages_py.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-gmapping/CMakeFiles/slam_gmapping.dir/all: simple_navigation_goals/CMakeFiles/actionlib_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_py.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
-gmapping/CMakeFiles/slam_gmapping.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
-gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
-gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_eus.dir/all
-gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf_generate_messages_eus.dir/all
-gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf_generate_messages_cpp.dir/all
-gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf2_msgs_generate_messages_eus.dir/all
+gmapping/CMakeFiles/slam_gmapping.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf_generate_messages_lisp.dir/all
+gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/all
+gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf_generate_messages_cpp.dir/all
+gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf_generate_messages_py.dir/all
+gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf_generate_messages_eus.dir/all
+gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf2_msgs_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping.dir/all: gmapping/CMakeFiles/tf2_msgs_generate_messages_py.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/slam_gmapping.dir/build.make gmapping/CMakeFiles/slam_gmapping.dir/depend
@@ -2624,8 +2624,7 @@ gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/roscpp_
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: simple_navigation_goals/CMakeFiles/actionlib_generate_messages_cpp.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
-gmapping/CMakeFiles/slam_gmapping_replay.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
-gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf_generate_messages_py.dir/all
+gmapping/CMakeFiles/slam_gmapping_replay.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
@@ -2633,24 +2632,25 @@ gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/std_msg
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+gmapping/CMakeFiles/slam_gmapping_replay.dir/all: simple_navigation_goals/CMakeFiles/actionlib_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: simple_navigation_goals/CMakeFiles/actionlib_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: simple_navigation_goals/CMakeFiles/actionlib_generate_messages_py.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
-gmapping/CMakeFiles/slam_gmapping_replay.dir/all: simple_navigation_goals/CMakeFiles/actionlib_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_py.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
-gmapping/CMakeFiles/slam_gmapping_replay.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
-gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
-gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_eus.dir/all
-gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf_generate_messages_eus.dir/all
-gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf_generate_messages_cpp.dir/all
-gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf2_msgs_generate_messages_eus.dir/all
+gmapping/CMakeFiles/slam_gmapping_replay.dir/all: simple_navigation_goals/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf_generate_messages_lisp.dir/all
+gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/all
+gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf_generate_messages_cpp.dir/all
+gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf_generate_messages_py.dir/all
+gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf_generate_messages_eus.dir/all
+gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf2_msgs_generate_messages_eus.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/all
 gmapping/CMakeFiles/slam_gmapping_replay.dir/all: gmapping/CMakeFiles/tf2_msgs_generate_messages_py.dir/all
 	$(MAKE) -f gmapping/CMakeFiles/slam_gmapping_replay.dir/build.make gmapping/CMakeFiles/slam_gmapping_replay.dir/depend

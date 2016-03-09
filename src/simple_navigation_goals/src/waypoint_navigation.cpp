@@ -8,6 +8,7 @@ Department of Computer Engineering , Chulalongkorn University
 #include <ros/ros.h>
 #include <move_base_msgs/MoveBaseAction.h>
 #include <actionlib/client/simple_action_client.h>
+#include <nav_msgs/Odometry.h>
 #include <vector>
 #include <geometry_msgs/Pose2D.h>
 #include <ros/package.h>
@@ -19,30 +20,70 @@ Department of Computer Engineering , Chulalongkorn University
 #include <cstdlib>
 
 //Client Service of move_base 
-typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
+  typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
 
 //Global Variable
-bool sendNewGoal;
-bool finish;
+  bool sendNewGoal;
+  bool finish;
 
 //Waypoints 
-//std::vector<geometry_msgs::Pose2D>            targets;
-//std::vector<geometry_msgs::Pose2D>::iterator  target;
-std::vector<move_base_msgs::MoveBaseGoal>           targets;
-std::vector<move_base_msgs::MoveBaseGoal>::iterator target;
-std::vector<std::string>   target_name;
+  //std::vector<geometry_msgs::Pose2D>            targets;
+  //std::vector<geometry_msgs::Pose2D>::iterator  target;
+  std::vector<move_base_msgs::MoveBaseGoal>           targets;
+  std::vector<move_base_msgs::MoveBaseGoal>::iterator target;
+  std::vector<std::string>   target_name;
 
+//State Machine Implementation of Robot 
+  class robotState{
+    public:
+      enum state{
+      IDLE = 0,
+      GOING = 1,
+      WAITING = 2,
+      BACKTOBASE = 3,
+      SINGLERUN = 4,
+    };
+  };
+
+  int robot_state;
+  int startPoint_id;
+  int endPoint_id;
+  int choice = -1;
+  move_base_msgs::MoveBaseGoal  startPoint;
+  move_base_msgs::MoveBaseGoal  endPoint;
+  move_base_msgs::MoveBaseGoal  currentPosition;
+
+/////////////////////////////////////////////////////////////////////
+///////////////   FUNCTION    ///////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+
+void odometryCallback(const nav_msgs::Odometry::ConstPtr& msg){
+    currentPosition.target_pose.pose.position.x    = msg->pose.pose.position.x;
+    currentPosition.target_pose.pose.position.y    = msg->pose.pose.position.y;
+    currentPosition.target_pose.pose.orientation.x = msg->pose.pose.orientation.x;
+    currentPosition.target_pose.pose.orientation.y = msg->pose.pose.orientation.y;
+    currentPosition.target_pose.pose.orientation.z = msg->pose.pose.orientation.z;
+    currentPosition.target_pose.pose.orientation.w = msg->pose.pose.orientation.w;
+}
 
 int toint(std::string s) //The conversion function
 {
     return atoi(s.c_str());
 }
 
+
+void displayWaypoints(){
+  for(int i = 0 ; i < target_name.size() ; i++){
+      std::cout <<"["<<i<<"] " << target_name[i] <<std::endl; 
+    }
+}
+
+
 void read_waypoint_from(std::string filename){
 
    std::vector<std::string> tokenized;
 
-   std::string path = ros::package::getPath("simple_navigation_goals")+ "/waypoints/waypoint.csv";
+   std::string path = ros::package::getPath("simple_navigation_goals")+ filename;
    std::ifstream inFile(path.c_str());
    std::string line;
 
@@ -74,7 +115,7 @@ void read_waypoint_from(std::string filename){
    std::vector<std::string>::iterator word_it;
    word_it = tokenized.begin();
 
-   // Create move_base GOAL ! 
+   // Create move_base GOAL and Push into vector ! 
    for(int point_index = 0  ; point_index < counter ; point_index++){
       move_base_msgs::MoveBaseGoal newPoint;
       newPoint.target_pose.pose.position.x    = std::atof((word_it++)->c_str());
@@ -88,6 +129,110 @@ void read_waypoint_from(std::string filename){
    }
 }
 
+void userInput(){
+  choice = -1;
+   // Loop for Waiting For User Input
+  while(true){
+    // Display Waypoint 
+      displayWaypoints();
+
+    // Ask for ID and wait user input
+      std::cout << "Input Target Waypoints ID : " ;
+      std::cin >>choice;
+
+    // Desired For Returning ?
+      bool delivery = false;
+      int delivery_choice = 0;
+      std::cout << "Delivery Mode ? (no = 0, yes = 1) : ";
+      std::cin >> delivery_choice;
+      delivery = (delivery_choice == 1)? true:false; 
+
+    // If it is not violate the rules = Send Command Goal
+    if(choice != -1 && choice<targets.size() && !delivery ){
+      *target = targets[choice];
+      // Commit as new Goal
+      sendNewGoal = true;
+      break;
+    }else if(choice != -1 && choice<targets.size() && delivery ){
+      // Delivery Mode
+        robot_state = robotState::GOING;
+        //Create the Starting point Location;
+         //startPoint_id = 99; //From undefined Location
+         startPoint.target_pose.pose.position.x    = target->target_pose.pose.position.x;
+         startPoint.target_pose.pose.position.y    = target->target_pose.pose.position.y;
+         startPoint.target_pose.pose.orientation.x = target->target_pose.pose.orientation.x;
+         startPoint.target_pose.pose.orientation.y = target->target_pose.pose.orientation.y;
+         startPoint.target_pose.pose.orientation.z = target->target_pose.pose.orientation.z;
+         startPoint.target_pose.pose.orientation.w = target->target_pose.pose.orientation.w;
+         endPoint = targets[choice];
+         *target = endPoint;
+         // Commit as new goal
+         sendNewGoal = true;
+         break;
+    }else{
+      // Do nothing and Keep Looping
+    }
+  }
+
+
+
+}
+
+int waitfordelivery(){
+  /*// Set the Timer to wait for 30 seconds
+  ros::Time startTime = ros::Time::now();
+  ros::Duration waitingDuration(10.0);
+  while(true){
+    ros::Time thisTime = ros::Time::now();
+    if(thisTime - startTime > waitingDuration){
+      return 1; //Timeout
+    }
+
+  }*/
+  // Wait For Console Input 
+    while(true/* && timeout_flag*/){
+      robot_state = robotState::WAITING;
+      std::cout << "AFTER YOU GOT THE PACKAGE " <<std::endl;
+      std::cout << "PRESS ENTER TO CONTINUE" << std::endl;
+      std::cin.ignore();
+      std::cin.ignore();
+      std::cout << "RETURNING TO BASE" <<std::endl;
+      return 0; //user got parcel
+    }
+    return 1; // User Not Got Parcel
+}
+
+void goalDoneCallback_state(const actionlib::SimpleClientGoalState &state, 
+  const move_base_msgs::MoveBaseResultConstPtr &result){
+
+    if(state.state_ == actionlib::SimpleClientGoalState::SUCCEEDED)
+        ROS_INFO("The goal was reached!");
+
+    if(state.state_ == actionlib::SimpleClientGoalState::ABORTED)
+        ROS_WARN("Failed to reach the goal...");
+
+    
+    std::cout << "Goal Finished Or Cancelled by Joy ::=>>>Ask For New Goal" << std::endl;
+    
+    //If It's just arrived
+    if(robot_state == robotState::GOING)
+    {
+        //WAIT FOR PARCEL DELIVERY
+      std::cout << "WAIT FOR ACCEPTANCE !" <<std::endl <<std::endl;
+        int delivery_status = waitfordelivery();
+        //After Delivering = Set Back to the First place
+        robot_state = robotState::BACKTOBASE;
+        *target = startPoint;
+        sendNewGoal = true;
+    }else if(robot_state == robotState::BACKTOBASE)
+    {
+        // IT IS JUST BACK FROM HELL - RELAX, MAN
+        robot_state = robotState::IDLE;
+        userInput();
+    }
+    
+}
+
 
 void goalDoneCallback(const actionlib::SimpleClientGoalState &state, 
   const move_base_msgs::MoveBaseResultConstPtr &result){
@@ -98,16 +243,8 @@ void goalDoneCallback(const actionlib::SimpleClientGoalState &state,
     if(state.state_ == actionlib::SimpleClientGoalState::ABORTED)
         ROS_WARN("Failed to reach the goal...");
 
-    // Send next Target
-    /*target++;
-    sendNewGoal = true;
-    if(target==targets.end()){
-      //Return to Beginning
-        //target=targets.begin();
-      finish = true;
-    } */
     std::cout << "Goal Finished Or Cancelled by Joy ::=>>>Ask For New Goal" << std::endl;
-    int choice = -1;
+    choice = -1;
     while(true){
       std::cout << "Input Target Waypoints ID : " ;
       std::cin >>choice;
@@ -131,11 +268,7 @@ void goalFeedbackCallback(const move_base_msgs::MoveBaseFeedbackConstPtr &feedba
   //ROS_INFO("Getting feedback! How cool is that?");
 }
 
-void displayWaypoints(){
-  for(int i = 0 ; i < target_name.size() ; i++){
-      std::cout <<"["<<i<<"] " << target_name[i] <<std::endl; 
-    }
-}
+
 
 int main(int argc, char** argv){
   ros::init(argc, argv, "simple_navigation_goals");
@@ -144,20 +277,19 @@ int main(int argc, char** argv){
   MoveBaseClient ac("move_base", true);
 
   // Read waypoint from file to vector
-  read_waypoint_from("waypoints.txt");
-
-  // Display Waypoint 
-  displayWaypoints();
-
+  // read_waypoint_from("/waypoints/waypoint.csv");
+  read_waypoint_from("/waypoints/waypoint_20.csv");
+  
   target = targets.begin();
   ROS_INFO("Successfully Load waypoints from file!");
 
-  //Callback polling Rate 
+  // Callback polling Rate 
   ros::Rate r(10);
   bool online = true;
+  robot_state = robotState::IDLE;
 
-  int tries = 0;
   // Wait for the action server to come up
+  int tries = 0;
   while(!ac.waitForServer(ros::Duration(5.0))){
     ROS_INFO("Waiting for the move_base action server to come up %d",tries+1);
     tries++;
@@ -166,26 +298,25 @@ int main(int argc, char** argv){
       break;
     }
   }
+  // Print Log to Console
   if(online)ROS_INFO("Navigation Waypoint Node Initialized !");
-  else ROS_INFO("Failed to Start Waypoint Node");
- 
-  //Waiting For User Input
-  int choice = -1;
-  while(true && online){
-    std::cout << "Input Target Waypoints ID : " ;
-    std::cin >>choice;
-
-    //If it is not violate the rules
-    if(choice != -1 && choice<targets.size() ){
-      *target = targets[choice];
-      break;
-    }
+  else{
+    ROS_INFO("Failed to Start Waypoint Node");
+    return -1;
   }
 
+  // Subscriber to Get Current position 
+  ros::NodeHandle n;
+  ros::Subscriber sub = n.subscribe("/odom", 1000, odometryCallback);
+  
 
+  // Initialized !  
+  userInput();
+
+// Loop for Setting Goal and Navigate ! 
   sendNewGoal = true;
   // Start the Navigation Waypoint Loop
-    while(ros::ok() && !finish && online ){
+    while(ros::ok() && !finish ){
 
       // The Next Goal ! 
       if(sendNewGoal){
@@ -211,7 +342,7 @@ int main(int argc, char** argv){
 
                   
           ac.sendGoal(goal, 
-                      boost::bind(&goalDoneCallback, _1, _2), 
+                      boost::bind(&goalDoneCallback_state, _1, _2), 
                       boost::bind(&goalActiveCallback), boost::bind(&goalFeedbackCallback, _1));
       }
       // Spinning the loop and Callback

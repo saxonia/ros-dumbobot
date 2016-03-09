@@ -28,7 +28,11 @@ simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navi
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/geometry_msgs/Pose.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/geometry_msgs/Pose2D.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/geometry_msgs/PoseStamped.h
+simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/geometry_msgs/PoseWithCovariance.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/geometry_msgs/Quaternion.h
+simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/geometry_msgs/Twist.h
+simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/geometry_msgs/TwistWithCovariance.h
+simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/geometry_msgs/Vector3.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/move_base_msgs/MoveBaseAction.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/move_base_msgs/MoveBaseActionFeedback.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/move_base_msgs/MoveBaseActionGoal.h
@@ -36,6 +40,7 @@ simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navi
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/move_base_msgs/MoveBaseFeedback.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/move_base_msgs/MoveBaseGoal.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/move_base_msgs/MoveBaseResult.h
+simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/nav_msgs/Odometry.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/ros/advertise_options.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/ros/advertise_service_options.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/ros/assert.h

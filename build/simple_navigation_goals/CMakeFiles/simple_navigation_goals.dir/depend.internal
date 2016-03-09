@@ -29,7 +29,11 @@ simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navi
  /opt/ros/jade/include/geometry_msgs/Pose.h
  /opt/ros/jade/include/geometry_msgs/Pose2D.h
  /opt/ros/jade/include/geometry_msgs/PoseStamped.h
+ /opt/ros/jade/include/geometry_msgs/PoseWithCovariance.h
  /opt/ros/jade/include/geometry_msgs/Quaternion.h
+ /opt/ros/jade/include/geometry_msgs/Twist.h
+ /opt/ros/jade/include/geometry_msgs/TwistWithCovariance.h
+ /opt/ros/jade/include/geometry_msgs/Vector3.h
  /opt/ros/jade/include/move_base_msgs/MoveBaseAction.h
  /opt/ros/jade/include/move_base_msgs/MoveBaseActionFeedback.h
  /opt/ros/jade/include/move_base_msgs/MoveBaseActionGoal.h
@@ -37,6 +41,7 @@ simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navi
  /opt/ros/jade/include/move_base_msgs/MoveBaseFeedback.h
  /opt/ros/jade/include/move_base_msgs/MoveBaseGoal.h
  /opt/ros/jade/include/move_base_msgs/MoveBaseResult.h
+ /opt/ros/jade/include/nav_msgs/Odometry.h
  /opt/ros/jade/include/ros/advertise_options.h
  /opt/ros/jade/include/ros/advertise_service_options.h
  /opt/ros/jade/include/ros/assert.h

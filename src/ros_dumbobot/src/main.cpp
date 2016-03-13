@@ -101,7 +101,7 @@ void control_loop_cmd_vel_new(){
   // Scale Linear and Angular Velocity onto [-1,1]
     double linear_x_scaled = linear_x / maximum_linear ;
     double angular_z_scaled = angular_z / maximum_angular;
-    angular_z_scaled *= 2;
+    angular_z_scaled *= 2.3;
     //std::cout << "Linear_x  = " <<linear_x_scaled <<std::endl;
     //std::cout << "Angular_Z = " << angular_z_scaled <<std::endl;
 

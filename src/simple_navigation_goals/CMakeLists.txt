@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   move_base_msgs
   roscpp
   roslib
+  tf
 )
 
 ## System dependencies are found with CMake's conventions

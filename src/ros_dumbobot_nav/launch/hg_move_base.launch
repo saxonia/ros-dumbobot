@@ -1,7 +1,7 @@
 <!-- Launch File For Move_base Automatic Navigation System -->
 <launch>
   <!-- Run the map server For LOCALIZATION-->
- <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/a20.yaml"/> 
+  <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/a20.yaml"/> 
 
   <!--- Run AMCL -->
   <include file="$(find ros_dumbobot_nav)/launch/hg_amcl_dumbo.launch" /> 
@@ -21,6 +21,5 @@
     <!-- Global Costmap Specific Params -->
       <rosparam file="$(find ros_dumbobot_nav)/hg_config/hg_global_costmap_param.yaml" command="load" />
       <rosparam file="$(find ros_dumbobot_nav)/hg_config/hg_base_local_planner_param.yaml" command="load" />
-    
   </node>
 </launch>

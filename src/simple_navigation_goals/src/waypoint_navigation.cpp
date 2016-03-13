@@ -18,6 +18,10 @@ Department of Computer Engineering , Chulalongkorn University
 #include <iostream>
 #include <string>
 #include <cstdlib>
+#include <termios.h>
+
+#include <tf/transform_listener.h>
+
 
 //Client Service of move_base 
   typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
@@ -25,10 +29,9 @@ Department of Computer Engineering , Chulalongkorn University
 //Global Variable
   bool sendNewGoal;
   bool finish;
+  bool needmark;
 
 //Waypoints 
-  //std::vector<geometry_msgs::Pose2D>            targets;
-  //std::vector<geometry_msgs::Pose2D>::iterator  target;
   std::vector<move_base_msgs::MoveBaseGoal>           targets;
   std::vector<move_base_msgs::MoveBaseGoal>::iterator target;
   std::vector<std::string>   target_name;
@@ -57,17 +60,6 @@ Department of Computer Engineering , Chulalongkorn University
 ///////////////   FUNCTION    ///////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
 
-void odometryCallback(const nav_msgs::Odometry::ConstPtr& msg){
-  if(robot_state == robotState::IDLE){
-    currentPosition.target_pose.pose.position.x    = msg->pose.pose.position.x;
-    currentPosition.target_pose.pose.position.y    = msg->pose.pose.position.y;
-    currentPosition.target_pose.pose.orientation.x = msg->pose.pose.orientation.x;
-    currentPosition.target_pose.pose.orientation.y = msg->pose.pose.orientation.y;
-    currentPosition.target_pose.pose.orientation.z = msg->pose.pose.orientation.z;
-    currentPosition.target_pose.pose.orientation.w = msg->pose.pose.orientation.w;
-    std::cout << currentPosition.target_pose.pose.position.x  <<" , " << currentPosition.target_pose.pose.position.y <<std::endl;
-  }
-}
 
 int toint(std::string s) //The conversion function
 {
@@ -133,16 +125,30 @@ void read_waypoint_from(std::string filename){
 }
 
 void markCurrentLocation(){
-         startPoint.target_pose.pose.position.x    = currentPosition.target_pose.pose.position.x;
-         startPoint.target_pose.pose.position.y    = currentPosition.target_pose.pose.position.y;
-         startPoint.target_pose.pose.orientation.x = currentPosition.target_pose.pose.orientation.x;
-         startPoint.target_pose.pose.orientation.y = currentPosition.target_pose.pose.orientation.y;
-         startPoint.target_pose.pose.orientation.z = currentPosition.target_pose.pose.orientation.z;
-         startPoint.target_pose.pose.orientation.w = currentPosition.target_pose.pose.orientation.w;
+
+    tf::TransformListener listener;  
+    tf::StampedTransform transform;
+    ros::Time now = ros::Time::now();
+    try {
+        listener.waitForTransform("map", "base_link", ros::Time(0), ros::Duration(10.0) );
+        listener.lookupTransform("map", "base_link", ros::Time(0), transform);
+    } catch (tf::TransformException ex) {
+        ROS_ERROR("%s",ex.what());
+    }
+
+    startPoint.target_pose.pose.position.x    = transform.getOrigin().x();
+    startPoint.target_pose.pose.position.y    = transform.getOrigin().y();
+    startPoint.target_pose.pose.orientation.x = transform.getRotation().x();
+    startPoint.target_pose.pose.orientation.y = transform.getRotation().y();
+    startPoint.target_pose.pose.orientation.z = transform.getRotation().z();
+    startPoint.target_pose.pose.orientation.w = transform.getRotation().w();
+
+  std::cout << "RETURNING POINT MARKED : ";
+  std::cout << startPoint.target_pose.pose.position.x <<","<<startPoint.target_pose.pose.position.y  <<std::endl;
 }
 
 void userInput(){
-  choice = -1;
+  choice = -1; 
    // Loop for Waiting For User Input
   while(true){
     // Display Waypoint 
@@ -158,55 +164,102 @@ void userInput(){
       std::cout << "Delivery Mode ? (no = 0, yes = 1) : ";
       std::cin >> delivery_choice;
       delivery = (delivery_choice == 1)? true:false; 
-
+      
     // If it is not violate the rules = Send Command Goal
     if(choice != -1 && choice<targets.size() && !delivery ){
-      *target = targets[choice];
-      // Commit as new Goal
-      sendNewGoal = true;
-      break;
+        // Set Target According to Point of Interest
+        *target = targets[choice];
+        // Create new Goal
+          robot_state = robotState::SINGLERUN;
+          sendNewGoal = true;
+        break;
     }else if(choice != -1 && choice<targets.size() && delivery ){
-      // Delivery Mode
-        robot_state = robotState::GOING;
-        //Create the Starting point Location;
-         //startPoint_id = 99; //From undefined Location
-         markCurrentLocation();
-         endPoint = targets[choice];
-         *target = endPoint;
-         // Commit as new goal
-         sendNewGoal = true;
-         break;
+      // Delivery Mode      
+         //Mark this location as startpoint
+            markCurrentLocation();
+         // Set Target According to Point of Interest
+           endPoint = targets[choice];
+           *target = endPoint;
+         // Create new Goal 
+           robot_state = robotState::GOING;
+           sendNewGoal = true;
+        break;
     }else{
       // Do nothing and Keep Looping
     }
   }
+}
+char getch()
+{
+    fd_set set;
+    struct timeval timeout;
+    int rv;
+    char buff = 0;
+    int len = 1;
+    int filedesc = 0;
+    FD_ZERO(&set);
+    FD_SET(filedesc, &set);
 
+    timeout.tv_sec = 0;
+    timeout.tv_usec = 1000;
 
+    rv = select(filedesc + 1, &set, NULL, NULL, &timeout);
 
+    struct termios old = {0};
+    if (tcgetattr(filedesc, &old) < 0)
+        ROS_ERROR("tcsetattr()");
+    old.c_lflag &= ~ICANON;
+    old.c_lflag &= ~ECHO;
+    old.c_cc[VMIN] = 1;
+    old.c_cc[VTIME] = 0;
+    if (tcsetattr(filedesc, TCSANOW, &old) < 0)
+        ROS_ERROR("tcsetattr ICANON");
+
+    if(rv == -1){
+        ROS_ERROR("select");
+    }else if(rv == 0){
+        //ROS_INFO("no_key_pressed");
+    }else{
+        read(filedesc, &buff, len );
+    }
+    old.c_lflag |= ICANON;
+    old.c_lflag |= ECHO;
+    if (tcsetattr(filedesc, TCSADRAIN, &old) < 0)
+        ROS_ERROR ("tcsetattr ~ICANON");
+    return (buff);
 }
 
+// Wait FOR USER ACCEPTANCE !
 int waitfordelivery(){
-  /*// Set the Timer to wait for 30 seconds
+  // Wait Time 
+  int waittime = 5; //seconds
+  ros::Duration waitingDuration(waittime);
   ros::Time startTime = ros::Time::now();
-  ros::Duration waitingDuration(10.0);
-  while(true){
-    ros::Time thisTime = ros::Time::now();
-    if(thisTime - startTime > waitingDuration){
-      return 1; //Timeout
-    }
+  ros::Time thisTime = ros::Time::now();
 
-  }*/
-  // Wait For Console Input 
-    while(true/* && timeout_flag*/){
-      robot_state = robotState::WAITING;
-      std::cout << "AFTER YOU GOT THE PACKAGE " <<std::endl;
-      std::cout << "PRESS ENTER TO CONTINUE" << std::endl;
-      std::cin.ignore();
-      std::cin.ignore();
-      std::cout << "RETURNING TO BASE" <<std::endl;
-      return 0; //user got parcel
+  // Prompt User To Accept Parcel
+  std::cout << "AFTER YOU GOT THE PACKAGE " <<std::endl;
+  std::cout << "PRESS ANYKEY TO ACCEPT PARCEL" << std::endl;
+  char keyin;
+  int flag = -1;// Time Out
+
+  //Wait For User Input Within Specific Timeout
+  while(true){
+    thisTime = ros::Time::now();
+    if(thisTime - startTime > waitingDuration)break;
+    keyin = getch();
+    if((int)keyin != 0){
+      flag = 1;
+      break;
     }
-    return 1; // User Not Got Parcel
+  }
+
+  // Prompt Result Delivering Status
+  if(flag == -1)std::cout <<"[" << flag <<"]TIME OUT => RETURNING TO BASE WITH PARCEL !" << std::endl;
+  if(flag == 1)std::cout <<"[" << flag <<"]PARCEL ACCEPTED ! =>RETURNING TO BASE!" << std::endl;
+  std::cout << "FLAG = " << flag << std::endl;
+  return flag;
+
 }
 
 void goalDoneCallback_state(const actionlib::SimpleClientGoalState &state, 
@@ -217,54 +270,37 @@ void goalDoneCallback_state(const actionlib::SimpleClientGoalState &state,
 
     if(state.state_ == actionlib::SimpleClientGoalState::ABORTED)
         ROS_WARN("Failed to reach the goal...");
-
     
     std::cout << "Goal Finished Or Cancelled by Joy ::=>>>Ask For New Goal" << std::endl;
     
-    //If It's just arrived
-    if(robot_state == robotState::GOING)
-    {
-        //WAIT FOR PARCEL DELIVERY
-      std::cout << "WAIT FOR ACCEPTANCE !" <<std::endl <<std::endl;
-        int delivery_status = waitfordelivery();
-        //After Delivering = Set Back to the First place
-        robot_state = robotState::BACKTOBASE;
-        *target = startPoint;
-        sendNewGoal = true;
-    }else if(robot_state == robotState::BACKTOBASE)
-    {
+    // If It's just arrived
+    if(robot_state == robotState::GOING){
+
+        // WAIT FOR PARCEL DELIVERY
+          std::cout << "WAIT FOR ACCEPTANCE !" <<std::endl <<std::endl;
+          int delivery_status = waitfordelivery();
+
+        // After Delivering = Set Back to the First place
+          robot_state = robotState::BACKTOBASE;
+          *target = startPoint;
+          std::cout << "GOING TO : ";
+          std::cout << startPoint.target_pose.pose.position.x <<","<<startPoint.target_pose.pose.position.y  <<std::endl;
+          sendNewGoal = true;
+
+    }else if(robot_state == robotState::BACKTOBASE){
+
         // IT IS JUST BACK FROM HELL - RELAX, MAN
-        robot_state = robotState::IDLE;
-        userInput();
-    }
-    
-}
+          robot_state = robotState::IDLE;
+        // Ask User For the Next Target
+          userInput();
+    }else if(robot_state == robotState::SINGLERUN){
 
-
-void goalDoneCallback(const actionlib::SimpleClientGoalState &state, 
-  const move_base_msgs::MoveBaseResultConstPtr &result){
-
-    if(state.state_ == actionlib::SimpleClientGoalState::SUCCEEDED)
-        ROS_INFO("The goal was reached!");
-
-    if(state.state_ == actionlib::SimpleClientGoalState::ABORTED)
-        ROS_WARN("Failed to reach the goal...");
-
-    std::cout << "Goal Finished Or Cancelled by Joy ::=>>>Ask For New Goal" << std::endl;
-    choice = -1;
-    while(true){
-      std::cout << "Input Target Waypoints ID : " ;
-      std::cin >>choice;
-
-      //If it is not violate the rules
-      if(choice != -1 && choice<targets.size() ){
-        *target = targets[choice];
-        sendNewGoal = true;
-        break;
-      }
+        // SINGLE POINT APPROACH
+          robot_state = robotState::IDLE;
+        // Ask User For the Next Target  
+          userInput();
     }
 }
-
 
 void goalActiveCallback(){
   //ROS_INFO("Goal active! Hurray!");
@@ -278,22 +314,36 @@ void goalFeedbackCallback(const move_base_msgs::MoveBaseFeedbackConstPtr &feedba
 
 
 int main(int argc, char** argv){
-  ros::init(argc, argv, "simple_navigation_goals");
+
+  // Create Node 
+    ros::init(argc, argv, "simple_navigation_goals");
+
+  // Marking Current Location (For First Time Usage)
+    markCurrentLocation();
 
   // Tell the action client that we want to spin a thread by default
-  MoveBaseClient ac("move_base", true);
+    MoveBaseClient ac("move_base", true);
 
   // Read waypoint from file to vector
-   read_waypoint_from("/waypoints/waypoint.csv");
-  //read_waypoint_from("/waypoints/waypoint_20.csv");
+    // read_waypoint_from("/waypoints/waypoint.csv");
+     read_waypoint_from("/waypoints/waypoint_20.csv");
+    ROS_INFO("Successfully Load waypoints from file!");
+
+  // Point The iterator to the beginning of the sequence
+    target = targets.begin();
   
-  target = targets.begin();
-  ROS_INFO("Successfully Load waypoints from file!");
 
   // Callback polling Rate 
-  ros::Rate r(30);
-  bool online = true;
-  robot_state = robotState::IDLE;
+    ros::Rate r(30);
+
+  // Flag to Check Move-base Server
+    bool online = true;
+
+  // Initialize ROBOT :)
+    robot_state = robotState::IDLE;
+
+  // Flag For Marking Base Location (Request Current Location Flag)
+    needmark = false;
 
   // Wait for the action server to come up
   int tries = 0;
@@ -305,7 +355,8 @@ int main(int argc, char** argv){
       break;
     }
   }
-  // Print Log to Console
+
+  // Prompt Server Status 
   if(online)ROS_INFO("Navigation Waypoint Node Initialized !");
   else{
     ROS_INFO("Failed to Start Waypoint Node");
@@ -313,13 +364,11 @@ int main(int argc, char** argv){
   }
 
   // Subscriber to Get Current position 
-  ros::NodeHandle n;
-  ros::Subscriber sub = n.subscribe("/odom", 1000, odometryCallback);
-  
+    ros::NodeHandle n;
 
   // Initialized !  
-  userInput();
-
+    userInput();
+ 
 // Loop for Setting Goal and Navigate ! 
   sendNewGoal = true;
   // Start the Navigation Waypoint Loop
@@ -347,7 +396,7 @@ int main(int argc, char** argv){
           goal.target_pose.pose.orientation.w = target->target_pose.pose.orientation.w;
           //goal.target_pose.pose.orientation = tf::createQuaternionMsgFromYaw(target->theta);
 
-                  
+          // Send Goal to Navigation Stack
           ac.sendGoal(goal, 
                       boost::bind(&goalDoneCallback_state, _1, _2), 
                       boost::bind(&goalActiveCallback), boost::bind(&goalFeedbackCallback, _1));

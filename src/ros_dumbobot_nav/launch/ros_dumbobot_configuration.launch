@@ -27,7 +27,7 @@
   <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depth2laser" output="screen">
       <remap from="image" to="/camera/depth/image_raw"/>
      <remap from="/scan" to="/camera/scan" />
-      <param name="scan_height" value="30" />
+      <param name="scan_height" value="200" />
   </node>
 
   <!--- Laser Filter Node -->

@@ -58,12 +58,15 @@ Department of Computer Engineering , Chulalongkorn University
 /////////////////////////////////////////////////////////////////////
 
 void odometryCallback(const nav_msgs::Odometry::ConstPtr& msg){
+  if(robot_state == robotState::IDLE){
     currentPosition.target_pose.pose.position.x    = msg->pose.pose.position.x;
     currentPosition.target_pose.pose.position.y    = msg->pose.pose.position.y;
     currentPosition.target_pose.pose.orientation.x = msg->pose.pose.orientation.x;
     currentPosition.target_pose.pose.orientation.y = msg->pose.pose.orientation.y;
     currentPosition.target_pose.pose.orientation.z = msg->pose.pose.orientation.z;
     currentPosition.target_pose.pose.orientation.w = msg->pose.pose.orientation.w;
+    std::cout << currentPosition.target_pose.pose.position.x  <<" , " << currentPosition.target_pose.pose.position.y <<std::endl;
+  }
 }
 
 int toint(std::string s) //The conversion function
@@ -129,6 +132,15 @@ void read_waypoint_from(std::string filename){
    }
 }
 
+void markCurrentLocation(){
+         startPoint.target_pose.pose.position.x    = currentPosition.target_pose.pose.position.x;
+         startPoint.target_pose.pose.position.y    = currentPosition.target_pose.pose.position.y;
+         startPoint.target_pose.pose.orientation.x = currentPosition.target_pose.pose.orientation.x;
+         startPoint.target_pose.pose.orientation.y = currentPosition.target_pose.pose.orientation.y;
+         startPoint.target_pose.pose.orientation.z = currentPosition.target_pose.pose.orientation.z;
+         startPoint.target_pose.pose.orientation.w = currentPosition.target_pose.pose.orientation.w;
+}
+
 void userInput(){
   choice = -1;
    // Loop for Waiting For User Input
@@ -158,12 +170,7 @@ void userInput(){
         robot_state = robotState::GOING;
         //Create the Starting point Location;
          //startPoint_id = 99; //From undefined Location
-         startPoint.target_pose.pose.position.x    = target->target_pose.pose.position.x;
-         startPoint.target_pose.pose.position.y    = target->target_pose.pose.position.y;
-         startPoint.target_pose.pose.orientation.x = target->target_pose.pose.orientation.x;
-         startPoint.target_pose.pose.orientation.y = target->target_pose.pose.orientation.y;
-         startPoint.target_pose.pose.orientation.z = target->target_pose.pose.orientation.z;
-         startPoint.target_pose.pose.orientation.w = target->target_pose.pose.orientation.w;
+         markCurrentLocation();
          endPoint = targets[choice];
          *target = endPoint;
          // Commit as new goal
@@ -277,14 +284,14 @@ int main(int argc, char** argv){
   MoveBaseClient ac("move_base", true);
 
   // Read waypoint from file to vector
-  // read_waypoint_from("/waypoints/waypoint.csv");
-  read_waypoint_from("/waypoints/waypoint_20.csv");
+   read_waypoint_from("/waypoints/waypoint.csv");
+  //read_waypoint_from("/waypoints/waypoint_20.csv");
   
   target = targets.begin();
   ROS_INFO("Successfully Load waypoints from file!");
 
   // Callback polling Rate 
-  ros::Rate r(10);
+  ros::Rate r(30);
   bool online = true;
   robot_state = robotState::IDLE;
 

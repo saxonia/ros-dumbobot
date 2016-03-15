@@ -41,7 +41,7 @@ TrajectoryPlannerROS:
   ###
   # Goal Tolerance Parameters
   yaw_goal_tolerance: 0.3  # 0.15 rad
-  xy_goal_tolerance: 0.6  #0.1 m
+  xy_goal_tolerance: 0.3  #0.1 m
   # latch_xy_goal_tolerance: false
   
   #The amount of time to forward-simulate trajectories in seconds  

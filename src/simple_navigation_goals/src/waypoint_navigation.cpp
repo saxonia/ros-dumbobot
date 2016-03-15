@@ -56,6 +56,9 @@ Department of Computer Engineering , Chulalongkorn University
   move_base_msgs::MoveBaseGoal  endPoint;
   move_base_msgs::MoveBaseGoal  currentPosition;
 
+  int targetId;
+  int sequence[13] = {5,1,2,5,1,2,5,1,2,5,1,2,5};
+
 /////////////////////////////////////////////////////////////////////
 ///////////////   FUNCTION    ///////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
@@ -168,7 +171,7 @@ void userInput(){
     // If it is not violate the rules = Send Command Goal
     if(choice != -1 && choice<targets.size() && !delivery ){
         // Set Target According to Point of Interest
-        *target = targets[choice];
+        *target = targets[sequence[targetId]];//*target = targets[choice];
         // Create new Goal
           robot_state = robotState::SINGLERUN;
           sendNewGoal = true;
@@ -232,7 +235,7 @@ char getch()
 // Wait FOR USER ACCEPTANCE !
 int waitfordelivery(){
   // Wait Time 
-  int waittime = 5; //seconds
+  int waittime = 3;//5; //seconds
   ros::Duration waitingDuration(waittime);
   ros::Time startTime = ros::Time::now();
   ros::Time thisTime = ros::Time::now();
@@ -260,6 +263,13 @@ int waitfordelivery(){
   std::cout << "FLAG = " << flag << std::endl;
   return flag;
 
+}
+
+void nextTarget(){
+  targetId++;
+  if(targetId >=14){
+   finish = true; 
+  }
 }
 
 void goalDoneCallback_state(const actionlib::SimpleClientGoalState &state, 
@@ -292,13 +302,20 @@ void goalDoneCallback_state(const actionlib::SimpleClientGoalState &state,
         // IT IS JUST BACK FROM HELL - RELAX, MAN
           robot_state = robotState::IDLE;
         // Ask User For the Next Target
-          userInput();
+           userInput();
+
     }else if(robot_state == robotState::SINGLERUN){
 
         // SINGLE POINT APPROACH
           robot_state = robotState::IDLE;
+        //Wait Just a while
+          waitfordelivery();
         // Ask User For the Next Target  
-          userInput();
+          //userInput();
+          nextTarget();
+           *target = targets[sequence[targetId]];
+          sendNewGoal = true;
+          robot_state = robotState::SINGLERUN;
     }
 }
 

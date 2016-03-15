@@ -55,37 +55,7 @@ void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg) {
 
 }
 
-void control_loop_cmd_vel_pid(){
-  // Params
-    double width_robot = 0.4; //40 CM from Wheel to Wheel
-    double wheelRadius = 0.095; //9.5 CM Wheel Center to Circumference
-    double wheel_separation_multiplier = 1.6;
-    double wheel_separation = width_robot * wheel_separation_multiplier; //Wheel Separation
 
-  // Compute wheels velocities:
-    const double vel_left  = (linear_x- angular_z * wheel_separation / 2.0);
-    const double vel_right = (linear_x+ angular_z * wheel_separation / 2.0);
-
-  // Assign Power to each wheels
-  vl = vel_left ; 
-  vr = vel_right ;
-
-  // Publish To PID Controller 
-  
-
-}
-
-bool inRange (double val ,double min , double max){
-  return (val <= max)? (val>=min)? true:false :false;
-}
-
-double absolut(double val){
-  return (val < 0)? -val:val;
-}
-
-bool turning_check(){
-
-}
 
 // Receive Linear and Angular Velocity and Turn into Motor Effort [-255,255]
 void control_loop_cmd_vel_new(){
@@ -101,7 +71,7 @@ void control_loop_cmd_vel_new(){
   // Scale Linear and Angular Velocity onto [-1,1]
     double linear_x_scaled = linear_x / maximum_linear ;
     double angular_z_scaled = angular_z / maximum_angular;
-    angular_z_scaled *= 2.3;
+    angular_z_scaled *= 1.7;
     //std::cout << "Linear_x  = " <<linear_x_scaled <<std::endl;
     //std::cout << "Angular_Z = " << angular_z_scaled <<std::endl;
 

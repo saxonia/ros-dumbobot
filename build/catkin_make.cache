@@ -1,2 +1,2 @@
-gmapping:learning_joy:ros_dumbobot:ros_dumbobot_nav:ros_dumbobot_odomtf:rplidar_ros:simple_navigation_goals:slam_gmapping:yocs_velocity_smoother
+PREPARE TO DUMP/openni_tracker:PREPARE TO DUMP/robin_people_detection:gmapping:learning_joy:ppl_detection:ros_dumbobot:ros_dumbobot_nav:ros_dumbobot_odomtf:rplidar_ros:simple_navigation_goals:slam_gmapping:yocs_velocity_smoother
 -DCATKIN_DEVEL_PREFIX=/home/c3mx/robot/devel -DCMAKE_INSTALL_PREFIX=/home/c3mx/robot/install -G Unix Makefiles

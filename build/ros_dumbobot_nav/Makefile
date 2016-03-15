@@ -154,76 +154,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_gencfg: ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-# Convenience name for target.
-ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-# Convenience name for target.
-ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_eus: ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
-
-# Convenience name for target.
-ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_py: ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make ros_dumbobot_nav/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
 ros_dumbobot_nav/CMakeFiles/move_base_gencfg.dir/rule:
 	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ros_dumbobot_nav/CMakeFiles/move_base_gencfg.dir/rule
 .PHONY : ros_dumbobot_nav/CMakeFiles/move_base_gencfg.dir/rule
@@ -243,11 +173,6 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"

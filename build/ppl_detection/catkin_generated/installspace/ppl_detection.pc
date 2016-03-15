@@ -1,0 +1,8 @@
+prefix=/home/c3mx/robot/install
+
+Name: ppl_detection
+Description: Description of ppl_detection
+Version: 0.0.4
+Cflags: -I/home/c3mx/robot/install/include
+Libs: -L/home/c3mx/robot/install/lib 
+Requires: message_runtime

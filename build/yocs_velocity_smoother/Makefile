@@ -154,118 +154,6 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-yocs_velocity_smoother/CMakeFiles/bond_generate_messages_cpp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 yocs_velocity_smoother/CMakeFiles/bond_generate_messages_cpp.dir/rule
-.PHONY : yocs_velocity_smoother/CMakeFiles/bond_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_cpp: yocs_velocity_smoother/CMakeFiles/bond_generate_messages_cpp.dir/rule
-.PHONY : bond_generate_messages_cpp
-
-# fast build rule for target.
-bond_generate_messages_cpp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f yocs_velocity_smoother/CMakeFiles/bond_generate_messages_cpp.dir/build.make yocs_velocity_smoother/CMakeFiles/bond_generate_messages_cpp.dir/build
-.PHONY : bond_generate_messages_cpp/fast
-
-# Convenience name for target.
-yocs_velocity_smoother/CMakeFiles/bond_generate_messages_eus.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 yocs_velocity_smoother/CMakeFiles/bond_generate_messages_eus.dir/rule
-.PHONY : yocs_velocity_smoother/CMakeFiles/bond_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_eus: yocs_velocity_smoother/CMakeFiles/bond_generate_messages_eus.dir/rule
-.PHONY : bond_generate_messages_eus
-
-# fast build rule for target.
-bond_generate_messages_eus/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f yocs_velocity_smoother/CMakeFiles/bond_generate_messages_eus.dir/build.make yocs_velocity_smoother/CMakeFiles/bond_generate_messages_eus.dir/build
-.PHONY : bond_generate_messages_eus/fast
-
-# Convenience name for target.
-yocs_velocity_smoother/CMakeFiles/bond_generate_messages_lisp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 yocs_velocity_smoother/CMakeFiles/bond_generate_messages_lisp.dir/rule
-.PHONY : yocs_velocity_smoother/CMakeFiles/bond_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_lisp: yocs_velocity_smoother/CMakeFiles/bond_generate_messages_lisp.dir/rule
-.PHONY : bond_generate_messages_lisp
-
-# fast build rule for target.
-bond_generate_messages_lisp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f yocs_velocity_smoother/CMakeFiles/bond_generate_messages_lisp.dir/build.make yocs_velocity_smoother/CMakeFiles/bond_generate_messages_lisp.dir/build
-.PHONY : bond_generate_messages_lisp/fast
-
-# Convenience name for target.
-yocs_velocity_smoother/CMakeFiles/bond_generate_messages_py.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 yocs_velocity_smoother/CMakeFiles/bond_generate_messages_py.dir/rule
-.PHONY : yocs_velocity_smoother/CMakeFiles/bond_generate_messages_py.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_py: yocs_velocity_smoother/CMakeFiles/bond_generate_messages_py.dir/rule
-.PHONY : bond_generate_messages_py
-
-# fast build rule for target.
-bond_generate_messages_py/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f yocs_velocity_smoother/CMakeFiles/bond_generate_messages_py.dir/build.make yocs_velocity_smoother/CMakeFiles/bond_generate_messages_py.dir/build
-.PHONY : bond_generate_messages_py/fast
-
-# Convenience name for target.
-yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_cpp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-.PHONY : yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_cpp: yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-.PHONY : nodelet_generate_messages_cpp
-
-# fast build rule for target.
-nodelet_generate_messages_cpp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_cpp.dir/build
-.PHONY : nodelet_generate_messages_cpp/fast
-
-# Convenience name for target.
-yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_eus.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-.PHONY : yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_eus: yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-.PHONY : nodelet_generate_messages_eus
-
-# fast build rule for target.
-nodelet_generate_messages_eus/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_eus.dir/build.make yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_eus.dir/build
-.PHONY : nodelet_generate_messages_eus/fast
-
-# Convenience name for target.
-yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_lisp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-.PHONY : yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_lisp: yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-.PHONY : nodelet_generate_messages_lisp
-
-# fast build rule for target.
-nodelet_generate_messages_lisp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_lisp.dir/build
-.PHONY : nodelet_generate_messages_lisp/fast
-
-# Convenience name for target.
-yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_py.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_py.dir/rule
-.PHONY : yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_py: yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_py.dir/rule
-.PHONY : nodelet_generate_messages_py
-
-# fast build rule for target.
-nodelet_generate_messages_py/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_py.dir/build.make yocs_velocity_smoother/CMakeFiles/nodelet_generate_messages_py.dir/build
-.PHONY : nodelet_generate_messages_py/fast
-
-# Convenience name for target.
 yocs_velocity_smoother/CMakeFiles/yocs_velocity_smoother_gencfg.dir/rule:
 	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 yocs_velocity_smoother/CMakeFiles/yocs_velocity_smoother_gencfg.dir/rule
 .PHONY : yocs_velocity_smoother/CMakeFiles/yocs_velocity_smoother_gencfg.dir/rule
@@ -323,19 +211,11 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... bond_generate_messages_cpp"
-	@echo "... bond_generate_messages_eus"
-	@echo "... bond_generate_messages_lisp"
-	@echo "... bond_generate_messages_py"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
-	@echo "... nodelet_generate_messages_cpp"
-	@echo "... nodelet_generate_messages_eus"
-	@echo "... nodelet_generate_messages_lisp"
-	@echo "... nodelet_generate_messages_py"
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... yocs_velocity_smoother_gencfg"

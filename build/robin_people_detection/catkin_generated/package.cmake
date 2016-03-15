@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "robin_people_detection")
+set(robin_people_detection_MAINTAINER "Reiter Andreas <andreas@reiter-stt.at>, Reisenberger Johannes <johannesreisenberger@gmx.at>")
+set(robin_people_detection_DEPRECATED "")
+set(robin_people_detection_VERSION "0.1.0")
+set(robin_people_detection_BUILD_DEPENDS "roscpp" "rospy" "std_msgs" "tf")
+set(robin_people_detection_RUN_DEPENDS "roscpp" "rospy" "std_msgs" "tf" "openni_tracker")
+set(robin_people_detection_BUILDTOOL_DEPENDS "catkin")

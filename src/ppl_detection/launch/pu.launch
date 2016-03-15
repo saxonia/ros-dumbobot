@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <arg name="camera" default="camera" />
+
+    <!-- start ppl_detection kinect_detect -->
+    <node pkg="ppl_detection" name="kinect_detect" type="kinect_detect" />
+
+</launch>

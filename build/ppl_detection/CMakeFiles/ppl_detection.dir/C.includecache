@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/c3mx/robot/src/ppl_detection/src/ply.h
+stdio.h
+-
+stddef.h
+-
+
+/home/c3mx/robot/src/ppl_detection/src/plyfile.c
+stdio.h
+-
+stdlib.h
+-
+math.h
+-
+string.h
+-
+ply.h
+/home/c3mx/robot/src/ppl_detection/src/ply.h
+

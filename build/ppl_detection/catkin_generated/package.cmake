@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "ppl_detection")
+set(ppl_detection_MAINTAINER "Soh De Loong <www@ww.ww>")
+set(ppl_detection_DEPRECATED "")
+set(ppl_detection_VERSION "0.0.4")
+set(ppl_detection_BUILD_DEPENDS "message_generation" "tf" "sensor_msgs" "std_msgs" "laser_geometry" "pcl_ros" "pcl_visualization" "visualization_msgs" "geometry_msgs")
+set(ppl_detection_RUN_DEPENDS "message_runtime" "tf" "sensor_msgs" "std_msgs" "rospy" "roscpp" "laser_geometry" "pcl_ros" "pcl_visualization" "visualization_msgs" "geometry_msgs")
+set(ppl_detection_BUILDTOOL_DEPENDS "catkin" "rospy" "roscpp")

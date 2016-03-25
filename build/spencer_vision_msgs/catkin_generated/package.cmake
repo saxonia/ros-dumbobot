@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "spencer_vision_msgs")
+set(spencer_vision_msgs_MAINTAINER "Lucas Beyer <beyer@vision.rwth-aachen.de>, Stefan Breuers <breuers@vision.rwth-aachen.de>, Timm Linder <linder@informatik.uni-freiburg.de>")
+set(spencer_vision_msgs_DEPRECATED "")
+set(spencer_vision_msgs_VERSION "0.0.0")
+set(spencer_vision_msgs_BUILD_DEPENDS "message_generation" "roscpp" "std_msgs" "geometry_msgs" "sensor_msgs")
+set(spencer_vision_msgs_RUN_DEPENDS "message_runtime" "roscpp" "std_msgs" "geometry_msgs" "sensor_msgs")
+set(spencer_vision_msgs_BUILDTOOL_DEPENDS "catkin")

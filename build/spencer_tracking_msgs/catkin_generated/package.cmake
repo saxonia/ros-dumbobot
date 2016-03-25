@@ -1,0 +1,7 @@
+set(_CATKIN_CURRENT_PACKAGE "spencer_tracking_msgs")
+set(spencer_tracking_msgs_MAINTAINER "Timm Linder <linder@informatik.uni-freiburg.de>, Stefan Breuers <breuers@vision.rwth-aachen.de>, Lucas Beyer <beyer@vision.rwth-aachen.de>")
+set(spencer_tracking_msgs_DEPRECATED "")
+set(spencer_tracking_msgs_VERSION "0.0.0")
+set(spencer_tracking_msgs_BUILD_DEPENDS "message_generation" "roscpp" "std_msgs" "geometry_msgs")
+set(spencer_tracking_msgs_RUN_DEPENDS "message_runtime" "roscpp" "std_msgs" "geometry_msgs")
+set(spencer_tracking_msgs_BUILDTOOL_DEPENDS "catkin")

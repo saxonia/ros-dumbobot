@@ -250,6 +250,9 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 DOXYGEN_EXECUTABLE:FILEPATH=DOXYGEN_EXECUTABLE-NOTFOUND
 
 //Path to a file.
+EIGEN_INCLUDE_DIR:PATH=/usr/include/eigen3
+
+//Path to a file.
 EIGEN_INCLUDE_DIRS:PATH=/usr/include/eigen3
 
 //Path to a program.
@@ -308,6 +311,23 @@ OPENNI_INCLUDE_DIRS:PATH=/usr/include/ni
 
 //Path to a library.
 OPENNI_LIBRARY:FILEPATH=/usr/lib/libOpenNI.so
+
+//Path where debug 3rdpaty OpenCV dependencies are located
+OpenCV_3RDPARTY_LIB_DIR_DBG:PATH=
+
+//Path where release 3rdpaty OpenCV dependencies are located
+OpenCV_3RDPARTY_LIB_DIR_OPT:PATH=
+
+OpenCV_CONFIG_PATH:FILEPATH=/usr/share/OpenCV
+
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/usr/share/OpenCV
+
+//Path where debug OpenCV libraries are located
+OpenCV_LIB_DIR_DBG:PATH=
+
+//Path where release OpenCV libraries are located
+OpenCV_LIB_DIR_OPT:PATH=
 
 //path to apps headers
 PCL_APPS_INCLUDE_DIR:PATH=/usr/include/pcl-1.7
@@ -549,6 +569,9 @@ catkin_DIR:PATH=/opt/ros/jade/share/catkin/cmake
 //The directory containing a CMake configuration file for class_loader.
 class_loader_DIR:PATH=/opt/ros/jade/share/class_loader/cmake
 
+//The directory containing a CMake configuration file for cmake_modules.
+cmake_modules_DIR:PATH=/opt/ros/jade/share/cmake_modules/cmake
+
 //The directory containing a CMake configuration file for cpp_common.
 cpp_common_DIR:PATH=/opt/ros/jade/share/cpp_common/cmake
 
@@ -593,6 +616,9 @@ ecl_type_traits_DIR:PATH=/opt/ros/jade/share/ecl_type_traits/cmake
 
 //The directory containing a CMake configuration file for ecl_utilities.
 ecl_utilities_DIR:PATH=/opt/ros/jade/share/ecl_utilities/cmake
+
+//The directory containing a CMake configuration file for eigen_conversions.
+eigen_conversions_DIR:PATH=/opt/ros/jade/share/eigen_conversions/cmake
 
 //The directory containing a CMake configuration file for gencpp.
 gencpp_DIR:PATH=/opt/ros/jade/share/gencpp/cmake
@@ -646,6 +672,9 @@ gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 //The directory containing a CMake configuration file for joy.
 joy_DIR:PATH=/opt/ros/jade/share/joy/cmake
 
+//The directory containing a CMake configuration file for kdl_conversions.
+kdl_conversions_DIR:PATH=/opt/ros/jade/share/kdl_conversions/cmake
+
 //The directory containing a CMake configuration file for laser_geometry.
 laser_geometry_DIR:PATH=/opt/ros/jade/share/laser_geometry/cmake
 
@@ -680,10 +709,10 @@ nav_msgs_DIR:PATH=/opt/ros/jade/share/nav_msgs/cmake
 nodelet_DIR:PATH=/opt/ros/jade/share/nodelet/cmake
 
 //Value Computed by CMake
-openni_tracker_BINARY_DIR:STATIC=/home/c3mx/robot/build/PREPARE TO DUMP/openni_tracker
+openni_tracker_BINARY_DIR:STATIC=/home/c3mx/robot/build/openni_tracker
 
 //Value Computed by CMake
-openni_tracker_SOURCE_DIR:STATIC=/home/c3mx/robot/src/PREPARE TO DUMP/openni_tracker
+openni_tracker_SOURCE_DIR:STATIC=/home/c3mx/robot/src/openni_tracker
 
 //The directory containing a CMake configuration file for openslam_gmapping.
 openslam_gmapping_DIR:PATH=/opt/ros/jade/share/openslam_gmapping/cmake
@@ -696,6 +725,12 @@ pcl_conversions_DIR:PATH=/opt/ros/jade/share/pcl_conversions/cmake
 
 //The directory containing a CMake configuration file for pcl_msgs.
 pcl_msgs_DIR:PATH=/opt/ros/jade/share/pcl_msgs/cmake
+
+//Value Computed by CMake
+pcl_people_detector_BINARY_DIR:STATIC=/home/c3mx/robot/build/pcl_people_detector
+
+//Value Computed by CMake
+pcl_people_detector_SOURCE_DIR:STATIC=/home/c3mx/robot/src/pcl_people_detector
 
 //The directory containing a CMake configuration file for pcl_ros.
 pcl_ros_DIR:PATH=/opt/ros/jade/share/pcl_ros/cmake
@@ -808,6 +843,24 @@ slam_gmapping_SOURCE_DIR:STATIC=/home/c3mx/robot/src/slam_gmapping
 //The directory containing a CMake configuration file for smclib.
 smclib_DIR:PATH=/opt/ros/jade/share/smclib/cmake
 
+//Value Computed by CMake
+spencer_tracking_msgs_BINARY_DIR:STATIC=/home/c3mx/robot/build/spencer_tracking_msgs
+
+//The directory containing a CMake configuration file for spencer_tracking_msgs.
+spencer_tracking_msgs_DIR:PATH=/home/c3mx/robot/devel/share/spencer_tracking_msgs/cmake
+
+//Value Computed by CMake
+spencer_tracking_msgs_SOURCE_DIR:STATIC=/home/c3mx/robot/src/spencer_tracking_msgs
+
+//Value Computed by CMake
+spencer_vision_msgs_BINARY_DIR:STATIC=/home/c3mx/robot/build/spencer_vision_msgs
+
+//The directory containing a CMake configuration file for spencer_vision_msgs.
+spencer_vision_msgs_DIR:PATH=/home/c3mx/robot/devel/share/spencer_vision_msgs/cmake
+
+//Value Computed by CMake
+spencer_vision_msgs_SOURCE_DIR:STATIC=/home/c3mx/robot/src/spencer_vision_msgs
+
 //The directory containing a CMake configuration file for std_msg.
 std_msg_DIR:PATH=std_msg_DIR-NOTFOUND
 
@@ -840,6 +893,9 @@ tf2_ros_DIR:PATH=/opt/ros/jade/share/tf2_ros/cmake
 
 //The directory containing a CMake configuration file for tf.
 tf_DIR:PATH=/opt/ros/jade/share/tf/cmake
+
+//The directory containing a CMake configuration file for tf_conversions.
+tf_conversions_DIR:PATH=/opt/ros/jade/share/tf_conversions/cmake
 
 //The directory containing a CMake configuration file for topic_tools.
 topic_tools_DIR:PATH=/opt/ros/jade/share/topic_tools/cmake
@@ -998,7 +1054,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=14
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=16
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1039,6 +1095,10 @@ CMAKE_UNAME:INTERNAL=/bin/uname
 CMAKE_USE_RELATIVE_PATHS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: EIGEN_INCLUDE_DIR
+EIGEN_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//Details about finding Eigen
+FIND_PACKAGE_MESSAGE_DETAILS_Eigen:INTERNAL=[/usr/include/eigen3][v()]
 //Details about finding Flann
 FIND_PACKAGE_MESSAGE_DETAILS_Flann:INTERNAL=[/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a][/usr/include][v()]
 //Details about finding OpenNI2
@@ -1116,6 +1176,16 @@ GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
 GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_DBG
+OpenCV_3RDPARTY_LIB_DIR_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_3RDPARTY_LIB_DIR_OPT
+OpenCV_3RDPARTY_LIB_DIR_OPT-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_CONFIG_PATH
+OpenCV_CONFIG_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_LIB_DIR_DBG
+OpenCV_LIB_DIR_DBG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: OpenCV_LIB_DIR_OPT
+OpenCV_LIB_DIR_OPT-ADVANCED:INTERNAL=1
 OpenNI_CFLAGS:INTERNAL=-I/usr/include/ni
 OpenNI_CFLAGS_I:INTERNAL=
 OpenNI_CFLAGS_OTHER:INTERNAL=
@@ -1362,6 +1432,10 @@ PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //  And it needs to match.  But setuptools won't tell us where
 // it will install things.
 PYTHON_INSTALL_DIR:INTERNAL=lib/python2.7/dist-packages
+//Last used BOOST_INCLUDEDIR value.
+_BOOST_INCLUDEDIR_LAST:INTERNAL=/usr/include
+//Last used Boost_ADDITIONAL_VERSIONS value.
+_Boost_ADDITIONAL_VERSIONS_LAST:INTERNAL=1.47;1.47.0
 //Components requested for this build tree.
 _Boost_COMPONENTS_SEARCHED:INTERNAL=chrono;date_time;filesystem;iostreams;serialization;signals;system;thread
 //Last used Boost_INCLUDE_DIR value.

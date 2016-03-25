@@ -1,0 +1,8 @@
+prefix=/home/c3mx/robot/devel
+
+Name: spencer_tracking_msgs
+Description: Description of spencer_tracking_msgs
+Version: 0.0.0
+Cflags: -I/home/c3mx/robot/devel/include
+Libs: -L/home/c3mx/robot/devel/lib 
+Requires: roscpp std_msgs geometry_msgs message_runtime

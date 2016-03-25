@@ -1,19 +1,19 @@
 TrajectoryPlannerROS:
   acc_lim_x: 0.1 
   # 1 m/s^2
-  acc_lim_theta: 2.0
+  acc_lim_theta: 2 #2
   #1.2 #2work
   #1.2 # 3 rad/s^2
   
-  max_vel_x: 0.3 
+  max_vel_x: 0.25 
   # m/s
   min_vel_x: 0.1 
   # m/s
    
-  max_vel_theta: 1.5 # 1.7 rad/s
-  min_vel_theta: -1.5 # 1.7 rad/s
-  min_in_place_vel_theta: 1.2 # 1.6 rad/s
-  min_in_place_rotational_vel: 1.2 # 1.6rad/s
+  max_vel_theta: 1.5 #1.5 1.7 rad/s
+  min_vel_theta: 0.8#-1.2 #-1.5 1.7 rad/s
+  min_in_place_vel_theta: 0.9 # 1.6 rad/s
+  min_in_place_rotational_vel: 0.9 # 1.6rad/s
   
   
   escape_vel: -0.1 # m/s

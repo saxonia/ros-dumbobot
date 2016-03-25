@@ -342,8 +342,8 @@ int main(int argc, char** argv){
     MoveBaseClient ac("move_base", true);
 
   // Read waypoint from file to vector
-    // read_waypoint_from("/waypoints/waypoint.csv");
-     read_waypoint_from("/waypoints/waypoint_20.csv");
+    read_waypoint_from("/waypoints/waypoint.csv");
+     //read_waypoint_from("/waypoints/waypoint_20.csv");
     ROS_INFO("Successfully Load waypoints from file!");
 
   // Point The iterator to the beginning of the sequence

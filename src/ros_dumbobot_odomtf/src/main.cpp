@@ -42,7 +42,7 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "odometry_publisher");
   ros::NodeHandle n;
   ros::Subscriber sub = n.subscribe("/ros_dumbobot/wheel_encoder", 10, WheelCallback);
-  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 50);   //50
+  ros::Publisher odom_pub = n.advertise<nav_msgs::Odometry>("odom", 100);   //50
   tf::TransformBroadcaster odom_broadcaster;
 
   //Initialize Timer 
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 
   // Parameters Here
     //tick Width = 4975 tick per meters
-      double ticks_meter = 4975;//5000;//4975;
+      double ticks_meter = 5050;//4975;//5000;//4975;
       double wheel_radius_multiplier = 1.0;
       double wheel_radius_ = 0.095 * wheel_radius_multiplier;
       double wheel_separation_multiplier = 1.6; //1.7

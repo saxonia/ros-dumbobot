@@ -162,5 +162,6 @@
 /home/c3mx/robot/build/ppl_detection/CMakeFiles/visualization_msgs_generate_messages_eus.dir
 /home/c3mx/robot/build/ppl_detection/CMakeFiles/visualization_msgs_generate_messages_lisp.dir
 /home/c3mx/robot/build/ppl_detection/CMakeFiles/visualization_msgs_generate_messages_py.dir
+/home/c3mx/robot/build/simple_navigation_goals/CMakeFiles/waypoint_nav.dir
 /home/c3mx/robot/build/yocs_velocity_smoother/CMakeFiles/yocs_velocity_smoother_gencfg.dir
 /home/c3mx/robot/build/yocs_velocity_smoother/CMakeFiles/yocs_velocity_smoother_nodelet.dir

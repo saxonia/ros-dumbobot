@@ -1233,6 +1233,19 @@ tf_generate_messages_py/fast:
 .PHONY : tf_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named waypoint_nav
+
+# Build rule for target.
+waypoint_nav: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 waypoint_nav
+.PHONY : waypoint_nav
+
+# fast build rule for target.
+waypoint_nav/fast:
+	$(MAKE) -f simple_navigation_goals/CMakeFiles/waypoint_nav.dir/build.make simple_navigation_goals/CMakeFiles/waypoint_nav.dir/build
+.PHONY : waypoint_nav/fast
+
+#=============================================================================
 # Target rules for targets named _run_tests_gmapping
 
 # Build rule for target.
@@ -2407,6 +2420,7 @@ help:
 	@echo "... tf_generate_messages_eus"
 	@echo "... tf_generate_messages_lisp"
 	@echo "... tf_generate_messages_py"
+	@echo "... waypoint_nav"
 	@echo "... _run_tests_gmapping"
 	@echo "... _run_tests_gmapping_rostest"
 	@echo "... _run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test"

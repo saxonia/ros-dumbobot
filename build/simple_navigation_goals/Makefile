@@ -447,6 +447,20 @@ tf_generate_messages_py/fast:
 	cd /home/c3mx/robot/build && $(MAKE) -f simple_navigation_goals/CMakeFiles/tf_generate_messages_py.dir/build.make simple_navigation_goals/CMakeFiles/tf_generate_messages_py.dir/build
 .PHONY : tf_generate_messages_py/fast
 
+# Convenience name for target.
+simple_navigation_goals/CMakeFiles/waypoint_nav.dir/rule:
+	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 simple_navigation_goals/CMakeFiles/waypoint_nav.dir/rule
+.PHONY : simple_navigation_goals/CMakeFiles/waypoint_nav.dir/rule
+
+# Convenience name for target.
+waypoint_nav: simple_navigation_goals/CMakeFiles/waypoint_nav.dir/rule
+.PHONY : waypoint_nav
+
+# fast build rule for target.
+waypoint_nav/fast:
+	cd /home/c3mx/robot/build && $(MAKE) -f simple_navigation_goals/CMakeFiles/waypoint_nav.dir/build.make simple_navigation_goals/CMakeFiles/waypoint_nav.dir/build
+.PHONY : waypoint_nav/fast
+
 src/waypoint_navigation.o: src/waypoint_navigation.cpp.o
 .PHONY : src/waypoint_navigation.o
 
@@ -470,6 +484,30 @@ src/waypoint_navigation.s: src/waypoint_navigation.cpp.s
 src/waypoint_navigation.cpp.s:
 	cd /home/c3mx/robot/build && $(MAKE) -f simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/build.make simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.s
 .PHONY : src/waypoint_navigation.cpp.s
+
+src/waypoint_navigation_full.o: src/waypoint_navigation_full.cpp.o
+.PHONY : src/waypoint_navigation_full.o
+
+# target to build an object file
+src/waypoint_navigation_full.cpp.o:
+	cd /home/c3mx/robot/build && $(MAKE) -f simple_navigation_goals/CMakeFiles/waypoint_nav.dir/build.make simple_navigation_goals/CMakeFiles/waypoint_nav.dir/src/waypoint_navigation_full.cpp.o
+.PHONY : src/waypoint_navigation_full.cpp.o
+
+src/waypoint_navigation_full.i: src/waypoint_navigation_full.cpp.i
+.PHONY : src/waypoint_navigation_full.i
+
+# target to preprocess a source file
+src/waypoint_navigation_full.cpp.i:
+	cd /home/c3mx/robot/build && $(MAKE) -f simple_navigation_goals/CMakeFiles/waypoint_nav.dir/build.make simple_navigation_goals/CMakeFiles/waypoint_nav.dir/src/waypoint_navigation_full.cpp.i
+.PHONY : src/waypoint_navigation_full.cpp.i
+
+src/waypoint_navigation_full.s: src/waypoint_navigation_full.cpp.s
+.PHONY : src/waypoint_navigation_full.s
+
+# target to generate assembly for a file
+src/waypoint_navigation_full.cpp.s:
+	cd /home/c3mx/robot/build && $(MAKE) -f simple_navigation_goals/CMakeFiles/waypoint_nav.dir/build.make simple_navigation_goals/CMakeFiles/waypoint_nav.dir/src/waypoint_navigation_full.cpp.s
+.PHONY : src/waypoint_navigation_full.cpp.s
 
 # Help Target
 help:
@@ -505,9 +543,13 @@ help:
 	@echo "... tf_generate_messages_eus"
 	@echo "... tf_generate_messages_lisp"
 	@echo "... tf_generate_messages_py"
+	@echo "... waypoint_nav"
 	@echo "... src/waypoint_navigation.o"
 	@echo "... src/waypoint_navigation.i"
 	@echo "... src/waypoint_navigation.s"
+	@echo "... src/waypoint_navigation_full.o"
+	@echo "... src/waypoint_navigation_full.i"
+	@echo "... src/waypoint_navigation_full.s"
 .PHONY : help
 
 

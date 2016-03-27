@@ -1,9 +1,0 @@
-ACML - Failed to transform initial pose in time  
-[ WARN] [1452722053.572106531]: Failed to transform initial pose in time (Lookup would require extrapolation into the future.  Requested time 1452722053.446157451 but the latest data is at time 1452722053.157265913, when looking up transform from frame [base_link] to frame [map])
-
-
-MOVE_BASE - 
-[ WARN] [1452722488.193044316]: Unable to get starting pose of robot, unable to create global plan
-[ WARN] [1452722488.461579210]: Could not get robot pose, cancelling reconfiguration
-
-

@@ -502,6 +502,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "simple_navigation_goals/CMakeFiles/tf_generate_messages_eus.dir/DependInfo.cmake"
   "simple_navigation_goals/CMakeFiles/tf_generate_messages_lisp.dir/DependInfo.cmake"
   "simple_navigation_goals/CMakeFiles/tf_generate_messages_py.dir/DependInfo.cmake"
+  "simple_navigation_goals/CMakeFiles/waypoint_nav.dir/DependInfo.cmake"
   "gmapping/CMakeFiles/_run_tests_gmapping.dir/DependInfo.cmake"
   "gmapping/CMakeFiles/_run_tests_gmapping_rostest.dir/DependInfo.cmake"
   "gmapping/CMakeFiles/_run_tests_gmapping_rostest_test_basic_localization_laser_different_beamcount.test.dir/DependInfo.cmake"

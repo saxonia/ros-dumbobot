@@ -336,9 +336,9 @@ void goalDoneCallback_state(const actionlib::SimpleClientGoalState &state,
         //Wait Just a while
           waitfordelivery();
         // Ask User For the Next Target  
-          //userInput();
-          nextTarget();
-           *target = targets[sequence[targetId]];
+          userInput();
+          //nextTarget();
+           //*target = targets[sequence[targetId]];
           sendNewGoal = true;
           robot_state = robotState::SINGLERUN;
     }

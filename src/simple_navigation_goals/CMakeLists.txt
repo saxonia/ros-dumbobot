@@ -135,6 +135,9 @@ include_directories(
 add_executable(simple_navigation_goals src/waypoint_navigation.cpp)
 target_link_libraries(simple_navigation_goals ${catkin_LIBRARIES})
 
+add_executable(waypoint_nav src/waypoint_navigation_full.cpp)
+target_link_libraries(waypoint_nav ${catkin_LIBRARIES})
+
 ## Add cmake target dependencies of the executable
 ## same as for the library above
 # add_dependencies(simple_navigation_goals_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})

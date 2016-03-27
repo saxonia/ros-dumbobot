@@ -9,6 +9,7 @@ Department of Computer Engineering , Chulalongkorn University
 #include <move_base_msgs/MoveBaseAction.h>
 #include <actionlib/client/simple_action_client.h>
 #include <nav_msgs/Odometry.h>
+#include <std_srvs/Empty.h>
 #include <vector>
 #include <geometry_msgs/Pose2D.h>
 #include <ros/package.h>
@@ -22,6 +23,12 @@ Department of Computer Engineering , Chulalongkorn University
 
 #include <tf/transform_listener.h>
 
+//Timer 
+  ros::Timer timer;
+  bool createTimer;
+//Costmap Clearing Service Client  
+  ros::ServiceClient client;
+  std_srvs::Empty clearer;
 
 //Client Service of move_base 
   typedef actionlib::SimpleActionClient<move_base_msgs::MoveBaseAction> MoveBaseClient;
@@ -235,7 +242,7 @@ char getch()
 // Wait FOR USER ACCEPTANCE !
 int waitfordelivery(){
   // Wait Time 
-  int waittime = 3;//5; //seconds
+  int waittime = 3; //seconds
   ros::Duration waitingDuration(waittime);
   ros::Time startTime = ros::Time::now();
   ros::Time thisTime = ros::Time::now();
@@ -270,6 +277,24 @@ void nextTarget(){
   if(targetId >=14){
    finish = true; 
   }
+}
+
+void timerCallback(const ros::TimerEvent &event){
+  /*DO SOMETHING 
+
+  
+
+  AFTER TIMER FINISH HERE*/
+
+  //Prompt :D
+  std::cout << "@@@@@@@@Timer has just finished" <<std::endl;
+  client.call(clearer);
+  // Clear the Costmap 
+
+
+  // This Timer is finish , request to create it again;
+    createTimer = true;
+    return;
 }
 
 void goalDoneCallback_state(const actionlib::SimpleClientGoalState &state, 
@@ -349,6 +374,8 @@ int main(int argc, char** argv){
   // Point The iterator to the beginning of the sequence
     target = targets.begin();
   
+  // Request To Create timer
+    createTimer = true;
 
   // Callback polling Rate 
     ros::Rate r(30);
@@ -383,11 +410,15 @@ int main(int argc, char** argv){
   // Subscriber to Get Current position 
     ros::NodeHandle n;
 
+  // Subscribe to Map Clearing Service 
+    client = n.serviceClient<std_srvs::Empty>("/move_base_node/clear_costmaps");
+
   // Initialized !  
     userInput();
  
-// Loop for Setting Goal and Navigate ! 
-  sendNewGoal = true;
+  // Loop for Setting Goal and Navigate ! 
+    sendNewGoal = true;
+
   // Start the Navigation Waypoint Loop
     while(ros::ok() && !finish ){
 
@@ -411,13 +442,23 @@ int main(int argc, char** argv){
           goal.target_pose.pose.orientation.y = target->target_pose.pose.orientation.y;
           goal.target_pose.pose.orientation.z = target->target_pose.pose.orientation.z;
           goal.target_pose.pose.orientation.w = target->target_pose.pose.orientation.w;
-          //goal.target_pose.pose.orientation = tf::createQuaternionMsgFromYaw(target->theta);
 
           // Send Goal to Navigation Stack
           ac.sendGoal(goal, 
                       boost::bind(&goalDoneCallback_state, _1, _2), 
                       boost::bind(&goalActiveCallback), boost::bind(&goalFeedbackCallback, _1));
+
       }
+
+      //Check if the timer should be create.
+      if(createTimer){
+
+        timer = n.createTimer(ros::Duration(10), timerCallback);
+
+        //We Don't want to create timer anymore
+        createTimer = false;
+      }
+
       // Spinning the loop and Callback
       ros::spinOnce();
       r.sleep();

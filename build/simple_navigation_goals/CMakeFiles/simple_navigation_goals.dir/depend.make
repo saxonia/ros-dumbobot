@@ -109,6 +109,9 @@ simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navi
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/sensor_msgs/PointCloud.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/std_msgs/Empty.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/std_msgs/Header.h
+simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/std_srvs/Empty.h
+simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/std_srvs/EmptyRequest.h
+simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/std_srvs/EmptyResponse.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/tf/FrameGraph.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/tf/FrameGraphRequest.h
 simple_navigation_goals/CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o: /opt/ros/jade/include/tf/FrameGraphResponse.h

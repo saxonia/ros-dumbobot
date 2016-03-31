@@ -55,23 +55,12 @@ void cmd_velCallback(const geometry_msgs::Twist::ConstPtr& msg) {
 
 }
 
-
-
-// Receive Linear and Angular Velocity and Turn into Motor Effort [-255,255]
-void control_loop_cmd_vel_new(){
-
-  // Constant Params
-    const double maximum_linear = 0.60;
-    const double maximum_angular = 1.78;
-    double width_robot = 0.4; //40 CM from Wheel to Wheel
-    double wheelRadius = 0.095; //9.5 CM Wheel Center to Circumference
-    double wheel_separation_multiplier = 1.7;
-    double wheel_separation = width_robot * wheel_separation_multiplier; //Wheel Separation
-
+/*
   // Scale Linear and Angular Velocity onto [-1,1]
     double linear_x_scaled = linear_x / maximum_linear ;
     double angular_z_scaled = angular_z / maximum_angular;
-    angular_z_scaled *= 1.7;
+     //angular_z_scaled *= 2.8;//1.7; //
+    angular_z_scaled *= 1.8;
     //std::cout << "Linear_x  = " <<linear_x_scaled <<std::endl;
     //std::cout << "Angular_Z = " << angular_z_scaled <<std::endl;
 
@@ -80,7 +69,34 @@ void control_loop_cmd_vel_new(){
     // const double vel_right = (linear_x + angular_z * wheel_separation / 2.0);
     double vel_left  = (linear_x_scaled - angular_z_scaled);
     double vel_right = (linear_x_scaled + angular_z_scaled);
-    
+
+*/
+
+// Receive Linear and Angular Velocity and Turn into Motor Effort [-255,255]
+void control_loop_cmd_vel_new(){
+
+  // Constant Params
+    const double maximum_linear = 0.60;//0.60;
+    const double maximum_angular = 1.78;//1.78;
+    double width_robot = 0.4; //40 CM from Wheel to Wheel
+    double wheelRadius = 0.095; //9.5 CM Wheel Center to Circumference
+    double wheel_separation_multiplier = 1.7;
+    double wheel_separation = width_robot * wheel_separation_multiplier; //Wheel Separation
+
+  // Scale Linear and Angular Velocity onto [-1,1]
+    double linear_x_scaled = linear_x / maximum_linear ;
+    double angular_z_scaled = angular_z / maximum_angular;
+     //angular_z_scaled *= 2.8;//1.7; //
+    angular_z_scaled *= 3.5;
+    //std::cout << "Linear_x  = " <<linear_x_scaled <<std::endl;
+    //std::cout << "Angular_Z = " << angular_z_scaled <<std::endl;
+
+  // Compute wheels velocities: [DIFF DRIVE MODEL]
+      double vel_left  = (linear_x_scaled - angular_z_scaled * wheel_separation / 2.0);
+      double vel_right = (linear_x_scaled + angular_z_scaled * wheel_separation / 2.0);
+    //double vel_left  = (linear_x_scaled - angular_z_scaled);
+    //double vel_right = (linear_x_scaled + angular_z_scaled);
+
 
     if( fabs(vel_left) > 1.0 )
     {

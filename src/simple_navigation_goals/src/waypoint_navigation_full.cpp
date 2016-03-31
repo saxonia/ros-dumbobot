@@ -21,6 +21,7 @@ Department of Computer Engineering , Chulalongkorn University
 #include <string>
 #include <cstdlib>
 #include <termios.h>
+#include <ctime>
 
 //Transformation , Position
 #include <tf/transform_listener.h>
@@ -82,6 +83,9 @@ Department of Computer Engineering , Chulalongkorn University
   int SEQUENCE_LENGTH = 24;
   int sequence[24] ={0,1,6,7,8,9,12,9,8,7,6,2,3,5,4,3,10,11,10,3,2,1,13,0};
 
+//Log write
+  int startIndex,endIndex;
+  double startTime;
 
 /*********************************************************************
 ***************************System Like Function***********************
@@ -128,6 +132,38 @@ char getch()
     return (buff);
 }
 
+void seperateLog(){
+	  std::fstream fs;
+  std::fstream fs2;
+  fs.open ("tutorLog1.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+  fs2.open ("tutorLog2.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+  		ros::Time noww = ros::Time::now();
+  		time_t t = time(0);   // get time now
+    struct tm * now = localtime( & t );
+   fs << "SEPERATE=======" << (now->tm_year + 1900) << '-' 
+         << (now->tm_mon + 1) << '-'
+         <<  now->tm_mday << "============" << noww
+         << std::endl;
+      fs2 << "SEPERATE" << (now->tm_year + 1900) << '-' 
+         << (now->tm_mon + 1) << '-'
+         <<  now->tm_mday << "============" <<noww
+         << std::endl;      
+   fs.close();
+  fs2.close();
+}
+
+void writeFile(int start_id , int end_id , double timeusing){
+  std::fstream fs;
+  std::fstream fs2;
+  fs.open ("tutorLog1.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+  fs2.open ("tutorLog2.txt", std::fstream::in | std::fstream::out | std::fstream::app);
+
+  fs << start_id << "," << end_id << "," << timeusing <<std::endl ;
+  fs2 << target_name[start_id] << "->" << target_name[end_id] << std::endl <<" = " << timeusing <<std::endl; 
+
+  fs.close();
+  fs2.close();
+}
 
 
 /*********************************************************************
@@ -376,6 +412,8 @@ void userInput(){
 			      			*target = targets[sequence[targetId]];
 			      		//Set the new Goal
 			      			requestToSetNewGoal = true;
+			      		//[Logger] Set The StartPoint
+			      			startIndex = sequence[targetId];
 			      		return;
 			      	break;
 			    //MODE : EXIT
@@ -466,6 +504,14 @@ void goalDoneCallback_state(const actionlib::SimpleClientGoalState &state,
           userInput();
 
     }else if(robot_state == robotState::EXECUTESEQ){
+    	//[LOGGER] WRITE
+    	std::cout << "[LOGGER] REACH THE TARGET => WRITEFILE & Reset Timer" <<std::endl ;
+    	double timeUse = ros::Time::now().toSec();
+    	timeUse = timeUse - startTime;
+    	writeFile(startIndex,endIndex,timeUse);
+    	startIndex = endIndex;
+
+    	// Normal Flow
     	std::cout <<std::endl <<std::endl;
     	std::cout << "[AGENT] REACH THE TARGET" <<std::endl;
     	std::cout << "[AGENT] EXECUTESEQ NEXT SEQUENCE : "<< targetId <<std::endl;
@@ -483,6 +529,8 @@ void goalDoneCallback_state(const actionlib::SimpleClientGoalState &state,
            *target = targets[sequence[targetId]];
           robot_state = robotState::EXECUTESEQ;
           requestToSetNewGoal = true;
+        //[LOGGER] NextTarget
+          endIndex = sequence[targetId];
     }
 }
 
@@ -525,7 +573,11 @@ int main(int argc, char** argv){
 
   // Callback polling Rate 
     ros::Rate r(30);
-  
+
+  // Logger init
+    seperateLog();
+  	startIndex = 0; 
+  	endIndex = 0;
 
   // Flag For Marking Base Location (Request Current Location Flag)
     requestToMarkLocation = false;
@@ -560,6 +612,9 @@ int main(int argc, char** argv){
 
       // The Next Goal ! 
       if(requestToSetNewGoal){
+
+      	  // [LOGGER]Start the timer 
+      	  startTime = ros::Time::now().toSec();
 
           // Do this Target until its end
           requestToSetNewGoal = false;

@@ -1,0 +1,72 @@
+SEPERATE2016-3-29============1459186887.280692924
+"Lift Hallway"->"Lift Hallway"
+ = 14.5493
+"Lift Hallway"->"Two Sofa Std Affair"
+ = 20.2936
+"Two Sofa Std Affair"->"Student Affair Room "
+ = 64.2017
+"Student Affair Room "->"PhotoCopy Room"
+ = 31.8533
+"PhotoCopy Room"->"Coffee Room"
+ = 53.8555
+"Coffee Room"->"TeachersRoom Copy"
+ = 66.2575
+"TeachersRoom Copy"->"ConferenceRoom Copy"
+ = 14.7699
+"ConferenceRoom Copy"->"TeachersRoom Copy"
+ = 23.8689
+"TeachersRoom Copy"->"Coffee Room"
+ = 90.7222
+"Coffee Room"->"PhotoCopy Room"
+ = 21.1094
+"PhotoCopy Room"->"Student Affair Room "
+ = 19.0791
+"Student Affair Room "->"Escaping Stair "
+ = 55.2062
+"Escaping Stair "->"Meeting Room Corner"
+ = 17.1903
+"Meeting Room Corner"->"Aj.Nattee's Room "
+ = 31.3498
+"Aj.Nattee's Room "->"Meeting Room in Alley"
+ = 41.0997
+"Meeting Room in Alley"->"Meeting Room Corner"
+ = 97.6314
+"Meeting Room Corner"->"TeachersRoom ajnattee"
+ = 106.835
+"TeachersRoom ajnattee"->"ConferenceROom ajnattee"
+ = 10.8908
+"ConferenceROom ajnattee"->"TeachersRoom ajnattee"
+ = 97.381
+"TeachersRoom ajnattee"->"Meeting Room Corner"
+ = 82.8912
+"Meeting Room Corner"->"Escaping Stair "
+ = 25.2793
+"Escaping Stair "->"Two Sofa Std Affair"
+ = 39.0078
+"Two Sofa Std Affair"->"Middle Hallway ConferenceRoom"
+ = 68.9581
+"Middle Hallway ConferenceRoom"->"Lift Hallway"
+ = 12.1707
+SEPERATE2016-3-29============1459188343.923748443
+"Lift Hallway"->"Lift Hallway"
+ = 33.0987
+"Lift Hallway"->"Two Sofa Std Affair"
+ = 26.5576
+"Two Sofa Std Affair"->"Student Affair Room "
+ = 154.067
+SEPERATE2016-3-29============1459188714.385539058
+"Lift Hallway"->"Lift Hallway"
+ = 16.9072
+"Lift Hallway"->"Two Sofa Std Affair"
+ = 22.1381
+"Two Sofa Std Affair"->"Student Affair Room "
+ = 130.755
+"Student Affair Room "->"PhotoCopy Room"
+ = 49.5527
+"PhotoCopy Room"->"Coffee Room"
+ = 28.3268
+"Coffee Room"->"TeachersRoom Copy"
+ = 74.8021
+SEPERATE2016-3-29============1459189374.162666026
+SEPERATE2016-3-29============1459189567.303311320
+SEPERATE2016-3-30============1459306464.832223715

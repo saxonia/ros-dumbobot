@@ -1,22 +1,26 @@
 TrajectoryPlannerROS:
   acc_lim_x: 0.1 
   # 1 m/s^2
-  acc_lim_theta: 2 #2
-  #1.2 #2work
-  #1.2 # 3 rad/s^2
+  acc_lim_theta: 2 
+  #1.5 #2
+
   
   max_vel_x: 0.25 
   # m/s
   min_vel_x: 0.1 
   # m/s
    
-  max_vel_theta: 1.5 #1.5 1.7 rad/s
-  min_vel_theta: 0.8#-1.2 #-1.5 1.7 rad/s
-  min_in_place_vel_theta: 0.48#0.8 # 1.6 rad/s
-  min_in_place_rotational_vel: 0.48#0.8 # 1.6rad/s
+  max_vel_theta: 1.5 
+  # rad/s
+  min_vel_theta: -1.5 #0.7 
+  # rad/s
+  min_in_place_vel_theta: 0.7
+  # rad/s
+  min_in_place_rotational_vel: 0.7 
+  # rad/s
   
   
-  escape_vel: -0.1 # m/s
+  escape_vel: -0.15 # m/s
   
   holonomic_robot: false
 
@@ -29,14 +33,12 @@ TrajectoryPlannerROS:
   heading_scoring_timestep : 0.3
   #heading_scoring_timestep: 0.3
   meter_scoring: false
-  pdist_scale: 0.7
+  pdist_scale: 0.6 #0.7
   #0.4
   gdist_scale: 0.8
   #0.8
   occdist_scale: 0.1
   #0.05
-
-
 
   ###
   # Goal Tolerance Parameters

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!--- Run controller -->
+  <include file="$(find ros_dumbobot_nav)/launch/ros_dumbobot_configuration.launch" /> 
+
+   <!--- Run controller -->
+  <include file="$(find openni_launch)/launch/openni.launch" /> 
+
+</launch>

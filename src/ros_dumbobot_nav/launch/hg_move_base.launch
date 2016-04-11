@@ -1,6 +1,10 @@
 <!-- Launch File For Move_base Automatic Navigation System -->
 <launch>
-  <!-- Run the map server For LOCALIZATION-->
+  <!-- Run the map server For LOCALIZATION
+  <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/a20.yaml"/> 
+  -->
+
+    <!-- Run the map server For LOCALIZATION-->
   <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/a20.yaml"/> 
 
   <!--- Run AMCL -->

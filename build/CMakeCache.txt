@@ -549,7 +549,7 @@ _CATKIN_GTEST_INCLUDE:FILEPATH=/usr/include/gtest/gtest.h
 _CATKIN_GTEST_SRC:FILEPATH=/usr/src/gtest/src/gtest.cc
 
 //Path to a file.
-_file_name:FILEPATH=/home/c3mx/robot/src/gmapping/test/basic_localization_laser_different_beamcount.test
+_file_name:FILEPATH=/home/c3mx/robot/src/custom_scan_matcher/test/covariance.test
 
 //The directory containing a CMake configuration file for actionlib.
 actionlib_DIR:PATH=/opt/ros/jade/share/actionlib/cmake
@@ -677,6 +677,18 @@ kdl_conversions_DIR:PATH=/opt/ros/jade/share/kdl_conversions/cmake
 
 //The directory containing a CMake configuration file for laser_geometry.
 laser_geometry_DIR:PATH=/opt/ros/jade/share/laser_geometry/cmake
+
+//Value Computed by CMake
+laser_scan_matcher_BINARY_DIR:STATIC=/home/c3mx/robot/build/custom_scan_matcher
+
+//Dependencies for the target
+laser_scan_matcher_LIB_DEPENDS:STATIC=general;/opt/ros/jade/lib/libpcl_ros_filters.so;general;/opt/ros/jade/lib/libpcl_ros_io.so;general;/opt/ros/jade/lib/libpcl_ros_tf.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_common.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_common.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_kdtree.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_kdtree.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_octree.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_octree.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_search.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_search.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_filters.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_filters.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_features.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_features.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_registration.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_registration.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_io.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_io.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_visualization.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_visualization.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_segmentation.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_segmentation.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_people.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_people.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_surface.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_surface.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_outofcore.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_outofcore.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_recognition.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_recognition.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_keypoints.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_keypoints.so;optimized;/usr/lib/x86_64-linux-gnu/libpcl_tracking.so;debug;/usr/lib/x86_64-linux-gnu/libpcl_tracking.so;general;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;general;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;general;/usr/lib/libOpenNI.so;optimized;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;debug;/usr/lib/x86_64-linux-gnu/libflann_cpp_s.a;general;/usr/lib/libvtkCommon.so.5.8.0;general;/usr/lib/libvtkFiltering.so.5.8.0;general;/usr/lib/libvtkImaging.so.5.8.0;general;/usr/lib/libvtkGraphics.so.5.8.0;general;/usr/lib/libvtkGenericFiltering.so.5.8.0;general;/usr/lib/libvtkIO.so.5.8.0;general;/usr/lib/libvtkRendering.so.5.8.0;general;/usr/lib/libvtkVolumeRendering.so.5.8.0;general;/usr/lib/libvtkHybrid.so.5.8.0;general;/usr/lib/libvtkWidgets.so.5.8.0;general;/usr/lib/libvtkParallel.so.5.8.0;general;/usr/lib/libvtkInfovis.so.5.8.0;general;/usr/lib/libvtkGeovis.so.5.8.0;general;/usr/lib/libvtkViews.so.5.8.0;general;/usr/lib/libvtkCharts.so.5.8.0;general;/opt/ros/jade/lib/libdynamic_reconfigure_config_init_mutex.so;general;/opt/ros/jade/lib/libnodeletlib.so;general;/opt/ros/jade/lib/libbondcpp.so;general;/usr/lib/x86_64-linux-gnu/libuuid.so;general;/usr/lib/x86_64-linux-gnu/libtinyxml.so;general;/opt/ros/jade/lib/libclass_loader.so;general;/usr/lib/libPocoFoundation.so;general;/usr/lib/x86_64-linux-gnu/libdl.so;general;/opt/ros/jade/lib/libroslib.so;general;/opt/ros/jade/lib/librosbag.so;general;/opt/ros/jade/lib/librosbag_storage.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/opt/ros/jade/lib/libroslz4.so;general;/usr/lib/x86_64-linux-gnu/liblz4.so;general;/opt/ros/jade/lib/libtopic_tools.so;general;/opt/ros/jade/lib/libtf.so;general;/opt/ros/jade/lib/libtf2_ros.so;general;/opt/ros/jade/lib/libactionlib.so;general;/opt/ros/jade/lib/libmessage_filters.so;general;/opt/ros/jade/lib/libtf2.so;general;/opt/ros/jade/lib/libroscpp.so;general;/usr/lib/x86_64-linux-gnu/libboost_signals.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/opt/ros/jade/lib/librosconsole.so;general;/opt/ros/jade/lib/librosconsole_log4cxx.so;general;/opt/ros/jade/lib/librosconsole_backend_interface.so;general;/usr/lib/x86_64-linux-gnu/liblog4cxx.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/opt/ros/jade/lib/libxmlrpcpp.so;general;/opt/ros/jade/lib/libroscpp_serialization.so;general;/opt/ros/jade/lib/librostime.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/opt/ros/jade/lib/libcpp_common.so;general;/usr/lib/x86_64-linux-gnu/libconsole_bridge.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;gsl;general;gslcblas;general;m;general;csm-static;general;gsl;general;gslcblas;general;m;
+
+//Value Computed by CMake
+laser_scan_matcher_SOURCE_DIR:STATIC=/home/c3mx/robot/src/custom_scan_matcher
+
+//Dependencies for the target
+laser_scan_matcher_nodelet_LIB_DEPENDS:STATIC=general;laser_scan_matcher;
 
 //Value Computed by CMake
 learning_joy_BINARY_DIR:STATIC=/home/c3mx/robot/build/learning_joy
@@ -1054,7 +1066,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=16
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=17
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -1451,4 +1463,39 @@ __pkg_config_checked_PC_EIGEN:INTERNAL=1
 __pkg_config_checked_PC_FLANN:INTERNAL=1
 __pkg_config_checked_PC_OPENNI:INTERNAL=1
 __pkg_config_checked_PC_OPENNI2:INTERNAL=1
+__pkg_config_checked_csm:INTERNAL=1
+csm_CFLAGS:INTERNAL=-I/opt/ros/jade/include
+csm_CFLAGS_I:INTERNAL=
+csm_CFLAGS_OTHER:INTERNAL=
+csm_FOUND:INTERNAL=1
+csm_INCLUDEDIR:INTERNAL=/opt/ros/jade/include
+csm_INCLUDE_DIRS:INTERNAL=/opt/ros/jade/include
+csm_LDFLAGS:INTERNAL=-L.;-L/usr/lib;-L/opt/ros/jade/lib;-lgsl;-lgslcblas;-lm;-lcsm-static;-lgsl;-lgslcblas;-lm
+csm_LDFLAGS_OTHER:INTERNAL=
+csm_LIBDIR:INTERNAL=/opt/ros/jade/lib
+csm_LIBRARIES:INTERNAL=gsl;gslcblas;m;csm-static;gsl;gslcblas;m
+csm_LIBRARY_DIRS:INTERNAL=.;/usr/lib;/opt/ros/jade/lib
+csm_LIBS:INTERNAL=
+csm_LIBS_L:INTERNAL=
+csm_LIBS_OTHER:INTERNAL=
+csm_LIBS_PATHS:INTERNAL=
+csm_PREFIX:INTERNAL=/opt/ros/jade
+csm_STATIC_CFLAGS:INTERNAL=-I/opt/ros/jade/include
+csm_STATIC_CFLAGS_I:INTERNAL=
+csm_STATIC_CFLAGS_OTHER:INTERNAL=
+csm_STATIC_INCLUDE_DIRS:INTERNAL=/opt/ros/jade/include
+csm_STATIC_LDFLAGS:INTERNAL=-L.;-L/usr/lib;-L/opt/ros/jade/lib;-lgsl;-lgslcblas;-lm;-lcsm-static;-lgsl;-lgslcblas;-lm
+csm_STATIC_LDFLAGS_OTHER:INTERNAL=
+csm_STATIC_LIBDIR:INTERNAL=
+csm_STATIC_LIBRARIES:INTERNAL=gsl;gslcblas;m;csm-static;gsl;gslcblas;m
+csm_STATIC_LIBRARY_DIRS:INTERNAL=.;/usr/lib;/opt/ros/jade/lib
+csm_STATIC_LIBS:INTERNAL=
+csm_STATIC_LIBS_L:INTERNAL=
+csm_STATIC_LIBS_OTHER:INTERNAL=
+csm_STATIC_LIBS_PATHS:INTERNAL=
+csm_VERSION:INTERNAL=
+csm_csm_INCLUDEDIR:INTERNAL=
+csm_csm_LIBDIR:INTERNAL=
+csm_csm_PREFIX:INTERNAL=
+csm_csm_VERSION:INTERNAL=
 

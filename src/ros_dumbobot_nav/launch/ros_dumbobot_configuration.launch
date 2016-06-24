@@ -33,6 +33,7 @@
   <!--- Laser Filter Node -->
   <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_filter">
       <rosparam file="$(find ros_dumbobot_nav)/config/laser_threshold.yaml" />
+      <remap from="/scan" to="/scan_filtered" />
   </node>
 
   <!--- Run Velocity Smoother -->

@@ -182,132 +182,6 @@ _ppl_detection_generate_messages_check_deps_Tracker/fast:
 .PHONY : _ppl_detection_generate_messages_check_deps_Tracker/fast
 
 # Convenience name for target.
-ppl_detection/CMakeFiles/bond_generate_messages_cpp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/bond_generate_messages_cpp.dir/rule
-.PHONY : ppl_detection/CMakeFiles/bond_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_cpp: ppl_detection/CMakeFiles/bond_generate_messages_cpp.dir/rule
-.PHONY : bond_generate_messages_cpp
-
-# fast build rule for target.
-bond_generate_messages_cpp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/bond_generate_messages_cpp.dir/build.make ppl_detection/CMakeFiles/bond_generate_messages_cpp.dir/build
-.PHONY : bond_generate_messages_cpp/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/bond_generate_messages_eus.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/bond_generate_messages_eus.dir/rule
-.PHONY : ppl_detection/CMakeFiles/bond_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_eus: ppl_detection/CMakeFiles/bond_generate_messages_eus.dir/rule
-.PHONY : bond_generate_messages_eus
-
-# fast build rule for target.
-bond_generate_messages_eus/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/bond_generate_messages_eus.dir/build.make ppl_detection/CMakeFiles/bond_generate_messages_eus.dir/build
-.PHONY : bond_generate_messages_eus/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/bond_generate_messages_lisp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/bond_generate_messages_lisp.dir/rule
-.PHONY : ppl_detection/CMakeFiles/bond_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_lisp: ppl_detection/CMakeFiles/bond_generate_messages_lisp.dir/rule
-.PHONY : bond_generate_messages_lisp
-
-# fast build rule for target.
-bond_generate_messages_lisp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/bond_generate_messages_lisp.dir/build.make ppl_detection/CMakeFiles/bond_generate_messages_lisp.dir/build
-.PHONY : bond_generate_messages_lisp/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/bond_generate_messages_py.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/bond_generate_messages_py.dir/rule
-.PHONY : ppl_detection/CMakeFiles/bond_generate_messages_py.dir/rule
-
-# Convenience name for target.
-bond_generate_messages_py: ppl_detection/CMakeFiles/bond_generate_messages_py.dir/rule
-.PHONY : bond_generate_messages_py
-
-# fast build rule for target.
-bond_generate_messages_py/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/bond_generate_messages_py.dir/build.make ppl_detection/CMakeFiles/bond_generate_messages_py.dir/build
-.PHONY : bond_generate_messages_py/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : ppl_detection/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_gencfg: ppl_detection/CMakeFiles/dynamic_reconfigure_gencfg.dir/rule
-.PHONY : dynamic_reconfigure_gencfg
-
-# fast build rule for target.
-dynamic_reconfigure_gencfg/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/dynamic_reconfigure_gencfg.dir/build.make ppl_detection/CMakeFiles/dynamic_reconfigure_gencfg.dir/build
-.PHONY : dynamic_reconfigure_gencfg/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_cpp: ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_cpp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_cpp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build.make ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_cpp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_cpp/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_eus: ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_eus
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_eus/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build.make ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_eus.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_eus/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_lisp: ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_lisp
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_lisp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build.make ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_lisp.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_lisp/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-
-# Convenience name for target.
-dynamic_reconfigure_generate_messages_py: ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/rule
-.PHONY : dynamic_reconfigure_generate_messages_py
-
-# fast build rule for target.
-dynamic_reconfigure_generate_messages_py/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build.make ppl_detection/CMakeFiles/dynamic_reconfigure_generate_messages_py.dir/build
-.PHONY : dynamic_reconfigure_generate_messages_py/fast
-
-# Convenience name for target.
 ppl_detection/CMakeFiles/kinect_detect.dir/rule:
 	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/kinect_detect.dir/rule
 .PHONY : ppl_detection/CMakeFiles/kinect_detect.dir/rule
@@ -320,132 +194,6 @@ kinect_detect: ppl_detection/CMakeFiles/kinect_detect.dir/rule
 kinect_detect/fast:
 	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/kinect_detect.dir/build.make ppl_detection/CMakeFiles/kinect_detect.dir/build
 .PHONY : kinect_detect/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/nodelet_generate_messages_cpp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-.PHONY : ppl_detection/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_cpp: ppl_detection/CMakeFiles/nodelet_generate_messages_cpp.dir/rule
-.PHONY : nodelet_generate_messages_cpp
-
-# fast build rule for target.
-nodelet_generate_messages_cpp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/nodelet_generate_messages_cpp.dir/build.make ppl_detection/CMakeFiles/nodelet_generate_messages_cpp.dir/build
-.PHONY : nodelet_generate_messages_cpp/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/nodelet_generate_messages_eus.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-.PHONY : ppl_detection/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_eus: ppl_detection/CMakeFiles/nodelet_generate_messages_eus.dir/rule
-.PHONY : nodelet_generate_messages_eus
-
-# fast build rule for target.
-nodelet_generate_messages_eus/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/nodelet_generate_messages_eus.dir/build.make ppl_detection/CMakeFiles/nodelet_generate_messages_eus.dir/build
-.PHONY : nodelet_generate_messages_eus/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/nodelet_generate_messages_lisp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-.PHONY : ppl_detection/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_lisp: ppl_detection/CMakeFiles/nodelet_generate_messages_lisp.dir/rule
-.PHONY : nodelet_generate_messages_lisp
-
-# fast build rule for target.
-nodelet_generate_messages_lisp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/nodelet_generate_messages_lisp.dir/build.make ppl_detection/CMakeFiles/nodelet_generate_messages_lisp.dir/build
-.PHONY : nodelet_generate_messages_lisp/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/nodelet_generate_messages_py.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/nodelet_generate_messages_py.dir/rule
-.PHONY : ppl_detection/CMakeFiles/nodelet_generate_messages_py.dir/rule
-
-# Convenience name for target.
-nodelet_generate_messages_py: ppl_detection/CMakeFiles/nodelet_generate_messages_py.dir/rule
-.PHONY : nodelet_generate_messages_py
-
-# fast build rule for target.
-nodelet_generate_messages_py/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/nodelet_generate_messages_py.dir/build.make ppl_detection/CMakeFiles/nodelet_generate_messages_py.dir/build
-.PHONY : nodelet_generate_messages_py/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
-.PHONY : ppl_detection/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_cpp: ppl_detection/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/rule
-.PHONY : pcl_msgs_generate_messages_cpp
-
-# fast build rule for target.
-pcl_msgs_generate_messages_cpp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/build.make ppl_detection/CMakeFiles/pcl_msgs_generate_messages_cpp.dir/build
-.PHONY : pcl_msgs_generate_messages_cpp/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/pcl_msgs_generate_messages_eus.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/pcl_msgs_generate_messages_eus.dir/rule
-.PHONY : ppl_detection/CMakeFiles/pcl_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_eus: ppl_detection/CMakeFiles/pcl_msgs_generate_messages_eus.dir/rule
-.PHONY : pcl_msgs_generate_messages_eus
-
-# fast build rule for target.
-pcl_msgs_generate_messages_eus/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/pcl_msgs_generate_messages_eus.dir/build.make ppl_detection/CMakeFiles/pcl_msgs_generate_messages_eus.dir/build
-.PHONY : pcl_msgs_generate_messages_eus/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-.PHONY : ppl_detection/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_lisp: ppl_detection/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/rule
-.PHONY : pcl_msgs_generate_messages_lisp
-
-# fast build rule for target.
-pcl_msgs_generate_messages_lisp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/build.make ppl_detection/CMakeFiles/pcl_msgs_generate_messages_lisp.dir/build
-.PHONY : pcl_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule
-.PHONY : ppl_detection/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-pcl_msgs_generate_messages_py: ppl_detection/CMakeFiles/pcl_msgs_generate_messages_py.dir/rule
-.PHONY : pcl_msgs_generate_messages_py
-
-# fast build rule for target.
-pcl_msgs_generate_messages_py/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/pcl_msgs_generate_messages_py.dir/build.make ppl_detection/CMakeFiles/pcl_msgs_generate_messages_py.dir/build
-.PHONY : pcl_msgs_generate_messages_py/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/pcl_ros_gencfg.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/pcl_ros_gencfg.dir/rule
-.PHONY : ppl_detection/CMakeFiles/pcl_ros_gencfg.dir/rule
-
-# Convenience name for target.
-pcl_ros_gencfg: ppl_detection/CMakeFiles/pcl_ros_gencfg.dir/rule
-.PHONY : pcl_ros_gencfg
-
-# fast build rule for target.
-pcl_ros_gencfg/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/pcl_ros_gencfg.dir/build.make ppl_detection/CMakeFiles/pcl_ros_gencfg.dir/build
-.PHONY : pcl_ros_gencfg/fast
 
 # Convenience name for target.
 ppl_detection/CMakeFiles/ppl_detection.dir/rule:
@@ -600,62 +348,6 @@ predict: ppl_detection/CMakeFiles/predict.dir/rule
 predict/fast:
 	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/predict.dir/build.make ppl_detection/CMakeFiles/predict.dir/build
 .PHONY : predict/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule
-.PHONY : ppl_detection/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-topic_tools_generate_messages_cpp: ppl_detection/CMakeFiles/topic_tools_generate_messages_cpp.dir/rule
-.PHONY : topic_tools_generate_messages_cpp
-
-# fast build rule for target.
-topic_tools_generate_messages_cpp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/topic_tools_generate_messages_cpp.dir/build.make ppl_detection/CMakeFiles/topic_tools_generate_messages_cpp.dir/build
-.PHONY : topic_tools_generate_messages_cpp/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/topic_tools_generate_messages_eus.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/topic_tools_generate_messages_eus.dir/rule
-.PHONY : ppl_detection/CMakeFiles/topic_tools_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-topic_tools_generate_messages_eus: ppl_detection/CMakeFiles/topic_tools_generate_messages_eus.dir/rule
-.PHONY : topic_tools_generate_messages_eus
-
-# fast build rule for target.
-topic_tools_generate_messages_eus/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/topic_tools_generate_messages_eus.dir/build.make ppl_detection/CMakeFiles/topic_tools_generate_messages_eus.dir/build
-.PHONY : topic_tools_generate_messages_eus/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule
-.PHONY : ppl_detection/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-topic_tools_generate_messages_lisp: ppl_detection/CMakeFiles/topic_tools_generate_messages_lisp.dir/rule
-.PHONY : topic_tools_generate_messages_lisp
-
-# fast build rule for target.
-topic_tools_generate_messages_lisp/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/topic_tools_generate_messages_lisp.dir/build.make ppl_detection/CMakeFiles/topic_tools_generate_messages_lisp.dir/build
-.PHONY : topic_tools_generate_messages_lisp/fast
-
-# Convenience name for target.
-ppl_detection/CMakeFiles/topic_tools_generate_messages_py.dir/rule:
-	cd /home/c3mx/robot/build && $(MAKE) -f CMakeFiles/Makefile2 ppl_detection/CMakeFiles/topic_tools_generate_messages_py.dir/rule
-.PHONY : ppl_detection/CMakeFiles/topic_tools_generate_messages_py.dir/rule
-
-# Convenience name for target.
-topic_tools_generate_messages_py: ppl_detection/CMakeFiles/topic_tools_generate_messages_py.dir/rule
-.PHONY : topic_tools_generate_messages_py
-
-# fast build rule for target.
-topic_tools_generate_messages_py/fast:
-	cd /home/c3mx/robot/build && $(MAKE) -f ppl_detection/CMakeFiles/topic_tools_generate_messages_py.dir/build.make ppl_detection/CMakeFiles/topic_tools_generate_messages_py.dir/build
-.PHONY : topic_tools_generate_messages_py/fast
 
 # Convenience name for target.
 ppl_detection/CMakeFiles/train.dir/rule:
@@ -879,30 +571,12 @@ help:
 	@echo "... depend"
 	@echo "... _ppl_detection_generate_messages_check_deps_Human"
 	@echo "... _ppl_detection_generate_messages_check_deps_Tracker"
-	@echo "... bond_generate_messages_cpp"
-	@echo "... bond_generate_messages_eus"
-	@echo "... bond_generate_messages_lisp"
-	@echo "... bond_generate_messages_py"
-	@echo "... dynamic_reconfigure_gencfg"
-	@echo "... dynamic_reconfigure_generate_messages_cpp"
-	@echo "... dynamic_reconfigure_generate_messages_eus"
-	@echo "... dynamic_reconfigure_generate_messages_lisp"
-	@echo "... dynamic_reconfigure_generate_messages_py"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... kinect_detect"
 	@echo "... list_install_components"
-	@echo "... nodelet_generate_messages_cpp"
-	@echo "... nodelet_generate_messages_eus"
-	@echo "... nodelet_generate_messages_lisp"
-	@echo "... nodelet_generate_messages_py"
-	@echo "... pcl_msgs_generate_messages_cpp"
-	@echo "... pcl_msgs_generate_messages_eus"
-	@echo "... pcl_msgs_generate_messages_lisp"
-	@echo "... pcl_msgs_generate_messages_py"
-	@echo "... pcl_ros_gencfg"
 	@echo "... ppl_detection"
 	@echo "... ppl_detection_gencpp"
 	@echo "... ppl_detection_generate_messages"
@@ -916,10 +590,6 @@ help:
 	@echo "... predict"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... topic_tools_generate_messages_cpp"
-	@echo "... topic_tools_generate_messages_eus"
-	@echo "... topic_tools_generate_messages_lisp"
-	@echo "... topic_tools_generate_messages_py"
 	@echo "... train"
 	@echo "... visualization_msgs_generate_messages_cpp"
 	@echo "... visualization_msgs_generate_messages_eus"

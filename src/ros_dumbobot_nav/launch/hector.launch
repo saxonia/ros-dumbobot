@@ -11,9 +11,10 @@
 
  <launch>
 
-<!-- Add Support to Laser->base_link -->
-<node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_broadcaster" args="0 0.0 0 0 0 0 1 base_link laser 100" />
 
+<!-- Add Support to Laser->base_link 
+<node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_broadcaster" args="0 0.0 0 0 0 0 1 base_link laser 100" />
+-->
  <node pkg="tf" type="static_transform_publisher" name="scanmatcher_odom_broadcaster" args="0 0 0 0 0 0 odom map
 100"/> 
  <node pkg="tf" type="static_transform_publisher" name="scanmatcher_baselink_broadcaster" args="0 0 0 0 0 0 scanmatcher_frame base_link 100"/>
@@ -30,7 +31,7 @@
 <param name="scan_topic" value="scan"/>
 
 # Map size / start point 
-<param name="map_resolution" value="0.1"/>
+<param name="map_resolution" value="0.04"/>
 <param name="map_size" value="4096"/>
 <param name="map_start_x" value="0.5"/>
 <param name="map_start_y" value="0.5" />
@@ -44,7 +45,7 @@
 
  </node>
 
-<!-- HECTOR GEOTIFF -->
+<!-- HECTOR GEOTIFF 
   <node pkg="hector_geotiff" type="geotiff_node" name="hector_geotiff_node" output="screen" launch-prefix="nice -n 15">
     <remap from="map" to="/dynamic_map" />
     <param name="map_file_path" type="string" value="$(find ros_dumbobot_nav)/maps" />
@@ -52,7 +53,10 @@
     <param name="geotiff_save_period" type="double" value="0" />
     <param name="draw_background_checkerboard" type="bool" value="true" />
     <param name="draw_free_space_grid" type="bool" value="true" />
-  </node>
+  </node>-->
+
+<param name="/use_sim_time" value="true" />
+
 
 
  </launch>

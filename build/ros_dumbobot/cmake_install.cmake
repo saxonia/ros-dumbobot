@@ -1,8 +1,8 @@
-# Install script for directory: /home/c3mx/robot/src/ros_dumbobot
+# Install script for directory: /home/sax/ros-dumbobot/src/ros_dumbobot
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/c3mx/robot/install")
+  set(CMAKE_INSTALL_PREFIX "/home/sax/ros-dumbobot/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/c3mx/robot/build/ros_dumbobot/catkin_generated/installspace/ros_dumbobot.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/sax/ros-dumbobot/build/ros_dumbobot/catkin_generated/installspace/ros_dumbobot.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_dumbobot/cmake" TYPE FILE FILES
-    "/home/c3mx/robot/build/ros_dumbobot/catkin_generated/installspace/ros_dumbobotConfig.cmake"
-    "/home/c3mx/robot/build/ros_dumbobot/catkin_generated/installspace/ros_dumbobotConfig-version.cmake"
+    "/home/sax/ros-dumbobot/build/ros_dumbobot/catkin_generated/installspace/ros_dumbobotConfig.cmake"
+    "/home/sax/ros-dumbobot/build/ros_dumbobot/catkin_generated/installspace/ros_dumbobotConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_dumbobot" TYPE FILE FILES "/home/c3mx/robot/src/ros_dumbobot/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros_dumbobot" TYPE FILE FILES "/home/sax/ros-dumbobot/src/ros_dumbobot/package.xml")
 endif()
 

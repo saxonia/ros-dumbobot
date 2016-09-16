@@ -82,7 +82,6 @@ float64 x
 float64 y
 float64 z
 float64 w
-
 """
   __slots__ = ['header','groups']
   _slot_types = ['std_msgs/Header','spencer_tracking_msgs/TrackedGroup[]']
@@ -155,8 +154,8 @@ float64 w
         buff.write(_struct_I.pack(length))
         pattern = '<%sQ'%length
         buff.write(struct.pack(pattern, *val1.track_ids))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -262,8 +261,8 @@ float64 w
         buff.write(_struct_I.pack(length))
         pattern = '<%sQ'%length
         buff.write(val1.track_ids.tostring())
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """

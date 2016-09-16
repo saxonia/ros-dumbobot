@@ -1,8 +1,8 @@
-prefix=/home/c3mx/robot/install
+prefix=/home/sax/ros-dumbobot/install
 
 Name: ros_dumbobot
 Description: Description of ros_dumbobot
 Version: 0.1.0
-Cflags: -I/home/c3mx/robot/install/include
-Libs: -L/home/c3mx/robot/install/lib -ldumbo
+Cflags: -I/home/sax/ros-dumbobot/install/include
+Libs: -L/home/sax/ros-dumbobot/install/lib -ldumbo
 Requires: roscpp serial std_msgs joy

@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/openni_tracker.dir/src/openni_tracker.cpp.o"
-  "/home/c3mx/robot/devel/lib/openni_tracker/openni_tracker.pdb"
-  "/home/c3mx/robot/devel/lib/openni_tracker/openni_tracker"
+  "/home/sax/ros-dumbobot/devel/lib/openni_tracker/openni_tracker.pdb"
+  "/home/sax/ros-dumbobot/devel/lib/openni_tracker/openni_tracker"
 )
 
 # Per-language clean rules from dependency scanning.

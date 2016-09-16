@@ -1,8 +1,8 @@
-prefix=/home/c3mx/robot/devel
+prefix=/home/sax/ros-dumbobot/devel
 
 Name: ros_dumbobot_odomtf
 Description: Description of ros_dumbobot_odomtf
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/c3mx/robot/devel/lib 
+Libs: -L/home/sax/ros-dumbobot/devel/lib 
 Requires: geometry_msgs nav_msgs std_msgs tf

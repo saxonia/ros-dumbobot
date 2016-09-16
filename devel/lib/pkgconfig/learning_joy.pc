@@ -1,8 +1,8 @@
-prefix=/home/c3mx/robot/devel
+prefix=/home/sax/ros-dumbobot/devel
 
 Name: learning_joy
 Description: Description of learning_joy
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/c3mx/robot/devel/lib 
+Libs: -L/home/sax/ros-dumbobot/devel/lib 
 Requires: joy roscpp

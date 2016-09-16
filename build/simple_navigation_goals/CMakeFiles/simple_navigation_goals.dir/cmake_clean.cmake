@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/simple_navigation_goals.dir/src/waypoint_navigation.cpp.o"
-  "/home/c3mx/robot/devel/lib/simple_navigation_goals/simple_navigation_goals.pdb"
-  "/home/c3mx/robot/devel/lib/simple_navigation_goals/simple_navigation_goals"
+  "/home/sax/ros-dumbobot/devel/lib/simple_navigation_goals/simple_navigation_goals.pdb"
+  "/home/sax/ros-dumbobot/devel/lib/simple_navigation_goals/simple_navigation_goals"
 )
 
 # Per-language clean rules from dependency scanning.

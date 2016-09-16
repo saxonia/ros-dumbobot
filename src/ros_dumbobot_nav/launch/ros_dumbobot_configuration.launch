@@ -2,7 +2,8 @@
 <launch>
   
   <!---Joystick Controller Node-->
-  <include file="$(find learning_joy)/launch/ros_dumbobot_joy.launch" output="screen"/> 
+  <!--<include file="$(find learning_joy)/launch/ros_dumbobot_joy.launch" output="screen"/> -->
+  <include file="$(find learning_joy)/launch/ros_dumbobot_joy.launch" /> 
 
   <!--- Static Parts Transformation Broadcaster 355 -->
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_broadcaster" args="0.165 0.0 0.375 0 0 0 1 base_link laser 100" />
@@ -24,16 +25,16 @@
   
 
   <!--- fake laser --> 
-  <node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depth2laser" output="screen">
+  <!--<node pkg="depthimage_to_laserscan" type="depthimage_to_laserscan" name="depth2laser" output="screen">
       <remap from="image" to="/camera/depth/image_raw"/>
      <remap from="/scan" to="/camera/scan" />
       <param name="scan_height" value="200" />
-  </node>
+  </node>-->
 
   <!--- Laser Filter Node -->
   <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_filter">
       <rosparam file="$(find ros_dumbobot_nav)/config/laser_threshold.yaml" />
-      <remap from="/scan" to="/scan_filtered" />
+      <!--<remap from="/scan" to="/scan_filtered" />--> 
   </node>
 
   <!--- Run Velocity Smoother -->

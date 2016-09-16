@@ -1,8 +1,0 @@
-prefix=/home/c3mx/robot/install
-
-Name: robin_people_detection
-Description: Description of robin_people_detection
-Version: 0.1.0
-Cflags: 
-Libs: -L/home/c3mx/robot/install/lib 
-Requires: 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/c3mx/robot/src/learning_joy
+# Install script for directory: /home/sax/ros-dumbobot/src/learning_joy
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/c3mx/robot/install")
+  set(CMAKE_INSTALL_PREFIX "/home/sax/ros-dumbobot/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/c3mx/robot/build/learning_joy/catkin_generated/installspace/learning_joy.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/sax/ros-dumbobot/build/learning_joy/catkin_generated/installspace/learning_joy.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/learning_joy/cmake" TYPE FILE FILES
-    "/home/c3mx/robot/build/learning_joy/catkin_generated/installspace/learning_joyConfig.cmake"
-    "/home/c3mx/robot/build/learning_joy/catkin_generated/installspace/learning_joyConfig-version.cmake"
+    "/home/sax/ros-dumbobot/build/learning_joy/catkin_generated/installspace/learning_joyConfig.cmake"
+    "/home/sax/ros-dumbobot/build/learning_joy/catkin_generated/installspace/learning_joyConfig-version.cmake"
     )
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/learning_joy" TYPE FILE FILES "/home/c3mx/robot/src/learning_joy/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/learning_joy" TYPE FILE FILES "/home/sax/ros-dumbobot/src/learning_joy/package.xml")
 endif()
 

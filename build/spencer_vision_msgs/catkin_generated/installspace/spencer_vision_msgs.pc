@@ -1,8 +1,8 @@
-prefix=/home/c3mx/robot/install
+prefix=/home/sax/ros-dumbobot/install
 
 Name: spencer_vision_msgs
 Description: Description of spencer_vision_msgs
 Version: 0.0.0
-Cflags: -I/home/c3mx/robot/install/include
-Libs: -L/home/c3mx/robot/install/lib 
+Cflags: -I/home/sax/ros-dumbobot/install/include
+Libs: -L/home/sax/ros-dumbobot/install/lib 
 Requires: roscpp std_msgs sensor_msgs geometry_msgs message_runtime

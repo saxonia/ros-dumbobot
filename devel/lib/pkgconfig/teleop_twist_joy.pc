@@ -1,8 +1,0 @@
-prefix=/home/c3mx/robot/devel
-
-Name: teleop_twist_joy
-Description: Description of teleop_twist_joy
-Version: 0.1.1
-Cflags: -I/home/c3mx/robot/src/teleop_twist_joy/include
-Libs: -L/home/c3mx/robot/devel/lib -lteleop_twist_joy
-Requires: geometry_msgs roscpp sensor_msgs

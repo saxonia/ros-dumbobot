@@ -13,7 +13,6 @@ class GetPersonTrajectoriesRequest(genpy.Message):
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """uint64[] requested_ids
 duration max_age
-
 """
   __slots__ = ['requested_ids','max_age']
   _slot_types = ['uint64[]','duration']
@@ -61,8 +60,8 @@ duration max_age
       buff.write(struct.pack(pattern, *self.requested_ids))
       _x = self
       buff.write(_struct_2i.pack(_x.max_age.secs, _x.max_age.nsecs))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -103,8 +102,8 @@ duration max_age
       buff.write(self.requested_ids.tostring())
       _x = self
       buff.write(_struct_2i.pack(_x.max_age.secs, _x.max_age.nsecs))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """
@@ -234,11 +233,15 @@ Vector3  angular
 ================================================================================
 MSG: geometry_msgs/Vector3
 # This represents a vector in free space. 
+# It is only meant to represent a direction. Therefore, it does not
+# make sense to apply a translation to it (e.g., when applying a 
+# generic rigid transformation to a Vector3, tf2 will only apply the
+# rotation). If you want your data to be translatable too, use the
+# geometry_msgs/Point message instead.
 
 float64 x
 float64 y
-float64 z
-"""
+float64 z"""
   __slots__ = ['trajectories']
   _slot_types = ['spencer_tracking_msgs/PersonTrajectory[]']
 
@@ -306,8 +309,8 @@ float64 z
           _x = _v9
           buff.write(_struct_3d.pack(_x.x, _x.y, _x.z))
           buff.write(_struct_36d.pack(*_v6.covariance))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -417,8 +420,8 @@ float64 z
           _x = _v27
           buff.write(_struct_3d.pack(_x.x, _x.y, _x.z))
           buff.write(_v24.covariance.tostring())
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """

@@ -3,6 +3,6 @@ file(REMOVE_RECURSE
 )
 
 # Per-language clean rules from dependency scanning.
-foreach(lang)
+foreach(lang )
   include(CMakeFiles/gmapping_basic_localization_stage_groundtruth.pgm.dir/cmake_clean_${lang}.cmake OPTIONAL)
 endforeach()

@@ -1,2 +1,2 @@
-custom_scan_matcher:gmapping:learning_joy:openni_tracker:pcl_people_detector:ppl_detection:ros_dumbobot:ros_dumbobot_nav:ros_dumbobot_odomtf:rplidar_ros:simple_navigation_goals:slam_gmapping:spencer_tracking_msgs:spencer_vision_msgs:yocs_velocity_smoother
--DCATKIN_DEVEL_PREFIX=/home/c3mx/robot/devel -DCMAKE_INSTALL_PREFIX=/home/c3mx/robot/install -G Unix Makefiles
+driver_common/driver_base:driver_common/driver_common:driver_common/timestamp_tools:gmapping:hokuyo_node:learning_joy:openni_tracker:ros_dumbobot:ros_dumbobot_nav:ros_dumbobot_odomtf:simple_navigation_goals:spencer_tracking_msgs:spencer_vision_msgs:yocs_velocity_smoother
+-DCATKIN_DEVEL_PREFIX=/home/sax/ros-dumbobot/devel -DCMAKE_INSTALL_PREFIX=/home/sax/ros-dumbobot/install -G Unix Makefiles

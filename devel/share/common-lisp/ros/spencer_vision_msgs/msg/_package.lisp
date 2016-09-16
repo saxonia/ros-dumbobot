@@ -3,11 +3,11 @@
   (:export
    "<PERSONIMAGES>"
    "PERSONIMAGES"
+   "<PERSONROIS>"
+   "PERSONROIS"
    "<PERSONIMAGE>"
    "PERSONIMAGE"
    "<PERSONROI>"
    "PERSONROI"
-   "<PERSONROIS>"
-   "PERSONROIS"
   ))
 

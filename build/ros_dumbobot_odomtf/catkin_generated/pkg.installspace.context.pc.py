@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "geometry_msgs;nav_msgs;std_msgs;tf".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "ros_dumbobot_odomtf"
-PROJECT_SPACE_DIR = "/home/c3mx/robot/install"
+PROJECT_SPACE_DIR = "/home/sax/ros-dumbobot/install"
 PROJECT_VERSION = "0.0.0"

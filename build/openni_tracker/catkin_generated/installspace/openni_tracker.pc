@@ -1,8 +1,8 @@
-prefix=/home/c3mx/robot/install
+prefix=/home/sax/ros-dumbobot/install
 
 Name: openni_tracker
 Description: Description of openni_tracker
 Version: 0.2.0
 Cflags: 
-Libs: -L/home/c3mx/robot/install/lib 
+Libs: -L/home/sax/ros-dumbobot/install/lib 
 Requires: 

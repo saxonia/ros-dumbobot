@@ -7,4 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export PWD="/home/c3mx/robot/build"
+export PWD="/home/sax/ros-dumbobot/build"

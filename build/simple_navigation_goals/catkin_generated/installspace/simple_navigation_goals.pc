@@ -1,8 +1,8 @@
-prefix=/home/c3mx/robot/install
+prefix=/home/sax/ros-dumbobot/install
 
 Name: simple_navigation_goals
 Description: Description of simple_navigation_goals
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/c3mx/robot/install/lib 
+Libs: -L/home/sax/ros-dumbobot/install/lib 
 Requires: 

@@ -1,8 +1,0 @@
-prefix=/home/c3mx/robot/devel
-
-Name: ppl_detection
-Description: Description of ppl_detection
-Version: 0.0.4
-Cflags: -I/home/c3mx/robot/devel/include -I/home/c3mx/robot/src/ppl_detection/include
-Libs: -L/home/c3mx/robot/devel/lib 
-Requires: message_runtime

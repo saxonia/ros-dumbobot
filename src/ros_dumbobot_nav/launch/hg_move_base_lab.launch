@@ -3,7 +3,7 @@
 <!-- Launch File For Move_base Automatic Navigation System -->
 <launch>
   <!-- Run the map server For LOCALIZATION-->
- <node name="map_server" pkg="map_server" type="map_server" args="/home/c3mx/MAPs/lab.yaml"/> 
+ <node name="map_server" pkg="map_server" type="map_server" args="/home/sax/map_dumbobot/build4_f20.yaml"/> 
 
   <!--- Run AMCL -->
   <include file="$(find ros_dumbobot_nav)/launch/hg_amcl_dumbo.launch" /> 

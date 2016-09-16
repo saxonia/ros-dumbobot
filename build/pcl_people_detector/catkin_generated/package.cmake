@@ -1,7 +1,0 @@
-set(_CATKIN_CURRENT_PACKAGE "pcl_people_detector")
-set(pcl_people_detector_MAINTAINER "Timm Linder <linder@informatik.uni-freiburg.de>")
-set(pcl_people_detector_DEPRECATED "")
-set(pcl_people_detector_VERSION "0.0.0")
-set(pcl_people_detector_BUILD_DEPENDS "roscpp" "roslib" "pcl_conversions" "eigen_conversions" "tf_conversions" "cmake_module" "spencer_tracking_msgs" "spencer_vision_msgs")
-set(pcl_people_detector_RUN_DEPENDS "roscpp" "roslib" "pcl_conversions" "eigen_conversions" "tf_conversions" "cmake_modules" "spencer_tracking_msgs" "spencer_vision_msgs")
-set(pcl_people_detector_BUILDTOOL_DEPENDS "catkin")

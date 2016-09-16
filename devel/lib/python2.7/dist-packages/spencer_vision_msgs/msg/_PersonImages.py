@@ -75,7 +75,6 @@ string encoding       # Encoding of pixels -- channel meaning, ordering, size
 uint8 is_bigendian    # is this data bigendian?
 uint32 step           # Full row length in bytes
 uint8[] data          # actual matrix data, size is (step * rows)
-
 """
   __slots__ = ['header','elements']
   _slot_types = ['std_msgs/Header','spencer_vision_msgs/PersonImage[]']
@@ -167,8 +166,8 @@ uint8[] data          # actual matrix data, size is (step * rows)
           buff.write(struct.pack('<I%sB'%length, length, *_x))
         else:
           buff.write(struct.pack('<I%ss'%length, length, _x))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -308,8 +307,8 @@ uint8[] data          # actual matrix data, size is (step * rows)
           buff.write(struct.pack('<I%sB'%length, length, *_x))
         else:
           buff.write(struct.pack('<I%ss'%length, length, _x))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """

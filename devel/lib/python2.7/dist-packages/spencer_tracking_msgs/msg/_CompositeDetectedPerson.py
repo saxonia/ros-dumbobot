@@ -91,7 +91,6 @@ string          MODALITY_GENERIC_LASER_3D = laser3d
 string          MODALITY_GENERIC_MONOCULAR_VISION = mono
 string          MODALITY_GENERIC_STEREO_VISION = stereo
 string          MODALITY_GENERIC_RGBD = rgbd
-
 """
   __slots__ = ['composite_detection_id','mean_confidence','max_confidence','min_confidence','pose','original_detections']
   _slot_types = ['uint64','float64','float64','float64','geometry_msgs/PoseWithCovariance','spencer_tracking_msgs/DetectedPerson[]']
@@ -171,8 +170,8 @@ string          MODALITY_GENERIC_RGBD = rgbd
           buff.write(struct.pack('<I%sB'%length, length, *_x))
         else:
           buff.write(struct.pack('<I%ss'%length, length, _x))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize(self, str):
     """
@@ -265,8 +264,8 @@ string          MODALITY_GENERIC_RGBD = rgbd
           buff.write(struct.pack('<I%sB'%length, length, *_x))
         else:
           buff.write(struct.pack('<I%ss'%length, length, _x))
-    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(_x))))
-    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(_x))))
+    except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
+    except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
   def deserialize_numpy(self, str, numpy):
     """
